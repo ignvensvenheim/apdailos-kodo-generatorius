@@ -4,6 +4,8 @@ import FormSelect from "./FormSelect";
 import pavirsiai from "../../data/pavirsiai.json";
 import apdaila from "../../data/apdaila.json";
 import blizgumas from "../../data/blizgumas.json";
+import { copyToClipboard } from "../../helpers/copyToClipboard";
+import { buildDecorCode } from "../../helpers/buildDecorCode";
 
 interface FormData {
   Pavirsiai: string;
@@ -16,41 +18,9 @@ const MyForm: React.FC = () => {
   const { register, handleSubmit } = useForm<FormData>();
   const [decorCode, setDecorCode] = useState<string | null>(null);
 
-  const copyToClipboard = () => {
-    if (decorCode) {
-      navigator.clipboard.writeText(decorCode);
-    }
-  };
-
-  const buildDecorCode = (data: {
-    Pavirsiai: string;
-    Apdaila: string;
-    Blizgumas: string;
-  }) => {
-    const paviršiai =
-      data.Pavirsiai && data.Pavirsiai !== "null"
-        ? data.Pavirsiai.split(" - ")[0]
-        : "";
-    const apdaila =
-      data.Apdaila && data.Apdaila !== "null"
-        ? data.Apdaila.split(" - ")[0]
-        : "";
-    const blizgumas =
-      data.Blizgumas && data.Blizgumas !== "null" ? data.Blizgumas : "";
-
-    let generatedCode = "";
-
-    if (paviršiai && apdaila) {
-      generatedCode = `${paviršiai}=${apdaila} ${blizgumas}`;
-    } else if (blizgumas) {
-      generatedCode = `${blizgumas}`;
-    }
-
-    setDecorCode(generatedCode);
-  };
-
   const onSubmit = (data: FormData) => {
-    buildDecorCode(data);
+    const generatedCode = buildDecorCode(data);
+    setDecorCode(generatedCode);
   };
 
   return (
@@ -77,7 +47,7 @@ const MyForm: React.FC = () => {
         <input type="submit" value="Generuoti apdailos kodą" />
       </form>
       <p>{decorCode}</p>
-      <button onClick={copyToClipboard}>Kopijuoti kodą</button>
+      <button onClick={() => copyToClipboard(decorCode)}>Kopijuoti kodą</button>
     </>
   );
 };
