@@ -1,0 +1,79 @@
+[
+  { "value": "", "label": "Skaidriai apdailai" },
+  {
+    "value": "3% 10.07.17 - 3% balinimas",
+    "label": "3% 10.07.17 - 3% balinimas"
+  },
+  {
+    "value": "6% 11.07.17 - 6% balinimas",
+    "label": "6% 11.07.17 - 6% balinimas"
+  },
+  {
+    "value": "10% 12.07.17 - 10% balinimas",
+    "label": "10% 12.07.17 - 10% balinimas"
+  },
+  { "value": "02.06.10 - Ruda", "label": "02.06.10 - Ruda" },
+  { "value": "01.06.12 - Balinta", "label": "01.06.12 - Balinta" },
+  { "value": "01.27.16 - Balinta", "label": "01.27.16 - Balinta" },
+  { "value": "31.01.17 - Balinta", "label": "31.01.17 - Balinta" },
+  { "value": "25.04.17 - Balinta", "label": "25.04.17 - Balinta" },
+  { "value": "26.04.17 - Balinta", "label": "26.04.17 - Balinta" },
+  { "value": "27.04.17 - S2000 - N", "label": "27.04.17 - S2000-N" },
+  { "value": "03.05.17 - S0500 - N", "label": "03.05.17 - S0500-N" },
+  {
+    "value": "05.06.17 - Oak Auster(stone)",
+    "label": "05.06.17 - Oak Auster(stone)"
+  },
+  { "value": "23.11.17 - S2040 - Y", "label": "23.11.17 - S2040-Y" },
+  { "value": "10.10.18 - Ruda", "label": "10.10.18 - Ruda" },
+  { "value": "11.10.18 - Ruda", "label": "11.10.18 - Ruda" },
+  { "value": "12.10.18 - Balinta", "label": "12.10.18 - Balinta" },
+  { "value": "24.04.19 - Ruda", "label": "24.04.19 - Ruda" },
+  { "value": "27.08.19 - Balinta", "label": "27.08.19 - Balinta" },
+  { "value": "08.11.19 - Ruda", "label": "08.11.19 - Ruda" },
+  { "value": "19.11.19 - Juoda", "label": "19.11.19 - Juoda" },
+  { "value": "20.11.19 - Ruda", "label": "20.11.19 - Ruda" },
+  { "value": "21.11.19 - Balinta", "label": "21.11.19 - Balinta" },
+  { "value": "22.11.19 - Balinta", "label": "22.11.19 - Balinta" },
+  { "value": "02.01.20 - Ruda", "label": "02.01.20 - Ruda" },
+  { "value": "12.02.20 - S5040 - Y90R", "label": "12.02.20 - S5040-Y90R" },
+  { "value": "07.04.20 - S2000 - N", "label": "07.04.20 - S2000-N" },
+  { "value": "07.05.20 - Vintage", "label": "07.05.20 - Vintage" },
+  { "value": "12.08.20 - Balinta", "label": "12.08.20 - Balinta" },
+  { "value": "30.10.20 - Balinta", "label": "30.10.20 - Balinta" },
+  { "value": "23.11.20 - Balinta", "label": "23.11.20 - Balinta" },
+  { "value": "20.01.21 - Pilka", "label": "20.01.21 - Pilka" },
+  { "value": "02.03.21 - Vintage", "label": "02.03.21 - Vintage" },
+  { "value": "03.03.21 - Ruda", "label": "03.03.21 - Ruda" },
+  { "value": "01.07.21 - Gratonet", "label": "01.07.21 - Gratonet" },
+  { "value": "14.09.21 - Balinta", "label": "14.09.21 - Balinta" },
+  { "value": "28.09.21 - Nero Natur", "label": "28.09.21 - Nero Natur" },
+  { "value": "18.03.22 - Pilka", "label": "18.03.22 - Pilka" },
+  { "value": "25.04.22 - Balinta", "label": "25.04.22 - Balinta" },
+  { "value": "09.05.22 - Ruda", "label": "09.05.22 - Ruda" },
+  { "value": "23.09.22 - Ruda", "label": "23.09.22 - Ruda" },
+  {
+    "value": "25.11.22 - Pilka Smoked oak",
+    "label": "25.11.22 - Pilka Smoked oak"
+  },
+  { "value": "09.12.22 - Žalia", "label": "09.12.22 - Žalia" },
+  { "value": "23.01.23 - Ruda Teak", "label": "23.01.23 - Ruda Teak" },
+  {
+    "value": "30.01.23 - Ruda F5872 Refined Walnut",
+    "label": "30.01.23 - Ruda F5872 Refined Walnut"
+  },
+  { "value": "27.04.23 - S7010 - R90B", "label": "27.04.23 - S7010-R90B" },
+  { "value": "25.05.23 - S3005 - G20Y", "label": "25.05.23 - S3005-G20Y" },
+  { "value": "01.12.23 - S1515 - R", "label": "01.12.23 - S1515-R" },
+  { "value": "03.04.24 - Pilka", "label": "03.04.24 - Pilka" },
+  { "value": "08.04.24 - S6020 - B10G", "label": "08.04.24 - S6020-B10G" },
+  { "value": "09.04.24 - S7010 - B90G", "label": "09.04.24 - S7010-B90G" },
+  { "value": "22.04.24 - S5010 - G50Y", "label": "22.04.24 - S5010-G50Y" },
+  { "value": "03.09.24 - Ruda", "label": "03.09.24 - Ruda" },
+  {
+    "value": "04.09.24 - Tamsiai pilka / Juoda",
+    "label": "04.09.24 - Tamsiai pilka / Juoda"
+  },
+  { "value": "08.10.24 - Ruda", "label": "08.10.24 - Ruda" },
+  { "value": "28.10.24 - Ruda", "label": "28.10.24 - Ruda" }
+]

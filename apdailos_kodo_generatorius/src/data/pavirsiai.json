@@ -1,0 +1,10 @@
+[
+  { "value": "T - Top", "label": "T - Top" },
+  { "value": "B - Bottom", "label": "B - Bottom" },
+  { "value": "E - Edge", "label": "E - Edge" },
+  { "value": "H - Hole", "label": "H - Hole" },
+  { "value": "T+E - Top + Edge", "label": "T+E - Top + Edge" },
+  { "value": "B+H - Bottom + Hole", "label": "B+H - Bottom + Hole" },
+  { "value": "B+E - Bottom + Edge", "label": "B+E - Bottom + Edge" },
+  { "value": "E+H - Edge + Hole", "label": "E+H - Edge + Hole" }
+]
