@@ -14,7 +14,11 @@ interface FormData {
   decorCode?: string;
 }
 
-const MyForm: React.FC = () => {
+interface FormProps {
+  title: string;
+}
+
+const MyForm: React.FC<FormProps> = ({ title }) => {
   const { register, handleSubmit } = useForm<FormData>();
   const [decorCode, setDecorCode] = useState<string | null>(null);
 
@@ -24,8 +28,9 @@ const MyForm: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="formContainer">
       <form onSubmit={handleSubmit(onSubmit)}>
+        <h3>{title}</h3>
         <FormSelect
           id="pavirsiai"
           label="Paviršiai"
@@ -45,10 +50,12 @@ const MyForm: React.FC = () => {
           registerOptions={register("Blizgumas", { required: true })}
         />
         <input type="submit" value="Generuoti apdailos kodą" />
+        <button onClick={() => copyToClipboard(decorCode)}>
+          Kopijuoti kodą
+        </button>
       </form>
-      <p>{decorCode}</p>
-      <button onClick={() => copyToClipboard(decorCode)}>Kopijuoti kodą</button>
-    </>
+      {decorCode && <p className="decorCode">{decorCode}</p>}
+    </div>
   );
 };
 

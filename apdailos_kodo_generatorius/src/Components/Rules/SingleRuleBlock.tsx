@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./rules.css";
+import { CiSquarePlus, CiSquareMinus } from "react-icons/ci";
 
 interface ArrayToMapItem {
   label: string;
@@ -7,26 +9,49 @@ interface ArrayToMapItem {
 
 interface SingleRuleBlockProps {
   title: string;
+  subTitle1: string;
+  subTitle2: string;
   arrayToMap: Array<ArrayToMapItem>;
 }
 
 const SingleRuleBlock: React.FC<SingleRuleBlockProps> = ({
   title,
+  subTitle1,
+  subTitle2,
   arrayToMap,
 }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div>
-      <h2 onClick={() => setExpanded(!expanded)}>{title}</h2>
-      {expanded &&
-        arrayToMap.map((el, index) => (
-          <div key={index}>
-            <p>
-              {el.value} {el.label}
-            </p>
+    <div className="rulesContainer">
+      <h2 className="rulesTitle" onClick={() => setExpanded(!expanded)}>
+        {title}
+        <span>
+          {expanded ? <CiSquareMinus size={30} /> : <CiSquarePlus size={30} />}
+        </span>
+      </h2>
+      <div className="explContainer">
+        {expanded ? (
+          <div>
+            <h4>{subTitle1}</h4>
+            {arrayToMap.map((el, index) => (
+              <p key={index}>{el.value}</p>
+            ))}
           </div>
-        ))}
+        ) : (
+          ""
+        )}
+        {expanded ? (
+          <div>
+            <h4>{subTitle2}</h4>
+            {arrayToMap.map((el, index) => (
+              <p key={index}>{el.label}</p>
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 };

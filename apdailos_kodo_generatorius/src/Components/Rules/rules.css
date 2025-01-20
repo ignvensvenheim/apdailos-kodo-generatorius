@@ -1,0 +1,20 @@
+.rulesContainer {
+  text-align: left;
+  height: auto;
+
+  .rulesTitle {
+    cursor: pointer;
+    width: fit-content;
+    display: flex;
+    transition: 0.3s;
+    gap: 1rem;
+
+    &:hover {
+      color: #174156;
+    }
+  }
+
+.explContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
