@@ -23,31 +23,27 @@ const SingleRuleBlock: React.FC<SingleRuleBlockProps> = ({
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="rulesContainer">
-      <h2 className="rulesTitle" onClick={() => setExpanded(!expanded)}>
+    <div className="singleRuleContainer">
+      <h2 className="ruleTitle" onClick={() => setExpanded(!expanded)}>
         {title}
         <span>
           {expanded ? <CiSquareMinus size={30} /> : <CiSquarePlus size={30} />}
         </span>
       </h2>
       <div>
-        {expanded ? (
+        {expanded && (
           <div className="explContainer">
-            <div>
-              <h4>{subTitle1}</h4>
+            <h4>
+              {subTitle1} ir {subTitle2}
+            </h4>
+            <div className="pContainer">
               {arrayToMap.map((el, index) => (
-                <p key={index}>{el.key}</p>
-              ))}
-            </div>
-            <div>
-              <h4>{subTitle2}</h4>
-              {arrayToMap.map((el, index) => (
-                <p key={index}>{el.value}</p>
+                <p key={index}>
+                  {el.key} <span>{el.value}</span>
+                </p>
               ))}
             </div>
           </div>
-        ) : (
-          ""
         )}
       </div>
     </div>

@@ -11,6 +11,7 @@ import { copyToClipboard } from "../../helpers/copyToClipboard";
 import { buildStdDecorCode } from "../../helpers/buildStdDecorCode";
 import { buildHusDecorCode } from "../../helpers/buildHusDecorCode";
 import { buildPaintDecorCode } from "../../helpers/buildPaintDecorCode";
+import { Bounce, ToastContainer } from "react-toastify";
 
 interface FormData {
   Pavirsiai?: string;
@@ -138,6 +139,19 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
         >
           Kopijuoti kodą
         </button>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition={Bounce}
+        />
       </form>
 
       {decorCode ? (

@@ -5,7 +5,7 @@ import SingleRuleBlock from "./SingleRuleBlock";
 
 function Rules() {
   return (
-    <>
+    <div className="rulesContainer">
       <SingleRuleBlock
         title={"Sutrumpinimai etiketėse"}
         subTitle1={"Sutrumpinimas"}
@@ -18,7 +18,7 @@ function Rules() {
         subTitle2={"Teisingi kodai"}
         arrayToMap={klaiduAprasymas}
       />
-    </>
+    </div>
   );
 }
 
