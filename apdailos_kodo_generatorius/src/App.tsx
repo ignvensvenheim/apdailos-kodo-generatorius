@@ -1,5 +1,6 @@
 import "./App.css";
-import Form from "./Components/Form/Form";
+import HusForm from "./Components/Form/HusForm";
+import StdForm from "./Components/Form/StdForm";
 import Header from "./Components/Header/Header";
 import Rules from "./Components/Rules/Rules";
 
@@ -7,7 +8,8 @@ function App() {
   return (
     <>
       <Header />
-      <Form title="Standartinės apdailos" />
+      <StdForm title="Standartinės apdailos" />
+      <HusForm title="Huseby/Foss" />
       <Rules />
       <footer>© Svenheim 2025</footer>
     </>

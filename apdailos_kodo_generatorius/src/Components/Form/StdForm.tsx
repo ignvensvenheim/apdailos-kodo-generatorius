@@ -5,7 +5,7 @@ import pavirsiai from "../../data/pavirsiai.json";
 import apdaila from "../../data/apdaila.json";
 import blizgumas from "../../data/blizgumas.json";
 import { copyToClipboard } from "../../helpers/copyToClipboard";
-import { buildDecorCode } from "../../helpers/buildDecorCode";
+import { buildStdDecorCode } from "../../helpers/buildStdDecorCode";
 
 interface FormData {
   Pavirsiai: string;
@@ -18,12 +18,12 @@ interface FormProps {
   title: string;
 }
 
-const MyForm: React.FC<FormProps> = ({ title }) => {
+const StdForm: React.FC<FormProps> = ({ title }) => {
   const { register, handleSubmit } = useForm<FormData>();
   const [decorCode, setDecorCode] = useState<string | null>(null);
 
   const onSubmit = (data: FormData) => {
-    const generatedCode = buildDecorCode(data);
+    const generatedCode = buildStdDecorCode(data);
     setDecorCode(generatedCode);
   };
 
@@ -35,28 +35,32 @@ const MyForm: React.FC<FormProps> = ({ title }) => {
           id="pavirsiai"
           label="Paviršiai"
           options={pavirsiai}
-          registerOptions={register("Pavirsiai", { required: true })}
+          registerOptions={register("Pavirsiai", { required: false })}
         />
         <FormSelect
           id="apdaila"
           label="Apdaila"
           options={apdaila}
-          registerOptions={register("Apdaila", { required: true })}
+          registerOptions={register("Apdaila", { required: false })}
         />
         <FormSelect
           id="blizgumas"
           label="Blizgumas"
           options={blizgumas}
-          registerOptions={register("Blizgumas", { required: true })}
+          registerOptions={register("Blizgumas", { required: false })}
         />
         <input type="submit" value="Generuoti apdailos kodą" />
         <button onClick={() => copyToClipboard(decorCode)}>
           Kopijuoti kodą
         </button>
       </form>
-      {decorCode && <p className="decorCode">{decorCode}</p>}
+      {decorCode ? (
+        <p className="decorCode">{decorCode}</p>
+      ) : (
+        <p className="decorCode">Pasirinkite savybes</p>
+      )}
     </div>
   );
 };
 
-export default MyForm;
+export default StdForm;

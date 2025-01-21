@@ -3,8 +3,8 @@ import "./rules.css";
 import { CiSquarePlus, CiSquareMinus } from "react-icons/ci";
 
 interface ArrayToMapItem {
-  label: string;
   value: string;
+  key: string;
 }
 
 interface SingleRuleBlockProps {
@@ -30,23 +30,21 @@ const SingleRuleBlock: React.FC<SingleRuleBlockProps> = ({
           {expanded ? <CiSquareMinus size={30} /> : <CiSquarePlus size={30} />}
         </span>
       </h2>
-      <div className="explContainer">
+      <div>
         {expanded ? (
-          <div>
-            <h4>{subTitle1}</h4>
-            {arrayToMap.map((el, index) => (
-              <p key={index}>{el.value}</p>
-            ))}
-          </div>
-        ) : (
-          ""
-        )}
-        {expanded ? (
-          <div>
-            <h4>{subTitle2}</h4>
-            {arrayToMap.map((el, index) => (
-              <p key={index}>{el.label}</p>
-            ))}
+          <div className="explContainer">
+            <div>
+              <h4>{subTitle1}</h4>
+              {arrayToMap.map((el, index) => (
+                <p key={index}>{el.key}</p>
+              ))}
+            </div>
+            <div>
+              <h4>{subTitle2}</h4>
+              {arrayToMap.map((el, index) => (
+                <p key={index}>{el.value}</p>
+              ))}
+            </div>
           </div>
         ) : (
           ""

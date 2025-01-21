@@ -1,0 +1,18 @@
+[
+  {
+    "key": "KL",
+    "value": "KL - Lakuota pagal nurodyta apdailą, jei nenurodyta tada apdaila gl.5"
+  },
+  {
+    "key": "GR",
+    "value": "GR - Gruntuota"
+  },
+  {
+    "key": "PUSS",
+    "value": "PUSS - Šlifuota"
+  },
+  {
+    "key": "UBH",
+    "value": "UBH - Neapdailinta"
+  }
+]

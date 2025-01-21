@@ -1,55 +1,55 @@
 [
   {
-    "value": "Naudoti aukščiau nurodytus sutrumpinimus. (gl.5 hole)",
-    "label": "H=gl.5"
+    "key": "Naudoti aukščiau nurodytus sutrumpinimus. (gl.5 hole)",
+    "value": "H=gl.5"
   },
   {
-    "value": "Dubliuojasi info, naudoti tik sutrumpinimą. (Edge E=gl.5)",
-    "label": "E=gl.5"
+    "key": "Dubliuojasi info, naudoti tik sutrumpinimą. (Edge E=gl.5)",
+    "value": "E=gl.5"
   },
   {
-    "value": "NCS kode nenaudoti apatinio brūkšnio (S9000_N)",
-    "label": "E=gl.5"
+    "key": "NCS kode nenaudoti apatinio brūkšnio (S9000_N)",
+    "value": "E=gl.5"
   },
   {
-    "value": "Tarp sutrumpinimų naudoti + simbolį. (E&B S8000-N)",
-    "label": "E+B=S8000-N"
+    "key": "Tarp sutrumpinimų naudoti + simbolį. (E&B S8000-N)",
+    "value": "E+B=S8000-N"
   },
   {
-    "value": "Po sutrumpinimų dėti lygybės ženklą. (E+ST S7502-G)",
-    "label": "E+B=S7502-G"
+    "key": "Po sutrumpinimų dėti lygybės ženklą. (E+ST S7502-G)",
+    "value": "E+B=S7502-G"
   },
   {
-    "value": "Rašant spalvą nereikia rašyti NCS raidžių(išskyrus kitas paletes, kaip RAL..)",
-    "label": "S1002-Y"
+    "key": "Rašant spalvą nereikia rašyti NCS raidžių(išskyrus kitas paletes, kaip RAL..)",
+    "value": "S1002-Y"
   },
   {
-    "value": "Po S raidės nededamas tarpas arba brūkšnys. (S_2505-G19Y)",
-    "label": "S2505-G19Y"
+    "key": "Po S raidės nededamas tarpas arba brūkšnys. (S_2505-G19Y)",
+    "value": "S2505-G19Y"
   },
   {
-    "value": "Rašant blizgumą nereikia tarpo tarp raidžių ir skaičiaus. (gl. 5)",
-    "label": "gl.5"
+    "key": "Rašant blizgumą nereikia tarpo tarp raidžių ir skaičiaus. (gl. 5)",
+    "value": "gl.5"
   },
   {
-    "value": "Tarp apdailos kodo ir blizgumo nereikalingas apatinis brūkšnys. (02.01.20_gl.5)",
-    "label": "02.01.20 gl.5"
+    "key": "Tarp apdailos kodo ir blizgumo nereikalingas apatinis brūkšnys. (02.01.20_gl.5)",
+    "value": "02.01.20 gl.5"
   },
 
   {
-    "value": "Nereikalingas papildomas taškas. (0.2.01.20 gl.5)",
-    "label": "02.01.20 gl.5"
+    "key": "Nereikalingas papildomas taškas. (0.2.01.20 gl.5)",
+    "value": "02.01.20 gl.5"
   },
   {
-    "value": "Žodis lakas nėra būtinas apdailos kode. (E=gl.5 PU lakas)",
-    "label": "E=gl.5 PU"
+    "key": "Žodis lakas nėra būtinas apdailos kode. (E=gl.5 PU lakas)",
+    "value": "E=gl.5 PU"
   },
   {
-    "value": "Žodis Walnut nereikalingas apdailos kode. (20.11.19 gl.10 Walnut)",
-    "label": "20.11.19 gl.10"
+    "key": "Žodis Walnut nereikalingas apdailos kode. (20.11.19 gl.10 Walnut)",
+    "value": "20.11.19 gl.10"
   },
   {
-    "value": "Jei apdaila daroma briaunoms ir plokštumoms, užtenka parašyti tik apdailos kodą (E+T+B=gl.5)",
-    "label": "gl.5"
+    "key": "Jei apdaila daroma briaunoms ir plokštumoms, užtenka parašyti tik apdailos kodą (E+T+B=gl.5)",
+    "value": "gl.5"
   }
 ]

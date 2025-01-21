@@ -1,13 +1,13 @@
 [
-  { "value": "E", "label": "Edge" },
-  { "value": "H", "label": "Hole" },
-  { "value": "PU", "label": "Poliuretaninis lakas" },
-  { "value": "T", "label": "Surface Top" },
-  { "value": "B", "label": "Surface Bottom" },
-  { "value": "Monell", "label": "Monell" },
-  { "value": "CH", "label": "Chamfer" },
-  { "value": "KL", "label": "Lakuota pagal nurodyta apdailą" },
-  { "value": "GR", "label": "Gruntuota" },
-  { "value": "PUSS", "label": "Šlifuota" },
-  { "value": "UBH", "label": "Neapdailinta" }
+  { "key": "E", "value": "Edge" },
+  { "key": "H", "value": "Hole" },
+  { "key": "PU", "value": "Poliuretaninis lakas" },
+  { "key": "T", "value": "Surface Top" },
+  { "key": "B", "value": "Surface Bottom" },
+  { "key": "Monell", "value": "Monell" },
+  { "key": "CH", "value": "Chamfer" },
+  { "key": "KL", "value": "Lakuota pagal nurodyta apdailą" },
+  { "key": "GR", "value": "Gruntuota" },
+  { "key": "PUSS", "value": "Šlifuota" },
+  { "key": "UBH", "value": "Neapdailinta" }
 ]

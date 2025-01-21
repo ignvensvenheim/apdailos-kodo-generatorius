@@ -1,9 +1,9 @@
-export  const buildDecorCode = (data: {
+export  const buildStdDecorCode = (data: {
     Pavirsiai: string;
     Apdaila: string;
     Blizgumas: string;
   }) => {
-    const paviršiai =
+    const pavirsiai =
       data.Pavirsiai && data.Pavirsiai !== "null"
         ? data.Pavirsiai.split(" - ")[0]
         : "";
@@ -16,11 +16,20 @@ export  const buildDecorCode = (data: {
 
     let generatedCode = "";
 
-    if (paviršiai && apdaila) {
-      generatedCode = `${paviršiai}=${apdaila} ${blizgumas}`;
+    if (pavirsiai && apdaila) {
+      generatedCode = `${pavirsiai}=${apdaila}`;
+      if (blizgumas) {
+        generatedCode += ` ${blizgumas}`;
+      }
+    } else if (apdaila) {
+      generatedCode = apdaila;
+      if (blizgumas) {
+        generatedCode += ` ${blizgumas}`;
+      }
     } else if (blizgumas) {
-      generatedCode = `${blizgumas}`;
+      generatedCode = blizgumas;
     }
+  
 
     return(generatedCode);
   };
