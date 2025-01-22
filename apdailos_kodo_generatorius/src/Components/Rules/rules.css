@@ -47,6 +47,12 @@
   .rulesContainer {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0rem;
+
+    .singleRuleContainer {
+      .ruleTitle {
+        margin: 0.2rem;
+      }
+    }
   }
 }

@@ -13,7 +13,7 @@ function App() {
         <Form title="DAŽYMAS" formType="paint" />
       </div>
       <Rules />
-      <footer>© Svenheim 2025</footer>
+      <footer style={{ marginTop: "3rem" }}>© Svenheim 2025</footer>
     </div>
   );
 }

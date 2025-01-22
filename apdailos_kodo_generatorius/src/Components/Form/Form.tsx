@@ -111,6 +111,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
               options={husPavirsiai}
               registerOptions={register("Briaunos", { required: true })}
             />
+            <p>* pagal nurodyta apdailą, jei nenurodyta tada apdaila gl.5</p>
           </>
         )}
 
