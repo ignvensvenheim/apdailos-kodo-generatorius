@@ -1,7 +1,6 @@
 import React from "react";
 import "./form.css";
 import { UseFormRegisterReturn } from "react-hook-form";
-
 interface Option {
   key: string;
   value: string;
@@ -24,8 +23,8 @@ const FormSelect: React.FC<FormSelectProps> = ({
     <>
       <label htmlFor={id}>{label}</label>
       <select id={id} {...registerOptions}>
-        {options.map((option, index) => (
-          <option key={index} value={option.key} defaultValue={option.value[0]}>
+        {options.map((option) => (
+          <option key={option.key} value={option.key}>
             {option.value}
           </option>
         ))}

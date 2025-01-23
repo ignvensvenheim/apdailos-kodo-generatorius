@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import FormSelect from "./FormSelect";
-import pavirsiai from "../../data/pavirsiai.json";
-import apdaila from "../../data/apdaila.json";
-import blizgumas from "../../data/blizgumas.json";
-import husPavirsiai from "../../data/husPavirsiai.json";
-import husApdaila from "../../data/husApdaila.json";
-import ncsApdaila from "../../data/ncsApdaila.json";
+// json files in lithuanian
+import apdaila from "../../data/lt/apdaila.json";
+import pavirsiai from "../../data/lt/pavirsiai.json";
+import blizgumas from "../../data/lt/blizgumas.json";
+import husPavirsiai from "../../data/lt/husPavirsiai.json";
+import husApdaila from "../../data/lt/husApdaila.json";
+import ncsApdaila from "../../data/lt/ncsApdaila.json";
+//
+// json files in english
+import pavirsiaiEN from "../../data/en/pavirsiaiEN.json";
+import apdailaEN from "../../data/en/apdailaEN.json";
+import husApdailaEN from "../../data/en/husApdailaEN.json";
+import husPavirsiaiEN from "../../data/en/husPavirsiaiEN.json";
+import ncsApdailaEN from "../../data/en/ncsApdailaEN.json";
+//
 import { copyToClipboard } from "../../helpers/copyToClipboard";
 import { buildStdDecorCode } from "../../helpers/buildStdDecorCode";
 import { buildHusDecorCode } from "../../helpers/buildHusDecorCode";
 import { buildPaintDecorCode } from "../../helpers/buildPaintDecorCode";
 import { Bounce, ToastContainer } from "react-toastify";
+import { LangContext } from "../../context/LangContext";
 
 interface FormData {
   Pavirsiai?: string;
@@ -57,6 +67,14 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
     setDecorCode(generatedCode || "");
   };
 
+  const context = useContext(LangContext);
+
+  if (!context) {
+    throw new Error("LangContext must be used within a LangProvider");
+  }
+
+  const { lang } = context;
+
   return (
     <div className="formContainer">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -66,19 +84,19 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
           <>
             <FormSelect
               id="pavirsiai"
-              label="Paviršiai"
-              options={pavirsiai}
+              label={lang === "lt" ? "Paviršiai" : "Surface"}
+              options={lang === "lt" ? pavirsiai : pavirsiaiEN}
               registerOptions={register("Pavirsiai", { required: false })}
             />
             <FormSelect
               id="apdaila"
-              label="Apdaila"
-              options={apdaila}
+              label={lang === "lt" ? "Apdaila" : "Decor"}
+              options={lang === "lt" ? apdaila : apdailaEN}
               registerOptions={register("Apdaila", { required: false })}
             />
             <FormSelect
               id="blizgumas"
-              label="Blizgumas"
+              label={lang === "lt" ? "Blizgumas" : "Glossiness"}
               options={blizgumas}
               registerOptions={register("Blizgumas", { required: false })}
             />
@@ -89,29 +107,33 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
           <>
             <FormSelect
               id="apdaila"
-              label="Apdaila"
-              options={husApdaila}
+              label={lang === "lt" ? "Apdaila" : "Decor"}
+              options={lang === "lt" ? husApdaila : husApdailaEN}
               registerOptions={register("Apdaila", { required: true })}
             />
             <FormSelect
               id="top"
-              label="Top paviršius"
-              options={husPavirsiai}
+              label={lang === "lt" ? "Top paviršius" : "Top surface"}
+              options={lang === "lt" ? husPavirsiai : husPavirsiaiEN}
               registerOptions={register("Top", { required: true })}
             />
             <FormSelect
               id="bottom"
-              label="Bottom paviršius"
-              options={husPavirsiai}
+              label={lang === "lt" ? "Bottom paviršius" : "Bottom surface"}
+              options={lang === "lt" ? husPavirsiai : husPavirsiaiEN}
               registerOptions={register("Bottom", { required: true })}
             />
             <FormSelect
               id="briaunos"
-              label="Briaunos"
-              options={husPavirsiai}
+              label={lang === "lt" ? "Briaunos" : "Edges"}
+              options={lang === "lt" ? husPavirsiai : husPavirsiaiEN}
               registerOptions={register("Briaunos", { required: true })}
             />
-            <p>* pagal nurodyta apdailą, jei nenurodyta tada apdaila gl.5</p>
+            <p>
+              {lang === "lt"
+                ? "* pagal nurodyta apdailą, jei nenurodyta tada apdaila gl.5"
+                : "* according to decor selected, if not selected then decor is gl.5"}
+            </p>
           </>
         )}
 
@@ -119,26 +141,31 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
           <>
             <FormSelect
               id="pavirsiai"
-              label="Paviršiai"
-              options={pavirsiai}
+              label={lang === "lt" ? "Paviršiai" : "Surface"}
+              options={lang === "lt" ? pavirsiai : pavirsiaiEN}
               registerOptions={register("Pavirsiai", { required: true })}
             />
             <FormSelect
               id="apdaila"
-              label="Apdaila"
-              options={ncsApdaila}
+              label={lang === "lt" ? "Apdaila" : "Decor"}
+              options={lang === "lt" ? ncsApdaila : ncsApdailaEN}
               registerOptions={register("Apdaila", { required: true })}
             />
           </>
         )}
-        <input type="submit" value="Generuoti apdailos kodą" />
+        <input
+          type="submit"
+          value={
+            lang === "lt" ? "Generuoti apdailos kodą" : "Generate decor code"
+          }
+        />
         <button
           type="button"
           onClick={() => {
             copyToClipboard(decorCode || "");
           }}
         >
-          Kopijuoti kodą
+          {lang === "lt" ? "Kopijuoti kodą" : "Copy decor code"}
         </button>
         <ToastContainer
           position="bottom-right"
@@ -158,7 +185,9 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
       {decorCode ? (
         <p className="decorCode">{decorCode}</p>
       ) : (
-        <p className="decorCode">Pasirinkite savybes</p>
+        <p className="decorCode">
+          {lang === "lt" ? "Pasirinkite savybes" : "Select properties"}
+        </p>
       )}
     </div>
   );

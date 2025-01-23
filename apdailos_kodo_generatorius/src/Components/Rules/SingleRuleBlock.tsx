@@ -9,15 +9,11 @@ interface ArrayToMapItem {
 
 interface SingleRuleBlockProps {
   title: string;
-  subTitle1: string;
-  subTitle2: string;
   arrayToMap: Array<ArrayToMapItem>;
 }
 
 const SingleRuleBlock: React.FC<SingleRuleBlockProps> = ({
   title,
-  subTitle1,
-  subTitle2,
   arrayToMap,
 }) => {
   const [expanded, setExpanded] = useState(false);
@@ -32,17 +28,12 @@ const SingleRuleBlock: React.FC<SingleRuleBlockProps> = ({
       </h2>
       <div>
         {expanded && (
-          <div className="explContainer">
-            <h4>
-              {subTitle1} ir {subTitle2}
-            </h4>
-            <div className="pContainer">
-              {arrayToMap.map((el, index) => (
-                <p key={index}>
-                  {el.key} <span>{el.value}</span>
-                </p>
-              ))}
-            </div>
+          <div className="pContainer">
+            {arrayToMap.map((el, index) => (
+              <p key={index}>
+                {el.key} <span>{el.value}</span>
+              </p>
+            ))}
           </div>
         )}
       </div>

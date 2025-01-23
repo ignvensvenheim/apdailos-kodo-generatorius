@@ -1,12 +1,11 @@
 [
+  { "key": "T", "value": "Surface Top" },
+  { "key": "B", "value": "Surface Bottom" },
   { "key": "E", "value": "Edge" },
   { "key": "H", "value": "Hole" },
   { "key": "PU", "value": "Poliuretaninis lakas" },
-  { "key": "T", "value": "Surface Top" },
-  { "key": "B", "value": "Surface Bottom" },
   { "key": "Monell", "value": "Monell" },
-  { "key": "CH", "value": "Chamfer" },
-  { "key": "KL", "value": "Lakuota pagal nurodyta apdailą" },
+  { "key": "KL", "value": "Lakuota" },
   { "key": "GR", "value": "Gruntuota" },
   { "key": "PUSS", "value": "Šlifuota" },
   { "key": "UBH", "value": "Neapdailinta" }

@@ -1,29 +1,45 @@
 import "./rules.css";
-import sutrumpinimai from "../../data/sutrumpinimai.json";
-import klaiduAprasymas from "../../data/klaiduAprasymas.json";
+import { useContext } from "react";
+import { LangContext } from "../../context/LangContext";
+// json files in lithuanian
+import sutrumpinimai from "../../data/lt/sutrumpinimai.json";
+import klaiduAprasymas from "../../data/lt/klaiduAprasymas.json";
 import SingleRuleBlock from "./SingleRuleBlock";
-import apdailosPvz from "../../data/apdailosPvz.json";
+import apdailosPvz from "../../data/lt/apdailosPvz.json";
+//
+// json files in english
+import apdailosPvzEN from "../../data/en/apdailosPvzEN.json";
+import sutrumpinimaiEN from "../../data/en/sutrumpinimaiEN.json";
+import klaiduAprasymasEN from "../../data/en/klaiduAprasymasEN.json";
+
+//
 
 function Rules() {
+  const context = useContext(LangContext);
+
+  if (!context) {
+    throw new Error("LangContext must be used within a LangProvider");
+  }
+
+  const { lang } = context;
+
   return (
     <div className="rulesContainer">
       <SingleRuleBlock
-        title={"Sutrumpinimai etiketėse"}
-        subTitle1={"Sutrumpinimas"}
-        subTitle2={"Reikšmė"}
-        arrayToMap={sutrumpinimai}
+        title={
+          lang === "lt" ? "Sutrumpinimai etiketėse" : "Abbreviations in labels"
+        }
+        arrayToMap={lang === "lt" ? sutrumpinimai : sutrumpinimaiEN}
       />
       <SingleRuleBlock
-        title={"Klaidų aprašymas"}
-        subTitle1={"Klaidų aprašymas"}
-        subTitle2={"Teisingi kodai"}
-        arrayToMap={klaiduAprasymas}
+        title={lang === "lt" ? "Apdailos kodo pavyzdys" : "Decor code example"}
+        arrayToMap={lang === "lt" ? apdailosPvz : apdailosPvzEN}
       />
       <SingleRuleBlock
-        title={"Apdailos kodo pavyzdys"}
-        subTitle1={"Pilnas kodas"}
-        subTitle2={"jo pavyzdys - 10.07.17 gl.5 GR/UBH/KL"}
-        arrayToMap={apdailosPvz}
+        title={
+          lang === "lt" ? "Apdailos kodo struktūra" : "Decor code structure"
+        }
+        arrayToMap={lang === "lt" ? klaiduAprasymas : klaiduAprasymasEN}
       />
     </div>
   );

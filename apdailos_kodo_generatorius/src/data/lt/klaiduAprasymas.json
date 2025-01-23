@@ -1,0 +1,51 @@
+[
+  {
+    "key": "Dubliuojasi info, naudojamas tik sutrumpinimas. (Edge E=gl.5)",
+    "value": "E=gl.5"
+  },
+  {
+    "key": "NCS kode nenaudojamas apatinis brūkšnys. (S9000_N)",
+    "value": "S9000-N"
+  },
+  {
+    "key": "Tarp sutrumpinimų naudojamas '+' simbolis. (E&B S8000-N)",
+    "value": "E+B=S8000-N"
+  },
+  {
+    "key": "Po sutrumpinimų dedamas lygybės ženklas. (E+ST S7502-G)",
+    "value": "E+B=S7502-G"
+  },
+  {
+    "key": "Rašant spalvos kodą, 'NCS' raidės nėra rašomos, išskyrus atvejus, kai naudojamos kitos spalvų paletes, pvz., RAL.",
+    "value": "S1002-Y"
+  },
+  {
+    "key": "Po 'S' raidės nededamas tarpas arba brūkšnys. (S_2505-G19Y)",
+    "value": "S2505-G19Y"
+  },
+  {
+    "key": "Rašant blizgumą nereikalingas tarpas tarp raidžių ir skaičiaus. (gl. 5)",
+    "value": "gl.5"
+  },
+  {
+    "key": "Tarp apdailos kodo ir blizgumo nereikalingas apatinis brūkšnys. (02.01.20_gl.5)",
+    "value": "02.01.20 gl.5"
+  },
+
+  {
+    "key": "Nereikalingas papildomas taškas tarp 0 ir 2. (0.2.01.20 gl.5)",
+    "value": "02.01.20 gl.5"
+  },
+  {
+    "key": "Žodis 'lakas' nėra būtinas apdailos kode. (E=gl.5 PU lakas)",
+    "value": "E=gl.5 PU"
+  },
+  {
+    "key": "Žodis 'Walnut' nereikalingas apdailos kode. (20.11.19 gl.10 Walnut)",
+    "value": "20.11.19 gl.10"
+  },
+  {
+    "key": "Jei apdaila daroma briaunoms ir plokštumoms, užtenka parašyti tik apdailos kodą (E+T+B=gl.5)",
+    "value": "gl.5"
+  }
+]

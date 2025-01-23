@@ -1,0 +1,11 @@
+[
+  { "key": "null", "value": "All surfaces" },
+  { "key": "T - Top", "value": "T - Top" },
+  { "key": "B - Bottom", "value": "B - Bottom" },
+  { "key": "E - Edge", "value": "E - Edge" },
+  { "key": "H - Hole", "value": "H - Hole" },
+  { "key": "T+E - Top + Edge", "value": "T+E - Top + Edge" },
+  { "key": "B+H - Bottom + Hole", "value": "B+H - Bottom + Hole" },
+  { "key": "B+E - Bottom + Edge", "value": "B+E - Bottom + Edge" },
+  { "key": "E+H - Edge + Hole", "value": "E+H - Edge + Hole" }
+]

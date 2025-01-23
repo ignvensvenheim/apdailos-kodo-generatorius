@@ -1,3 +1,14 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .langBtnContainer {
+    display: flex;
+    gap: 0.5rem;
+  }
+}
+
 img {
   width: 100px;
   height: 100px;

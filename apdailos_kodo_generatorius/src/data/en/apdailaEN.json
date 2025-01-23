@@ -1,0 +1,79 @@
+[
+  { "key": "null", "value": "Clear lacquering" },
+  {
+    "key": "3% 10.07.17 - 3% Whitened",
+    "value": "3% 10.07.17 - 3% Whitened"
+  },
+  {
+    "key": "6% 11.07.17 - 6% Whitened",
+    "value": "6% 11.07.17 - 6% Whitened"
+  },
+  {
+    "key": "10% 12.07.17 - 10% Whitened",
+    "value": "10% 12.07.17 - 10% Whitened"
+  },
+  { "key": "02.06.10 - Brown", "value": "02.06.10 - Brown" },
+  { "key": "01.06.12 - Whitened", "value": "01.06.12 - Whitened" },
+  { "key": "01.27.16 - Whitened", "value": "01.27.16 - Whitened" },
+  { "key": "31.01.17 - Whitened", "value": "31.01.17 - Whitened" },
+  { "key": "25.04.17 - Whitened", "value": "25.04.17 - Whitened" },
+  { "key": "26.04.17 - Whitened", "value": "26.04.17 - Whitened" },
+  { "key": "27.04.17 - S2000 - N", "value": "27.04.17 - S2000-N" },
+  { "key": "03.05.17 - S0500 - N", "value": "03.05.17 - S0500-N" },
+  {
+    "key": "05.06.17 - Oak Auster(stone)",
+    "value": "05.06.17 - Oak Auster(stone)"
+  },
+  { "key": "23.11.17 - S2040 - Y", "value": "23.11.17 - S2040-Y" },
+  { "key": "10.10.18 - Brown", "value": "10.10.18 - Brown" },
+  { "key": "11.10.18 - Brown", "value": "11.10.18 - Brown" },
+  { "key": "12.10.18 - Whitened", "value": "12.10.18 - Whitened" },
+  { "key": "24.04.19 - Brown", "value": "24.04.19 - Brown" },
+  { "key": "27.08.19 - Whitened", "value": "27.08.19 - Whitened" },
+  { "key": "08.11.19 - Brown", "value": "08.11.19 - Brown" },
+  { "key": "19.11.19 - Juoda", "value": "19.11.19 - Juoda" },
+  { "key": "20.11.19 - Brown", "value": "20.11.19 - Brown" },
+  { "key": "21.11.19 - Whitened", "value": "21.11.19 - Whitened" },
+  { "key": "22.11.19 - Whitened", "value": "22.11.19 - Whitened" },
+  { "key": "02.01.20 - Brown", "value": "02.01.20 - Brown" },
+  { "key": "12.02.20 - S5040 - Y90R", "value": "12.02.20 - S5040-Y90R" },
+  { "key": "07.04.20 - S2000 - N", "value": "07.04.20 - S2000-N" },
+  { "key": "07.05.20 - Vintage", "value": "07.05.20 - Vintage" },
+  { "key": "12.08.20 - Whitened", "value": "12.08.20 - Whitened" },
+  { "key": "30.10.20 - Whitened", "value": "30.10.20 - Whitened" },
+  { "key": "23.11.20 - Whitened", "value": "23.11.20 - Whitened" },
+  { "key": "20.01.21 - Grey", "value": "20.01.21 - Grey" },
+  { "key": "02.03.21 - Vintage", "value": "02.03.21 - Vintage" },
+  { "key": "03.03.21 - Brown", "value": "03.03.21 - Brown" },
+  { "key": "01.07.21 - Gratonet", "value": "01.07.21 - Gratonet" },
+  { "key": "14.09.21 - Whitened", "value": "14.09.21 - Whitened" },
+  { "key": "28.09.21 - Nero Natur", "value": "28.09.21 - Nero Natur" },
+  { "key": "18.03.22 - Grey", "value": "18.03.22 - Grey" },
+  { "key": "25.04.22 - Whitened", "value": "25.04.22 - Whitened" },
+  { "key": "09.05.22 - Brown", "value": "09.05.22 - Brown" },
+  { "key": "23.09.22 - Brown", "value": "23.09.22 - Brown" },
+  {
+    "key": "25.11.22 - Grey Smoked oak",
+    "value": "25.11.22 - Grey Smoked oak"
+  },
+  { "key": "09.12.22 - Green", "value": "09.12.22 - Green" },
+  { "key": "23.01.23 - Brown Teak", "value": "23.01.23 - Brown Teak" },
+  {
+    "key": "30.01.23 - Brown F5872 Refined Walnut",
+    "value": "30.01.23 - Brown F5872 Refined Walnut"
+  },
+  { "key": "27.04.23 - S7010 - R90B", "value": "27.04.23 - S7010-R90B" },
+  { "key": "25.05.23 - S3005 - G20Y", "value": "25.05.23 - S3005-G20Y" },
+  { "key": "01.12.23 - S1515 - R", "value": "01.12.23 - S1515-R" },
+  { "key": "03.04.24 - Grey", "value": "03.04.24 - Grey" },
+  { "key": "08.04.24 - S6020 - B10G", "value": "08.04.24 - S6020-B10G" },
+  { "key": "09.04.24 - S7010 - B90G", "value": "09.04.24 - S7010-B90G" },
+  { "key": "22.04.24 - S5010 - G50Y", "value": "22.04.24 - S5010-G50Y" },
+  { "key": "03.09.24 - Brown", "value": "03.09.24 - Brown" },
+  {
+    "key": "04.09.24 - Dark Grey / Juoda",
+    "value": "04.09.24 - Dark Grey / Juoda"
+  },
+  { "key": "08.10.24 - Brown", "value": "08.10.24 - Brown" },
+  { "key": "28.10.24 - Brown", "value": "28.10.24 - Brown" }
+]

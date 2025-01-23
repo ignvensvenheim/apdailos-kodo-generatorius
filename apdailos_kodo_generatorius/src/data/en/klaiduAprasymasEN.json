@@ -1,0 +1,51 @@
+[
+  {
+    "key": "Information is duplicated, only abbreviation is used. (Edge E=gl.5)",
+    "value": "E=gl.5"
+  },
+  {
+    "key": "The NCS code does not use an underscore. (S9000_N)",
+    "value": "S9000-N"
+  },
+  {
+    "key": "The '+' symbol is used between abbreviations. (E&B S8000-N)",
+    "value": "E+B=S8000-N"
+  },
+  {
+    "key": "Abbreviations are followed by an equal sign. (E+ST S7502-G)",
+    "value": "E+B=S7502-G"
+  },
+  {
+    "key": "When writing the color code, the letters 'NCS' are not needed, except when using other color palettes, such as RAL.",
+    "value": "S1002-Y"
+  },
+  {
+    "key": "No space or dash is needed after the letter 'S'. (S_2505-G19Y)",
+    "value": "S2505-G19Y"
+  },
+  {
+    "key": "A space between letters and numbers is not required when writing glossiness. (gl. 5)",
+    "value": "gl.5"
+  },
+  {
+    "key": "An underscore is not required between the finish code and the glossiness code. (02.01.20_gl.5)",
+    "value": "02.01.20 gl.5"
+  },
+
+  {
+    "key": "An extra dot between 0 and 2 is unnecessary. (0.2.01.20 gl.5)",
+    "value": "02.01.20 gl.5"
+  },
+  {
+    "key": "The word 'lacquer' is not necessary. (E=gl.5 PU lacquer)",
+    "value": "E=gl.5 PU"
+  },
+  {
+    "key": "The word 'Walnut' is not necessary. (20.11.19 gl.10 Walnut)",
+    "value": "20.11.19 gl.10"
+  },
+  {
+    "key": "If decor is done for edges and surfaces, only glossiness code is enough (E+T+B=gl.5)",
+    "value": "gl.5"
+  }
+]
