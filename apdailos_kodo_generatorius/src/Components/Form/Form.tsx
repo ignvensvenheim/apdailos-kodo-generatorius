@@ -10,6 +10,7 @@ import husApdaila from "../../data/lt/husApdaila.json";
 import ncsApdaila from "../../data/lt/ncsApdaila.json";
 //
 // json files in english
+
 import pavirsiaiEN from "../../data/en/pavirsiaiEN.json";
 import apdailaEN from "../../data/en/apdailaEN.json";
 import husApdailaEN from "../../data/en/husApdailaEN.json";
@@ -20,7 +21,7 @@ import { copyToClipboard } from "../../helpers/copyToClipboard";
 import { buildStdDecorCode } from "../../helpers/buildStdDecorCode";
 import { buildHusDecorCode } from "../../helpers/buildHusDecorCode";
 import { buildPaintDecorCode } from "../../helpers/buildPaintDecorCode";
-import { Bounce, ToastContainer } from "react-toastify";
+import { Bounce, toast, ToastContainer } from "react-toastify";
 import { LangContext } from "../../context/LangContext";
 
 interface FormData {
@@ -163,6 +164,8 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
           type="button"
           onClick={() => {
             copyToClipboard(decorCode || "");
+            if (lang === "lt") toast("Kodas nukopijuotas");
+            if (lang === "en") toast("Code copied");
           }}
         >
           {lang === "lt" ? "Kopijuoti kodą" : "Copy decor code"}

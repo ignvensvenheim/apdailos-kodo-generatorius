@@ -23,8 +23,8 @@ const FormSelect: React.FC<FormSelectProps> = ({
     <>
       <label htmlFor={id}>{label}</label>
       <select id={id} {...registerOptions}>
-        {options.map((option) => (
-          <option key={option.key} value={option.key}>
+        {options.map((option, index) => (
+          <option key={index} value={option.key}>
             {option.value}
           </option>
         ))}
