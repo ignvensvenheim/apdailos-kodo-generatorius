@@ -21,11 +21,19 @@ input {
   font-size: 1rem;
   line-height: 1.5;
   transition: 0.3s;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 
   &:hover {
     color: #fff;
     background-color: #6c757d;
+  }
+}
+
+input {
+  background: #fff;
+
+  &:hover {
+    background: #6c757d;
   }
 }
 

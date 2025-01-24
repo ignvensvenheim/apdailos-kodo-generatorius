@@ -1,20 +1,17 @@
 [
   {
     "key": "",
-    "value": "RAL color selection:"
+    "value": "RAL color selection:",
+    "bold": 700
   },
   {
     "key": "Ral1036",
     "value": "Ral1036"
   },
-
   {
     "key": "",
-    "value": ""
-  },
-  {
-    "key": "",
-    "value": "NCS color selection:"
+    "value": "NCS color selection:",
+    "bold": 700
   },
   {
     "key": "S0500-N",

@@ -1,20 +1,17 @@
 [
   {
     "key": "",
-    "value": "Spalva pagal RAL paletę:"
+    "value": "Spalva pagal RAL paletę:",
+    "bold": 700
   },
   {
     "key": "Ral1036",
     "value": "Ral1036"
   },
-
   {
     "key": "",
-    "value": ""
-  },
-  {
-    "key": "",
-    "value": "Spalva pagal NCS paletę:"
+    "value": "Spalva pagal NCS paletę:",
+    "bold": 700
   },
   {
     "key": "S0500-N",

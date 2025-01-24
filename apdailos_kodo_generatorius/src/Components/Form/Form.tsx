@@ -31,6 +31,7 @@ interface FormData {
   Top?: string;
   Bottom?: string;
   Briaunos?: string;
+  custom?: string;
 }
 
 interface FormProps {
@@ -43,6 +44,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
   const [decorCode, setDecorCode] = useState<string | null>(null);
 
   const onSubmit = (data: FormData) => {
+    console.log(data);
     let generatedCode: string | undefined;
 
     if (formType === "standard") {
@@ -62,6 +64,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
       generatedCode = buildPaintDecorCode({
         Pavirsiai: data.Pavirsiai || "",
         Apdaila: data.Apdaila || "",
+        custom: data.custom || "",
       });
     }
 
@@ -137,20 +140,25 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
             </p>
           </>
         )}
-
         {formType === "paint" && (
           <>
             <FormSelect
               id="pavirsiai"
               label={lang === "lt" ? "Paviršiai" : "Surface"}
               options={lang === "lt" ? pavirsiai : pavirsiaiEN}
-              registerOptions={register("Pavirsiai", { required: true })}
+              registerOptions={register("Pavirsiai")}
             />
             <FormSelect
               id="apdaila"
-              label={lang === "lt" ? "Apdaila" : "Decor"}
+              label={lang === "lt" ? "Standartinė apdaila" : "Standard decor"}
               options={lang === "lt" ? ncsApdaila : ncsApdailaEN}
-              registerOptions={register("Apdaila", { required: true })}
+              registerOptions={register("Apdaila")}
+            />
+            <FormSelect
+              registerOptions={register("custom")}
+              customColorInput="customColorInput"
+              options={[]}
+              lang={lang}
             />
           </>
         )}
