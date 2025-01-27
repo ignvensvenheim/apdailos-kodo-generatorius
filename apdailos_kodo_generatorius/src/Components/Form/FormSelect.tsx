@@ -33,7 +33,7 @@ const FormSelect: React.FC<FormSelectProps> = ({
               ? "Nestandartinis apdailos kodas"
               : "Custom color code"}
           </label>
-          <input id="custom" type="text" {...registerOptions} />
+          <input id="custom" type="text" {...registerOptions} maxLength={10} />
         </>
       ) : (
         <>

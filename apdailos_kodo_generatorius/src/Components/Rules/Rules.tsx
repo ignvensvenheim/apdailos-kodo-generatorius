@@ -11,7 +11,6 @@ import apdailosPvz from "../../data/lt/apdailosPvz.json";
 import apdailosPvzEN from "../../data/en/apdailosPvzEN.json";
 import sutrumpinimaiEN from "../../data/en/sutrumpinimaiEN.json";
 import klaiduAprasymasEN from "../../data/en/klaiduAprasymasEN.json";
-
 //
 
 function Rules() {
@@ -32,7 +31,11 @@ function Rules() {
         arrayToMap={lang === "lt" ? sutrumpinimai : sutrumpinimaiEN}
       />
       <SingleRuleBlock
-        title={lang === "lt" ? "Apdailos kodo pavyzdys" : "Decor code example"}
+        title={
+          lang === "lt"
+            ? "Huseby/Foss kodo struktūra"
+            : "Huseby/Foss code structure"
+        }
         arrayToMap={lang === "lt" ? apdailosPvz : apdailosPvzEN}
       />
       <SingleRuleBlock

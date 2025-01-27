@@ -18,11 +18,9 @@ import husPavirsiaiEN from "../../data/en/husPavirsiaiEN.json";
 import ncsApdailaEN from "../../data/en/ncsApdailaEN.json";
 //
 import { copyToClipboard } from "../../helpers/copyToClipboard";
-import { buildStdDecorCode } from "../../helpers/buildStdDecorCode";
-import { buildHusDecorCode } from "../../helpers/buildHusDecorCode";
-import { buildPaintDecorCode } from "../../helpers/buildPaintDecorCode";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import { LangContext } from "../../context/LangContext";
+import { handleFormSubmit } from "../../helpers/formSubmitHandler";
 
 interface FormData {
   Pavirsiai?: string;
@@ -44,30 +42,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
   const [decorCode, setDecorCode] = useState<string | null>(null);
 
   const onSubmit = (data: FormData) => {
-    console.log(data);
-    let generatedCode: string | undefined;
-
-    if (formType === "standard") {
-      generatedCode = buildStdDecorCode({
-        Pavirsiai: data.Pavirsiai || "",
-        Apdaila: data.Apdaila || "",
-        Blizgumas: data.Blizgumas || "",
-      });
-    } else if (formType === "hus") {
-      generatedCode = buildHusDecorCode({
-        Apdaila: data.Apdaila || "",
-        Top: data.Top || "",
-        Bottom: data.Bottom || "",
-        Briaunos: data.Briaunos || "",
-      });
-    } else if (formType === "paint") {
-      generatedCode = buildPaintDecorCode({
-        Pavirsiai: data.Pavirsiai || "",
-        Apdaila: data.Apdaila || "",
-        custom: data.custom || "",
-      });
-    }
-
+    const generatedCode = handleFormSubmit(formType, data);
     setDecorCode(generatedCode || "");
   };
 
@@ -169,6 +144,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
           }
         />
         <button
+          className={decorCode ? "btnCopyActive" : "btnCopyDisabled"}
           type="button"
           onClick={() => {
             copyToClipboard(decorCode || "");
