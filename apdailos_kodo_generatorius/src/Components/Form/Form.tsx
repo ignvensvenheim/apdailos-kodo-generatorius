@@ -10,7 +10,6 @@ import husApdaila from "../../data/lt/husApdaila.json";
 import ncsApdaila from "../../data/lt/ncsApdaila.json";
 //
 // json files in english
-
 import pavirsiaiEN from "../../data/en/pavirsiaiEN.json";
 import apdailaEN from "../../data/en/apdailaEN.json";
 import husApdailaEN from "../../data/en/husApdailaEN.json";
@@ -21,6 +20,7 @@ import { copyToClipboard } from "../../helpers/copyToClipboard";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import { LangContext } from "../../context/LangContext";
 import { handleFormSubmit } from "../../helpers/formSubmitHandler";
+import ColorBox from "../ColorBox/ColorBox";
 
 interface FormData {
   Pavirsiai?: string;
@@ -40,8 +40,10 @@ interface FormProps {
 const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
   const { register, handleSubmit } = useForm<FormData>();
   const [decorCode, setDecorCode] = useState<string | null>(null);
+  const [ncs, setNcs] = useState<string>();
 
   const onSubmit = (data: FormData) => {
+    data.custom ? setNcs(data.custom) : setNcs(data.Apdaila);
     const generatedCode = handleFormSubmit(formType, data);
     setDecorCode(generatedCode || "");
   };
@@ -135,6 +137,8 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
               options={[]}
               lang={lang}
             />
+
+            <ColorBox ncsCode={ncs} />
           </>
         )}
         <input

@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: 1fr;
   border: 1px solid rgb(194, 194, 194);
-  border-radius: 8px;
+  border-radius: 4px;
 
   form {
     text-align: left;
@@ -13,6 +13,10 @@
     select,
     input {
       margin-top: 0.5rem;
+    }
+
+    input#custom {
+      width: 100%;
     }
 
     label {
@@ -29,7 +33,7 @@
     font-weight: 700;
     padding: 2rem;
     background-color: rgb(240, 240, 240);
-    border-radius: 8px;
+    border-radius: 4px;
   }
 
   .btnCopyActive {

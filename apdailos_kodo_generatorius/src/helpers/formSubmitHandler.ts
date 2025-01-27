@@ -17,7 +17,6 @@ export const handleFormSubmit = (
   data: FormData
 ): string | undefined => {
 
-    console.log(formType, data)
   let generatedCode: string | undefined;
 
   if (formType === "standard") {

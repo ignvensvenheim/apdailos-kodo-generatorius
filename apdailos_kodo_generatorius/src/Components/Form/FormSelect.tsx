@@ -1,6 +1,7 @@
 import React from "react";
 import "./form.css";
 import { UseFormRegisterReturn } from "react-hook-form";
+
 interface Option {
   bold?: number | undefined;
   key: string;
