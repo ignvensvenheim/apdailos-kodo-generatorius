@@ -21,12 +21,10 @@ function ColorBox({ ncsCode }: ColorBoxProps) {
   const formattedCode = ncsCode ? formatNcsCode(ncsCode) : null;
 
   let hexValue: string = "#FFFFFF"; // Default color
-  let rgbValue: string = "rgb(255, 255, 255)";
 
   if (formattedCode) {
     try {
       hexValue = ncsColor.hex(formattedCode); // Convert to HEX
-      rgbValue = ncsColor.rgb(formattedCode); // Convert to RGB
     } catch (error) {
       console.error(`Error converting code ${formattedCode}:`, error);
     }
