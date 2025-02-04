@@ -26,10 +26,11 @@ export  const buildStdDecorCode = (data: {
       if (blizgumas) {
         generatedCode += ` ${blizgumas}`;
       }
+    } else if(pavirsiai && blizgumas){
+      generatedCode =`${pavirsiai}=${blizgumas}`
     } else if (blizgumas) {
       generatedCode = blizgumas;
     }
-  
 
     return(generatedCode);
   };
