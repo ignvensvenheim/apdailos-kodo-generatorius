@@ -12,7 +12,10 @@
     "key": "10% 12.07.17 - 10% Whitened",
     "value": "10% 12.07.17 - 10% Whitened"
   },
-  { "key": "02.06.10 - Brown", "value": "02.06.10 - Brown" },
+  { "key": "19.11.19 - Black", "value": "19.11.19 - Black (std)" },
+  { "key": "02.06.10 - Brown", "value": "02.06.10 - Brown (nr.24)" },
+  { "key": "02.01.20 - Brown", "value": "02.01.20 - Brown (nr.23)" },
+  { "key": "09.05.22 - Brown", "value": "09.05.22 - Brown (nr.21" },
   { "key": "01.06.12 - Whitened", "value": "01.06.12 - Whitened" },
   { "key": "01.27.16 - Whitened", "value": "01.27.16 - Whitened" },
   { "key": "31.01.17 - Whitened", "value": "31.01.17 - Whitened" },
@@ -21,8 +24,8 @@
   { "key": "27.04.17 - S2000 - N", "value": "27.04.17 - S2000-N" },
   { "key": "03.05.17 - S0500 - N", "value": "03.05.17 - S0500-N" },
   {
-    "key": "05.06.17 - Oak Auster(stone)",
-    "value": "05.06.17 - Oak Auster(stone)"
+    "key": "05.06.17 - Oak Auster (stone)",
+    "value": "05.06.17 - Oak Auster (stone)"
   },
   { "key": "23.11.17 - S2040 - Y", "value": "23.11.17 - S2040-Y" },
   { "key": "10.10.18 - Brown", "value": "10.10.18 - Brown" },
@@ -31,11 +34,10 @@
   { "key": "24.04.19 - Brown", "value": "24.04.19 - Brown" },
   { "key": "27.08.19 - Whitened", "value": "27.08.19 - Whitened" },
   { "key": "08.11.19 - Brown", "value": "08.11.19 - Brown" },
-  { "key": "19.11.19 - Juoda", "value": "19.11.19 - Juoda" },
   { "key": "20.11.19 - Brown", "value": "20.11.19 - Brown" },
   { "key": "21.11.19 - Whitened", "value": "21.11.19 - Whitened" },
   { "key": "22.11.19 - Whitened", "value": "22.11.19 - Whitened" },
-  { "key": "02.01.20 - Brown", "value": "02.01.20 - Brown" },
+
   { "key": "12.02.20 - S5040 - Y90R", "value": "12.02.20 - S5040-Y90R" },
   { "key": "07.04.20 - S2000 - N", "value": "07.04.20 - S2000-N" },
   { "key": "07.05.20 - Vintage", "value": "07.05.20 - Vintage" },
@@ -50,7 +52,6 @@
   { "key": "28.09.21 - Nero Natur", "value": "28.09.21 - Nero Natur" },
   { "key": "18.03.22 - Grey", "value": "18.03.22 - Grey" },
   { "key": "25.04.22 - Whitened", "value": "25.04.22 - Whitened" },
-  { "key": "09.05.22 - Brown", "value": "09.05.22 - Brown" },
   { "key": "23.09.22 - Brown", "value": "23.09.22 - Brown" },
   {
     "key": "25.11.22 - Grey Smoked oak",
