@@ -21,6 +21,7 @@ import { Bounce, toast, ToastContainer } from "react-toastify";
 import { LangContext } from "../../context/LangContext";
 import { handleFormSubmit } from "../../helpers/formSubmitHandler";
 import ColorBox from "../ColorBox/ColorBox";
+import { DefaultInputValContext } from "../../context/DefaultInputValContext";
 
 interface FormData {
   Pavirsiai?: string;
@@ -48,13 +49,15 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
     setDecorCode(generatedCode || "");
   };
 
-  const context = useContext(LangContext);
+  const langContext = useContext(LangContext);
+  const defaultValContext = useContext(DefaultInputValContext);
 
-  if (!context) {
+  if (!langContext || !defaultValContext) {
     throw new Error("LangContext must be used within a LangProvider");
   }
 
-  const { lang } = context;
+  const { lang } = langContext;
+  const { defaultInputVal } = defaultValContext;
 
   return (
     <div className="formContainer">
@@ -142,6 +145,9 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
           </>
         )}
         <input
+          className={
+            defaultInputVal !== "default" ? "btnCopyActive" : "btnCopyDisabled"
+          }
           type="submit"
           value={
             lang === "lt" ? "Generuoti apdailos kodą" : "Generate decor code"

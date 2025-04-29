@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./form.css";
 import { UseFormRegisterReturn } from "react-hook-form";
+import { DefaultInputValContext } from "../../context/DefaultInputValContext";
 
 interface Option {
   bold?: number | undefined;
@@ -25,6 +26,14 @@ const FormSelect: React.FC<FormSelectProps> = ({
   customColorInput,
   lang,
 }) => {
+  const context = useContext(DefaultInputValContext);
+
+  if (!context) {
+    throw new Error("LangContext must be used within a LangProvider");
+  }
+
+  const { setDefaultInputVal } = context;
+
   return (
     <>
       {customColorInput ? (
@@ -39,7 +48,11 @@ const FormSelect: React.FC<FormSelectProps> = ({
       ) : (
         <>
           <label htmlFor={id}>{label}</label>
-          <select id={id} {...registerOptions}>
+          <select
+            id={id}
+            {...registerOptions}
+            onChange={(e) => setDefaultInputVal(e.target.value)}
+          >
             {options.map((option, index) => (
               <option
                 key={index}

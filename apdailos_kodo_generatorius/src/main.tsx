@@ -3,11 +3,14 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 import { LangProvider } from "./context/LangContext.tsx";
+import { DefaultValProvider } from "./context/DefaultInputValContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <LangProvider>
-    <StrictMode>
-      <App />
-    </StrictMode>
+    <DefaultValProvider>
+      <StrictMode>
+        <App />
+      </StrictMode>
+    </DefaultValProvider>
   </LangProvider>
 );
