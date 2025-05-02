@@ -3,13 +3,14 @@ import "./App.css";
 import Form from "./Components/Form/Form";
 import Header from "./Components/Header/Header";
 import Rules from "./Components/Rules/Rules";
-import { LangContext } from "./context/LangContext";
+import { Context } from "./context/Context";
+import StdSurfaceInfoBox from "./Components/StdSurfaceInfoBox/StdSurfaceInfoBox";
 
 function App() {
-  const context = useContext(LangContext);
+  const context = useContext(Context);
 
   if (!context) {
-    throw new Error("LangContext must be used within a LangProvider");
+    throw new Error("ontext must be used within a Provider");
   }
 
   const { lang, setLang } = context;
@@ -31,6 +32,7 @@ function App() {
         <Form title={lang === "lt" ? "DAŽYMAS" : "PAINT"} formType="paint" />
         <Form title="HUSEBY / FOSS" formType="hus" />
       </div>
+      <StdSurfaceInfoBox />
       <Rules />
       <footer style={{ marginTop: "3rem" }}>© Svenheim 2025</footer>
     </div>

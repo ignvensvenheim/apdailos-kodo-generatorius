@@ -1,15 +1,16 @@
-import React, { useContext } from "react";
+import React, { SetStateAction } from "react";
 import "./form.css";
 import { UseFormRegisterReturn } from "react-hook-form";
-import { DefaultInputValContext } from "../../context/DefaultInputValContext";
 
 interface Option {
   bold?: number | undefined;
   key: string;
   value: string;
+  image?: string;
 }
 
 interface FormSelectProps {
+  setDecorCode?: React.Dispatch<SetStateAction<string | null>>;
   id?: string;
   label?: string;
   options: Option[];
@@ -26,14 +27,6 @@ const FormSelect: React.FC<FormSelectProps> = ({
   customColorInput,
   lang,
 }) => {
-  const context = useContext(DefaultInputValContext);
-
-  if (!context) {
-    throw new Error("LangContext must be used within a LangProvider");
-  }
-
-  const { setDefaultInputVal } = context;
-
   return (
     <>
       {customColorInput ? (
@@ -51,7 +44,10 @@ const FormSelect: React.FC<FormSelectProps> = ({
           <select
             id={id}
             {...registerOptions}
-            onChange={(e) => setDefaultInputVal(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value === "" || e.target.value === "null")
+                console.log("nepasirinkta");
+            }}
           >
             {options.map((option, index) => (
               <option

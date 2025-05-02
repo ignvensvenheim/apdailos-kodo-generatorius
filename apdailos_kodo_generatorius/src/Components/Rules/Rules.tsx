@@ -1,6 +1,6 @@
 import "./rules.css";
 import { useContext } from "react";
-import { LangContext } from "../../context/LangContext";
+import { Context } from "../../context/Context";
 // json files in lithuanian
 import sutrumpinimai from "../../data/lt/sutrumpinimai.json";
 import klaiduAprasymas from "../../data/lt/klaiduAprasymas.json";
@@ -14,7 +14,7 @@ import klaiduAprasymasEN from "../../data/en/klaiduAprasymasEN.json";
 //
 
 function Rules() {
-  const context = useContext(LangContext);
+  const context = useContext(Context);
 
   if (!context) {
     throw new Error("LangContext must be used within a LangProvider");

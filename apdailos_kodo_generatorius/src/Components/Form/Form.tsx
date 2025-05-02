@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { SetStateAction, useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import FormSelect from "./FormSelect";
 // json files in lithuanian
@@ -18,12 +18,14 @@ import ncsApdailaEN from "../../data/en/ncsApdailaEN.json";
 //
 import { copyToClipboard } from "../../helpers/copyToClipboard";
 import { Bounce, toast, ToastContainer } from "react-toastify";
-import { LangContext } from "../../context/LangContext";
 import { handleFormSubmit } from "../../helpers/formSubmitHandler";
 import ColorBox from "../ColorBox/ColorBox";
-import { DefaultInputValContext } from "../../context/DefaultInputValContext";
+import StdImageBox from "../StdImageBox/StdImageBox";
+// Context
+import { useContextData } from "../../context/Context";
 
 interface FormData {
+  setDecorCode?: React.Dispatch<SetStateAction<string | null>>;
   Pavirsiai?: string;
   Apdaila?: string;
   Blizgumas?: string;
@@ -49,24 +51,17 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
     setDecorCode(generatedCode || "");
   };
 
-  const langContext = useContext(LangContext);
-  const defaultValContext = useContext(DefaultInputValContext);
-
-  if (!langContext || !defaultValContext) {
-    throw new Error("LangContext must be used within a LangProvider");
-  }
-
-  const { lang } = langContext;
-  const { defaultInputVal } = defaultValContext;
+  const { lang, setLang } = useContextData();
 
   return (
     <div className="formContainer">
       <form onSubmit={handleSubmit(onSubmit)}>
         <h3>{title}</h3>
-
+        {/* Form type according to required data */}
         {formType === "standard" && (
           <>
             <FormSelect
+              setDecorCode={setDecorCode}
               id="pavirsiai"
               label={lang === "lt" ? "Paviršiai" : "Surface"}
               options={lang === "lt" ? pavirsiai : pavirsiaiEN}
@@ -84,9 +79,33 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
               options={blizgumas}
               registerOptions={register("Blizgumas", { required: false })}
             />
+            <StdImageBox image="" />
           </>
         )}
-
+        {formType === "paint" && (
+          <>
+            <FormSelect
+              setDecorCode={setDecorCode}
+              id="pavirsiai"
+              label={lang === "lt" ? "Paviršiai" : "Surface"}
+              options={lang === "lt" ? pavirsiai : pavirsiaiEN}
+              registerOptions={register("Pavirsiai")}
+            />
+            <FormSelect
+              id="apdaila"
+              label={lang === "lt" ? "Standartinė apdaila" : "Standard decor"}
+              options={lang === "lt" ? ncsApdaila : ncsApdailaEN}
+              registerOptions={register("Apdaila")}
+            />
+            <FormSelect
+              registerOptions={register("custom")}
+              customColorInput="customColorInput"
+              options={[]}
+              lang={lang}
+            />
+            <ColorBox ncsCode={ncs} />
+          </>
+        )}
         {formType === "hus" && (
           <>
             <FormSelect
@@ -120,39 +139,16 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
             </p>
           </>
         )}
-        {formType === "paint" && (
-          <>
-            <FormSelect
-              id="pavirsiai"
-              label={lang === "lt" ? "Paviršiai" : "Surface"}
-              options={lang === "lt" ? pavirsiai : pavirsiaiEN}
-              registerOptions={register("Pavirsiai")}
-            />
-            <FormSelect
-              id="apdaila"
-              label={lang === "lt" ? "Standartinė apdaila" : "Standard decor"}
-              options={lang === "lt" ? ncsApdaila : ncsApdailaEN}
-              registerOptions={register("Apdaila")}
-            />
-            <FormSelect
-              registerOptions={register("custom")}
-              customColorInput="customColorInput"
-              options={[]}
-              lang={lang}
-            />
-
-            <ColorBox ncsCode={ncs} />
-          </>
-        )}
+        {/* ============================================== */}
+        {/* Surface dropdown select */}
         <input
-          className={
-            defaultInputVal !== "default" ? "btnCopyActive" : "btnCopyDisabled"
-          }
           type="submit"
           value={
             lang === "lt" ? "Generuoti apdailos kodą" : "Generate decor code"
           }
         />
+        {/* ============================================== */}
+        {/* Decor code copy button */}
         <button
           className={decorCode ? "btnCopyActive" : "btnCopyDisabled"}
           type="button"
@@ -164,28 +160,31 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
         >
           {lang === "lt" ? "Kopijuoti kodą" : "Copy decor code"}
         </button>
-        <ToastContainer
-          position="bottom-right"
-          autoClose={2000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick={false}
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-          transition={Bounce}
-        />
+        {/* ============================================== */}
       </form>
-
+      {/* ============================================== */}
+      {/* Generated decor code field */}
       {decorCode ? (
         <p className="decorCode">{decorCode}</p>
       ) : (
         <p className="decorCode">
           {lang === "lt" ? "Pasirinkite savybes" : "Select properties"}
         </p>
-      )}
+      )}{" "}
+      {/* ============================================== */}
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </div>
   );
 };
