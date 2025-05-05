@@ -6,10 +6,10 @@ interface ContextType {
   setLang: React.Dispatch<React.SetStateAction<string>>;
   stdImage: string;
   setStdImage: React.Dispatch<React.SetStateAction<string>>;
-  inputValue: string;
-  setInputValue: React.Dispatch<React.SetStateAction<string>>;
   selectName: string;
   setSelectName: React.Dispatch<React.SetStateAction<string>>;
+  showStdSurfWarning: boolean;
+  setShowStdSurfWarning: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 // Create context with undefined default (forces provider check)
@@ -28,8 +28,8 @@ export const useContextData = () => {
 export const ContextProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLang] = useState<string>("lt");
   const [stdImage, setStdImage] = useState<string>("");
-  const [inputValue, setInputValue] = useState<string>("null");
   const [selectName, setSelectName] = useState<string>("");
+  const [showStdSurfWarning, setShowStdSurfWarning] = useState<boolean>(false);
 
   return (
     <Context.Provider
@@ -38,10 +38,10 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
         setLang,
         stdImage,
         setStdImage,
-        inputValue,
-        setInputValue,
         selectName,
         setSelectName,
+        showStdSurfWarning,
+        setShowStdSurfWarning,
       }}
     >
       {children}

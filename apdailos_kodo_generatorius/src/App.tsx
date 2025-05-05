@@ -13,7 +13,7 @@ function App() {
     throw new Error("ontext must be used within a Provider");
   }
 
-  const { lang, setLang } = context;
+  const { lang, setLang, showStdSurfWarning } = context;
 
   return (
     <div className="appContainer">
@@ -32,7 +32,7 @@ function App() {
         <Form title={lang === "lt" ? "DAŽYMAS" : "PAINT"} formType="paint" />
         <Form title="HUSEBY / FOSS" formType="hus" />
       </div>
-      <StdSurfaceInfoBox />
+      {showStdSurfWarning ? <StdSurfaceInfoBox /> : ""}
       <Rules />
       <footer style={{ marginTop: "3rem" }}>© Svenheim 2025</footer>
     </div>

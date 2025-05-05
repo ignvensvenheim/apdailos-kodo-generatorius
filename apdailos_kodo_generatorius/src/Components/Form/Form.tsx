@@ -62,13 +62,17 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
     setDecorCode(generatedCode || "");
   };
 
-  const { lang } = useContextData();
+  const { lang, stdImage, setShowStdSurfWarning } = useContextData();
 
   const handleSelectChange = (id: string, value: string) => {
     setSelectedValues((prev) => ({
       ...prev,
       [id]: value,
     }));
+
+    if (value === "A") {
+      setShowStdSurfWarning(true);
+    }
   };
 
   useEffect(() => {
@@ -87,7 +91,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
     );
 
     setGenerateCodeDisabled(hasUnselected);
-  }, [selectedValues, formType]);
+  }, [selectedValues, formType, decorCode]);
 
   return (
     <div className="formContainer">
@@ -118,7 +122,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
               options={blizgumas}
               registerOptions={register("Blizgumas", { required: false })}
             />
-            <StdImageBox image="" />
+            {stdImage ? <StdImageBox image={stdImage} /> : ""}
           </>
         )}
         {formType === "paint" && (

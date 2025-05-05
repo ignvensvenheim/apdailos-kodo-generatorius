@@ -1,6 +1,7 @@
 import React, { SetStateAction } from "react";
 import "./form.css";
 import { UseFormRegisterReturn } from "react-hook-form";
+import { useContextData } from "../../context/Context";
 // import { useContextData } from "../../context/Context";
 
 interface Option {
@@ -30,7 +31,17 @@ const FormSelect: React.FC<FormSelectProps> = ({
   lang,
   onSelectChange,
 }) => {
-  // const { setInputValue } = useContextData();
+  const { setStdImage } = useContextData();
+
+  const setImage = (id: string) => {
+    const currentImage = options.find((obj) => obj.key === id);
+
+    if (currentImage?.image) {
+      setStdImage(currentImage?.image);
+    } else {
+      setStdImage(".");
+    }
+  };
 
   return (
     <>
@@ -47,16 +58,20 @@ const FormSelect: React.FC<FormSelectProps> = ({
         <>
           <label htmlFor={id}>{label}</label>
           <select
+            defaultValue={"default"}
             id={id}
             {...registerOptions}
             onChange={(e) => {
-              console.log(id);
               if (onSelectChange && id) {
                 onSelectChange(id, e.target.value);
               }
+
+              setImage(e.target.value);
             }}
           >
-            <option value="null" disabled selected></option>
+            <option value="default" disabled>
+              -
+            </option>
             {options.map((option, index) => (
               <option
                 key={index}

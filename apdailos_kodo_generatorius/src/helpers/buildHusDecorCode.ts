@@ -12,7 +12,7 @@ export const buildHusDecorCode = (data: {
     const bottomCode = data.Bottom.split(" - ")[0];
     const briaunosCode = data.Briaunos.split(" - ")[0];
   
-    const generatedCode = `${percentageDate} ${topCode}/${bottomCode}/${briaunosCode}`;
+    const generatedCode = `${percentageDate}=${topCode}/${bottomCode}/${briaunosCode}`;
   
     return generatedCode;
   };
