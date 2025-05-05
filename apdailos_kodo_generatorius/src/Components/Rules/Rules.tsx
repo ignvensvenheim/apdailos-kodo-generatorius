@@ -2,15 +2,15 @@ import "./rules.css";
 import { useContext } from "react";
 import { Context } from "../../context/Context";
 // json files in lithuanian
-import sutrumpinimai from "../../data/lt/sutrumpinimai.json";
-import klaiduAprasymas from "../../data/lt/klaiduAprasymas.json";
+import sutrumpinimai from "../../data/lt/text/sutrumpinimai.json";
+import klaiduAprasymas from "../../data/lt/text/klaiduAprasymas.json";
 import SingleRuleBlock from "./SingleRuleBlock";
-import apdailosPvz from "../../data/lt/apdailosPvz.json";
+import apdailosPvz from "../../data/lt/text/apdailosPvz.json";
 //
 // json files in english
-import apdailosPvzEN from "../../data/en/apdailosPvzEN.json";
-import sutrumpinimaiEN from "../../data/en/sutrumpinimaiEN.json";
-import klaiduAprasymasEN from "../../data/en/klaiduAprasymasEN.json";
+import apdailosPvzEN from "../../data/en/text/apdailosPvzEN.json";
+import sutrumpinimaiEN from "../../data/en/text/sutrumpinimaiEN.json";
+import klaiduAprasymasEN from "../../data/en/text/klaiduAprasymasEN.json";
 //
 
 function Rules() {

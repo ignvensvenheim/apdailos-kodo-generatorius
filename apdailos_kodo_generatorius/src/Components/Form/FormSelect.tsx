@@ -1,6 +1,7 @@
 import React, { SetStateAction } from "react";
 import "./form.css";
 import { UseFormRegisterReturn } from "react-hook-form";
+// import { useContextData } from "../../context/Context";
 
 interface Option {
   bold?: number | undefined;
@@ -17,6 +18,7 @@ interface FormSelectProps {
   registerOptions?: UseFormRegisterReturn;
   customColorInput?: string;
   lang?: string;
+  onSelectChange?: (id: string, value: string) => void;
 }
 
 const FormSelect: React.FC<FormSelectProps> = ({
@@ -26,7 +28,10 @@ const FormSelect: React.FC<FormSelectProps> = ({
   registerOptions,
   customColorInput,
   lang,
+  onSelectChange,
 }) => {
+  // const { setInputValue } = useContextData();
+
   return (
     <>
       {customColorInput ? (
@@ -45,10 +50,13 @@ const FormSelect: React.FC<FormSelectProps> = ({
             id={id}
             {...registerOptions}
             onChange={(e) => {
-              if (e.target.value === "" || e.target.value === "null")
-                console.log("nepasirinkta");
+              console.log(id);
+              if (onSelectChange && id) {
+                onSelectChange(id, e.target.value);
+              }
             }}
           >
+            <option value="null" disabled selected></option>
             {options.map((option, index) => (
               <option
                 key={index}

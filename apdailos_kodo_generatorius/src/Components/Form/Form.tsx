@@ -1,20 +1,20 @@
-import React, { SetStateAction, useContext, useState } from "react";
+import React, { SetStateAction, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import FormSelect from "./FormSelect";
 // json files in lithuanian
-import apdaila from "../../data/lt/apdaila.json";
-import pavirsiai from "../../data/lt/pavirsiai.json";
-import blizgumas from "../../data/lt/blizgumas.json";
-import husPavirsiai from "../../data/lt/husPavirsiai.json";
-import husApdaila from "../../data/lt/husApdaila.json";
-import ncsApdaila from "../../data/lt/ncsApdaila.json";
+import apdaila from "../../data/lt/data/apdaila.json";
+import pavirsiai from "../../data/lt/data/pavirsiai.json";
+import blizgumas from "../../data/lt/data/blizgumas.json";
+import husPavirsiai from "../../data/lt/data/husPavirsiai.json";
+import husApdaila from "../../data/lt/data/husApdaila.json";
+import ncsApdaila from "../../data/lt/data/ncsApdaila.json";
 //
 // json files in english
-import pavirsiaiEN from "../../data/en/pavirsiaiEN.json";
-import apdailaEN from "../../data/en/apdailaEN.json";
-import husApdailaEN from "../../data/en/husApdailaEN.json";
-import husPavirsiaiEN from "../../data/en/husPavirsiaiEN.json";
-import ncsApdailaEN from "../../data/en/ncsApdailaEN.json";
+import pavirsiaiEN from "../../data/en/data/pavirsiaiEN.json";
+import apdailaEN from "../../data/en/data/apdailaEN.json";
+import husApdailaEN from "../../data/en/data/husApdailaEN.json";
+import husPavirsiaiEN from "../../data/en/data/husPavirsiaiEN.json";
+import ncsApdailaEN from "../../data/en/data/ncsApdailaEN.json";
 //
 import { copyToClipboard } from "../../helpers/copyToClipboard";
 import { Bounce, toast, ToastContainer } from "react-toastify";
@@ -33,6 +33,7 @@ interface FormData {
   Bottom?: string;
   Briaunos?: string;
   custom?: string;
+  onSelectChange: (id: string, value: string) => void;
 }
 
 interface FormProps {
@@ -44,6 +45,16 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
   const { register, handleSubmit } = useForm<FormData>();
   const [decorCode, setDecorCode] = useState<string | null>(null);
   const [ncs, setNcs] = useState<string>();
+  const [generateCodeDisabled, setGenerateCodeDisabled] =
+    useState<boolean>(true);
+  const [selectedValues, setSelectedValues] = useState({
+    apdaila: "null",
+    pavirsiai: "null",
+    blizgumas: "null",
+    top: "null",
+    bottom: "null",
+    briaunos: "null",
+  });
 
   const onSubmit = (data: FormData) => {
     data.custom ? setNcs(data.custom) : setNcs(data.Apdaila);
@@ -51,7 +62,32 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
     setDecorCode(generatedCode || "");
   };
 
-  const { lang, setLang } = useContextData();
+  const { lang } = useContextData();
+
+  const handleSelectChange = (id: string, value: string) => {
+    setSelectedValues((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
+
+  useEffect(() => {
+    let requiredFields: string[] = [];
+
+    if (formType === "standard") {
+      requiredFields = ["apdaila", "pavirsiai", "blizgumas"];
+    } else if (formType === "paint") {
+      requiredFields = ["apdaila", "pavirsiai"];
+    } else if (formType === "hus") {
+      requiredFields = ["apdaila", "top", "bottom", "briaunos"];
+    }
+
+    const hasUnselected = requiredFields.some(
+      (field) => selectedValues[field as keyof typeof selectedValues] === "null"
+    );
+
+    setGenerateCodeDisabled(hasUnselected);
+  }, [selectedValues, formType]);
 
   return (
     <div className="formContainer">
@@ -61,6 +97,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
         {formType === "standard" && (
           <>
             <FormSelect
+              onSelectChange={handleSelectChange}
               setDecorCode={setDecorCode}
               id="pavirsiai"
               label={lang === "lt" ? "Paviršiai" : "Surface"}
@@ -68,12 +105,14 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
               registerOptions={register("Pavirsiai", { required: false })}
             />
             <FormSelect
+              onSelectChange={handleSelectChange}
               id="apdaila"
               label={lang === "lt" ? "Apdaila" : "Decor"}
               options={lang === "lt" ? apdaila : apdailaEN}
               registerOptions={register("Apdaila", { required: false })}
             />
             <FormSelect
+              onSelectChange={handleSelectChange}
               id="blizgumas"
               label={lang === "lt" ? "Blizgumas" : "Glossiness"}
               options={blizgumas}
@@ -85,6 +124,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
         {formType === "paint" && (
           <>
             <FormSelect
+              onSelectChange={handleSelectChange}
               setDecorCode={setDecorCode}
               id="pavirsiai"
               label={lang === "lt" ? "Paviršiai" : "Surface"}
@@ -92,12 +132,14 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
               registerOptions={register("Pavirsiai")}
             />
             <FormSelect
+              onSelectChange={handleSelectChange}
               id="apdaila"
               label={lang === "lt" ? "Standartinė apdaila" : "Standard decor"}
               options={lang === "lt" ? ncsApdaila : ncsApdailaEN}
               registerOptions={register("Apdaila")}
             />
             <FormSelect
+              onSelectChange={handleSelectChange}
               registerOptions={register("custom")}
               customColorInput="customColorInput"
               options={[]}
@@ -109,24 +151,28 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
         {formType === "hus" && (
           <>
             <FormSelect
+              onSelectChange={handleSelectChange}
               id="apdaila"
               label={lang === "lt" ? "Apdaila" : "Decor"}
               options={lang === "lt" ? husApdaila : husApdailaEN}
               registerOptions={register("Apdaila", { required: true })}
             />
             <FormSelect
+              onSelectChange={handleSelectChange}
               id="top"
               label={lang === "lt" ? "Top paviršius" : "Top surface"}
               options={lang === "lt" ? husPavirsiai : husPavirsiaiEN}
               registerOptions={register("Top", { required: true })}
             />
             <FormSelect
+              onSelectChange={handleSelectChange}
               id="bottom"
               label={lang === "lt" ? "Bottom paviršius" : "Bottom surface"}
               options={lang === "lt" ? husPavirsiai : husPavirsiaiEN}
               registerOptions={register("Bottom", { required: true })}
             />
             <FormSelect
+              onSelectChange={handleSelectChange}
               id="briaunos"
               label={lang === "lt" ? "Briaunos" : "Edges"}
               options={lang === "lt" ? husPavirsiai : husPavirsiaiEN}
@@ -142,6 +188,9 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
         {/* ============================================== */}
         {/* Surface dropdown select */}
         <input
+          className={
+            !generateCodeDisabled ? "btnCopyActive" : "btnCopyDisabled"
+          }
           type="submit"
           value={
             lang === "lt" ? "Generuoti apdailos kodą" : "Generate decor code"
