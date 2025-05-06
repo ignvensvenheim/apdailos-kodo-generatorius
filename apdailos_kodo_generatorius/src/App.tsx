@@ -1,19 +1,13 @@
-import { useContext } from "react";
 import "./App.css";
 import Form from "./Components/Form/Form";
 import Header from "./Components/Header/Header";
 import Rules from "./Components/Rules/Rules";
-import { Context } from "./context/Context";
+
 import StdSurfaceInfoBox from "./Components/StdSurfaceInfoBox/StdSurfaceInfoBox";
+import { useContextData } from "./context/Context";
 
 function App() {
-  const context = useContext(Context);
-
-  if (!context) {
-    throw new Error("ontext must be used within a Provider");
-  }
-
-  const { lang, setLang, showStdSurfWarning } = context;
+  const { lang, setLang, showStdSurfWarning } = useContextData();
 
   return (
     <div className="appContainer">

@@ -1,0 +1,32 @@
+ul {
+  position: fixed;
+  bottom: 80px;
+  right: 80px;
+  padding: 2.5rem;
+  margin-top: 0.5rem;
+  width: auto;
+  height: auto;
+  background-color: #eaf2fd;
+  border: 1px solid #90dbf433;
+  border-radius: 4px;
+
+  .infoIcon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: rgb(69, 122, 227);
+  }
+
+  .closeIcon {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: rgb(0, 0, 0);
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      color: red;
+    }
+  }
+}
