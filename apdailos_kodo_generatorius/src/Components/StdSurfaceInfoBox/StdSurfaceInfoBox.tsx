@@ -4,25 +4,41 @@ import { BsXCircle } from "react-icons/bs";
 import { useContextData } from "../../context/Context";
 
 function StdSurfaceInfoBox() {
-  const { setShowStdSurfWarning } = useContextData();
+  const { setShowStdSurfWarning, lang } = useContextData();
 
   return (
     <ul>
       <FaExclamationCircle className="infoIcon" size={20} />
       <BsXCircle
         className="closeIcon"
-        size={23}
+        size={20}
         onClick={() => setShowStdSurfWarning(false)}
       />
-      <li>
-        *Standartiškai <b>neapdailinami</b> paviršiai:
-      </li>
-      <li>Popierius</li>
-      <li>HPL/CPL</li>
-      <li>Linoleumas</li>
-      <li>ABS briauna</li>
-      <li>Hole</li>
-      <li>Plokštė (Spon, MDF, ...)</li>
+      {lang === "lt" ? (
+        <>
+          <li>
+            *Standartiškai <b>neapdailinami</b> paviršiai:
+          </li>
+          <li>Popierius</li>
+          <li>HPL/CPL</li>
+          <li>Linoleumas</li>
+          <li>ABS briauna</li>
+          <li>Hole</li>
+          <li>Plokštė (Spon, MDF, ...)</li>
+        </>
+      ) : (
+        <>
+          <li>
+            *Standard <b>unfinished </b> surfaces:
+          </li>
+          <li>Paper</li>
+          <li>HPL/CPL</li>
+          <li>Linoleum</li>
+          <li>ABS edge</li>
+          <li>Hole</li>
+          <li>Panel (Spon, MDF, ...)</li>
+        </>
+      )}
     </ul>
   );
 }

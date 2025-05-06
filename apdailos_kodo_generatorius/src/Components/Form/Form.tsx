@@ -57,7 +57,11 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
     custom: "",
   });
 
-  console.log(selectedValues);
+  // context
+
+  const { lang, stdImage, setShowStdSurfWarning } = useContextData();
+
+  // on submit to generate decor code
 
   const onSubmit = (data: FormData) => {
     data.custom ? setNcs(data.custom) : setNcs(data.Apdaila);
@@ -65,7 +69,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
     setDecorCode(generatedCode || "");
   };
 
-  const { lang, stdImage, setShowStdSurfWarning } = useContextData();
+  // check if selected values has All surfaces selected to throw info message
 
   const handleSelectChange = (id: string, value: string) => {
     setSelectedValues((prev) => ({
@@ -77,6 +81,8 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
       setShowStdSurfWarning(true);
     }
   };
+
+  // watch values to determine whether to let generate code or more selects needed
 
   useEffect(() => {
     let isFormValid = false;
@@ -237,9 +243,9 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
       )}
       {/* ============================================== */}
       <ToastContainer
-        position="bottom-right"
+        position="bottom-center"
         autoClose={2000}
-        hideProgressBar={false}
+        hideProgressBar={true}
         newestOnTop={false}
         closeOnClick={false}
         rtl={false}

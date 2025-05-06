@@ -10,8 +10,6 @@ const StdImageBox: React.FC<StdImageBoxProps> = ({ image }) => {
       className="stdImageBox"
       style={{
         backgroundImage: `url(${image})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
       }}
     ></div>
   );
