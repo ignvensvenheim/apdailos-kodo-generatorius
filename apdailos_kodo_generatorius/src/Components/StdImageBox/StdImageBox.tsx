@@ -1,3 +1,5 @@
+import "./stdImageBox.css";
+
 interface StdImageBoxProps {
   image: string;
 }
@@ -5,13 +7,11 @@ interface StdImageBoxProps {
 const StdImageBox: React.FC<StdImageBoxProps> = ({ image }) => {
   return (
     <div
+      className="stdImageBox"
       style={{
-        marginTop: "0.5rem",
-        width: "100%",
-        height: "100px",
-        background: `url(${image})`,
-        border: "1px solid #ccc",
-        borderRadius: "4px",
+        backgroundImage: `url(${image})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
       }}
     ></div>
   );

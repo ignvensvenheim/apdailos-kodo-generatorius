@@ -54,7 +54,10 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
     top: "null",
     bottom: "null",
     briaunos: "null",
+    custom: "",
   });
+
+  console.log(selectedValues);
 
   const onSubmit = (data: FormData) => {
     data.custom ? setNcs(data.custom) : setNcs(data.Apdaila);
@@ -76,22 +79,29 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
   };
 
   useEffect(() => {
-    let requiredFields: string[] = [];
+    let isFormValid = false;
 
     if (formType === "standard") {
-      requiredFields = ["apdaila", "pavirsiai", "blizgumas"];
-    } else if (formType === "paint") {
-      requiredFields = ["apdaila", "pavirsiai"];
+      isFormValid =
+        selectedValues["apdaila"] !== "null" &&
+        selectedValues["pavirsiai"] !== "null" &&
+        selectedValues["blizgumas"] !== "null";
     } else if (formType === "hus") {
-      requiredFields = ["apdaila", "top", "bottom", "briaunos"];
+      isFormValid =
+        selectedValues["apdaila"] !== "null" &&
+        selectedValues["top"] !== "null" &&
+        selectedValues["bottom"] !== "null" &&
+        selectedValues["briaunos"] !== "null";
+    } else if (formType === "paint") {
+      const pavirsiaiSelected = selectedValues["pavirsiai"] !== "null";
+      const apdailaSelected = selectedValues["apdaila"] !== "null";
+      const customFilled = selectedValues["custom"]?.trim() !== "";
+
+      isFormValid = pavirsiaiSelected && (apdailaSelected || customFilled);
     }
 
-    const hasUnselected = requiredFields.some(
-      (field) => selectedValues[field as keyof typeof selectedValues] === "null"
-    );
-
-    setGenerateCodeDisabled(hasUnselected);
-  }, [selectedValues, formType, decorCode]);
+    setGenerateCodeDisabled(!isFormValid);
+  }, [selectedValues, formType]);
 
   return (
     <div className="formContainer">
@@ -143,6 +153,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
               registerOptions={register("Apdaila")}
             />
             <FormSelect
+              id="custom"
               onSelectChange={handleSelectChange}
               registerOptions={register("custom")}
               customColorInput="customColorInput"
@@ -223,7 +234,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
         <p className="decorCode">
           {lang === "lt" ? "Pasirinkite savybes" : "Select properties"}
         </p>
-      )}{" "}
+      )}
       {/* ============================================== */}
       <ToastContainer
         position="bottom-right"

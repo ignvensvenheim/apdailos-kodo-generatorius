@@ -36,11 +36,7 @@ const FormSelect: React.FC<FormSelectProps> = ({
   const setImage = (id: string) => {
     const currentImage = options.find((obj) => obj.key === id);
 
-    if (currentImage?.image) {
-      setStdImage(currentImage?.image);
-    } else {
-      setStdImage(".");
-    }
+    if (currentImage?.image) setStdImage(currentImage?.image);
   };
 
   return (
@@ -52,7 +48,17 @@ const FormSelect: React.FC<FormSelectProps> = ({
               ? "Nestandartinis apdailos kodas"
               : "Custom color code"}
           </label>
-          <input id="custom" type="text" {...registerOptions} maxLength={10} />
+          <input
+            id="custom"
+            type="text"
+            {...registerOptions}
+            maxLength={10}
+            onChange={(e) => {
+              if (onSelectChange && id) {
+                onSelectChange(id, e.target.value);
+              }
+            }}
+          />
         </>
       ) : (
         <>
