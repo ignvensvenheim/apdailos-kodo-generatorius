@@ -1,3 +1,4 @@
+import "./colorBox.css";
 import ncsColor from "ncs-color";
 
 // ncs-color convertion package that coverts ncs color code to hex or rgb color code.
@@ -33,9 +34,11 @@ function ColorBox({ ncsCode }: ColorBoxProps) {
   return (
     <div
       style={{
-        marginTop: "0.5rem",
-        width: "100%",
-        height: "100px",
+        position: "absolute",
+        right: "15px",
+        bottom: "132px",
+        width: "306px",
+        height: "260px",
         backgroundColor: hexValue,
         border: "1px solid #ccc",
         borderRadius: "4px",

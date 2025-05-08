@@ -94,7 +94,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
         selectedValues["blizgumas"] !== "null";
     } else if (formType === "hus") {
       isFormValid =
-        selectedValues["apdaila"] !== "null" &&
+        !!selectedValues["apdaila"] &&
         selectedValues["top"] !== "null" &&
         selectedValues["bottom"] !== "null" &&
         selectedValues["briaunos"] !== "null";
@@ -242,6 +242,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
         </p>
       )}
       {/* ============================================== */}
+
       <ToastContainer
         position="bottom-center"
         autoClose={2000}
