@@ -2,7 +2,6 @@ import React, { SetStateAction } from "react";
 import "./form.css";
 import { UseFormRegisterReturn } from "react-hook-form";
 import { useContextData } from "../../context/Context";
-// import { useContextData } from "../../context/Context";
 
 interface Option {
   bold?: number | undefined;

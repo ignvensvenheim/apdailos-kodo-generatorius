@@ -10,17 +10,25 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-@media only screen and (min-width: 769px) and (max-width: 1280px) {
+@media only screen and (min-width: 769px) and (max-width: 1600px) {
   .formsContainer {
     grid-template-columns: 1fr 1fr;
   }
+
+  .decorCode {
+    margin-top: 8rem;
+  }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
   .appContainer {
     padding: 1rem;
   }
   .formsContainer {
     grid-template-columns: 1fr;
+  }
+
+  .decorCode {
+    margin-top: 8rem;
   }
 }

@@ -4,9 +4,8 @@
   grid-template-columns: 1fr;
   border: 1px solid rgb(194, 194, 194);
   border-radius: 4px;
-  position: relative;
 
-  form {
+  form section {
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -26,8 +25,12 @@
     }
   }
 
+  .copyGenerateButtons {
+    width: max-content;
+    margin-top: -0.5rem;
+  }
+
   .decorCode {
-    margin-top: 4rem;
     text-align: center;
     align-self: end;
     height: fit-content;

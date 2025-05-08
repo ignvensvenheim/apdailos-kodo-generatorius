@@ -82,7 +82,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
     }
   };
 
-  // watch values to determine whether to let generate code or more selects needed
+  // watch values to determine whether to let generate code or more fields selected needed
 
   useEffect(() => {
     let isFormValid = false;
@@ -115,7 +115,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
         <h3>{title}</h3>
         {/* Form type according to required data */}
         {formType === "standard" && (
-          <>
+          <section>
             <FormSelect
               onSelectChange={handleSelectChange}
               setDecorCode={setDecorCode}
@@ -139,10 +139,10 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
               registerOptions={register("Blizgumas", { required: false })}
             />
             <StdImageBox image={stdImage} />
-          </>
+          </section>
         )}
         {formType === "paint" && (
-          <>
+          <section>
             <FormSelect
               onSelectChange={handleSelectChange}
               setDecorCode={setDecorCode}
@@ -167,10 +167,10 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
               lang={lang}
             />
             <ColorBox ncsCode={ncs} />
-          </>
+          </section>
         )}
         {formType === "hus" && (
-          <>
+          <section>
             <FormSelect
               onSelectChange={handleSelectChange}
               id="apdaila"
@@ -204,32 +204,34 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
                 ? "* pagal nurodyta apdailą, jei nenurodyta tada apdaila gl.5"
                 : "* according to decor selected, if not selected then decor is gl.5"}
             </p>
-          </>
+          </section>
         )}
         {/* ============================================== */}
         {/* Surface dropdown select */}
-        <input
-          className={
-            !generateCodeDisabled ? "btnCopyActive" : "btnCopyDisabled"
-          }
-          type="submit"
-          value={
-            lang === "lt" ? "Generuoti apdailos kodą" : "Generate decor code"
-          }
-        />
-        {/* ============================================== */}
-        {/* Decor code copy button */}
-        <button
-          className={decorCode ? "btnCopyActive" : "btnCopyDisabled"}
-          type="button"
-          onClick={() => {
-            copyToClipboard(decorCode || "");
-            if (lang === "lt") toast("Kodas nukopijuotas");
-            if (lang === "en") toast("Code copied");
-          }}
-        >
-          {lang === "lt" ? "Kopijuoti kodą" : "Copy decor code"}
-        </button>
+        <section className="copyGenerateButtons">
+          <input
+            className={
+              !generateCodeDisabled ? "btnCopyActive" : "btnCopyDisabled"
+            }
+            type="submit"
+            value={
+              lang === "lt" ? "Generuoti apdailos kodą" : "Generate decor code"
+            }
+          />
+          {/* ============================================== */}
+          {/* Decor code copy button */}
+          <button
+            className={decorCode ? "btnCopyActive" : "btnCopyDisabled"}
+            type="button"
+            onClick={() => {
+              copyToClipboard(decorCode || "");
+              if (lang === "lt") toast("Kodas nukopijuotas");
+              if (lang === "en") toast("Code copied");
+            }}
+          >
+            {lang === "lt" ? "Kopijuoti kodą" : "Copy decor code"}
+          </button>
+        </section>
         {/* ============================================== */}
       </form>
       {/* ============================================== */}
