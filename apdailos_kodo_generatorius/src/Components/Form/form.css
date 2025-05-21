@@ -5,6 +5,13 @@
   border: 1px solid rgb(194, 194, 194);
   border-radius: 4px;
 
+  .test {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
   form section {
     text-align: left;
     display: flex;

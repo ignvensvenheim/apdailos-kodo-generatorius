@@ -1,13 +1,14 @@
 import React, { SetStateAction } from "react";
 import "./form.css";
 import { UseFormRegisterReturn } from "react-hook-form";
-import { useContextData } from "../../context/Context";
 
 interface Option {
   bold?: number | undefined;
   key: string;
   value: string;
   image?: string;
+  mediena?: string;
+  apdaila?: string;
 }
 
 interface FormSelectProps {
@@ -30,14 +31,6 @@ const FormSelect: React.FC<FormSelectProps> = ({
   lang,
   onSelectChange,
 }) => {
-  const { setStdImage } = useContextData();
-
-  const setImage = (id: string) => {
-    const currentImage = options.find((obj) => obj.key === id);
-
-    if (currentImage?.image) setStdImage(currentImage?.image);
-  };
-
   return (
     <>
       {customColorInput ? (
@@ -70,8 +63,6 @@ const FormSelect: React.FC<FormSelectProps> = ({
               if (onSelectChange && id) {
                 onSelectChange(id, e.target.value);
               }
-
-              setImage(e.target.value);
             }}
           >
             <option value="default" disabled>

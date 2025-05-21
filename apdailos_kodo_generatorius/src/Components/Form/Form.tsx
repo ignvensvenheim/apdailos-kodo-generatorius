@@ -1,3 +1,4 @@
+import "./form.css";
 import React, { SetStateAction, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import FormSelect from "./FormSelect";
@@ -8,6 +9,8 @@ import blizgumas from "../../data/lt/data/blizgumas.json";
 import husPavirsiai from "../../data/lt/data/husPavirsiai.json";
 import husApdaila from "../../data/lt/data/husApdaila.json";
 import ncsApdaila from "../../data/lt/data/ncsApdaila.json";
+import mediena from "../../data/lt/data/mediena.json";
+import medienaList from "../../data/lt/data/medienaList.json";
 //
 // json files in english
 import pavirsiaiEN from "../../data/en/data/pavirsiaiEN.json";
@@ -15,6 +18,7 @@ import apdailaEN from "../../data/en/data/apdailaEN.json";
 import husApdailaEN from "../../data/en/data/husApdailaEN.json";
 import husPavirsiaiEN from "../../data/en/data/husPavirsiaiEN.json";
 import ncsApdailaEN from "../../data/en/data/ncsApdailaEN.json";
+import medienaEN from "../../data/en/data/medienaEN.json";
 //
 import { copyToClipboard } from "../../helpers/copyToClipboard";
 import { Bounce, toast, ToastContainer } from "react-toastify";
@@ -33,6 +37,7 @@ interface FormData {
   Bottom?: string;
   Briaunos?: string;
   custom?: string;
+  Mediena?: string;
   onSelectChange: (id: string, value: string) => void;
 }
 
@@ -54,12 +59,27 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
     top: "null",
     bottom: "null",
     briaunos: "null",
+    mediena: "null",
     custom: "",
   });
 
   // context
 
-  const { lang, stdImage, setShowStdSurfWarning } = useContextData();
+  const { lang, stdImage, setStdImage, setShowStdSurfWarning } =
+    useContextData();
+
+  // image change
+
+  useEffect(() => {
+    const imageData = medienaList.find(
+      (el) =>
+        el.value === selectedValues.mediena && el.key === selectedValues.apdaila
+    );
+
+    const image = imageData?.image || "";
+
+    setStdImage(image);
+  }, [selectedValues]);
 
   // on submit to generate decor code
 
@@ -124,13 +144,26 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
               options={lang === "lt" ? pavirsiai : pavirsiaiEN}
               registerOptions={register("Pavirsiai", { required: false })}
             />
-            <FormSelect
-              onSelectChange={handleSelectChange}
-              id="apdaila"
-              label={lang === "lt" ? "Apdaila" : "Decor"}
-              options={lang === "lt" ? apdaila : apdailaEN}
-              registerOptions={register("Apdaila", { required: false })}
-            />
+            <section className="test">
+              <div>
+                <FormSelect
+                  onSelectChange={handleSelectChange}
+                  id="apdaila"
+                  label={lang === "lt" ? "Apdaila" : "Decor"}
+                  options={lang === "lt" ? apdaila : apdailaEN}
+                  registerOptions={register("Apdaila", { required: false })}
+                />{" "}
+              </div>
+              <div>
+                <FormSelect
+                  onSelectChange={handleSelectChange}
+                  id="mediena"
+                  label={lang === "lt" ? "Mediena" : "Wood"}
+                  options={lang === "lt" ? mediena : medienaEN}
+                  registerOptions={register("Mediena", { required: false })}
+                />
+              </div>
+            </section>
             <FormSelect
               onSelectChange={handleSelectChange}
               id="blizgumas"
