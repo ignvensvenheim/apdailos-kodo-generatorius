@@ -5,11 +5,15 @@
   border: 1px solid rgb(194, 194, 194);
   border-radius: 4px;
 
-  .test {
+  .decorWoodContainer {
     margin-top: 0.5rem;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 70% 27%;
     gap: 1rem;
+
+    div select {
+      width: 100%;
+    }
   }
 
   form section {

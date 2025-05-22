@@ -9,8 +9,8 @@ import blizgumas from "../../data/lt/data/blizgumas.json";
 import husPavirsiai from "../../data/lt/data/husPavirsiai.json";
 import husApdaila from "../../data/lt/data/husApdaila.json";
 import ncsApdaila from "../../data/lt/data/ncsApdaila.json";
-import mediena from "../../data/lt/data/mediena.json";
-import medienaList from "../../data/lt/data/medienaList.json";
+import medienaLT from "../../data/lt/data/mediena.json";
+import medienaList from "../../data/lt/data/medienaListLT.json";
 //
 // json files in english
 import pavirsiaiEN from "../../data/en/data/pavirsiaiEN.json";
@@ -19,6 +19,7 @@ import husApdailaEN from "../../data/en/data/husApdailaEN.json";
 import husPavirsiaiEN from "../../data/en/data/husPavirsiaiEN.json";
 import ncsApdailaEN from "../../data/en/data/ncsApdailaEN.json";
 import medienaEN from "../../data/en/data/medienaEN.json";
+
 //
 import { copyToClipboard } from "../../helpers/copyToClipboard";
 import { Bounce, toast, ToastContainer } from "react-toastify";
@@ -68,18 +69,19 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
   const { lang, stdImage, setStdImage, setShowStdSurfWarning } =
     useContextData();
 
-  // image change
+  // image change. If decor and wood are both selected, then it will find matching image based on key and value pair in decors with images list
 
   useEffect(() => {
-    const imageData = medienaList.find(
-      (el) =>
+    const imageData = medienaList.find((el) => {
+      return (
         el.value === selectedValues.mediena && el.key === selectedValues.apdaila
-    );
+      );
+    });
 
-    const image = imageData?.image || "";
+    const image = imageData?.image;
 
-    setStdImage(image);
-  }, [selectedValues]);
+    image && setStdImage(image);
+  }, [selectedValues, lang]);
 
   // on submit to generate decor code
 
@@ -144,7 +146,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
               options={lang === "lt" ? pavirsiai : pavirsiaiEN}
               registerOptions={register("Pavirsiai", { required: false })}
             />
-            <section className="test">
+            <section className="decorWoodContainer">
               <div>
                 <FormSelect
                   onSelectChange={handleSelectChange}
@@ -159,7 +161,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
                   onSelectChange={handleSelectChange}
                   id="mediena"
                   label={lang === "lt" ? "Mediena" : "Wood"}
-                  options={lang === "lt" ? mediena : medienaEN}
+                  options={lang === "lt" ? medienaLT : medienaEN}
                   registerOptions={register("Mediena", { required: false })}
                 />
               </div>
