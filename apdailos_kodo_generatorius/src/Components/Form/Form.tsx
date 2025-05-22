@@ -173,7 +173,10 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
               options={blizgumas}
               registerOptions={register("Blizgumas", { required: false })}
             />
-            <StdImageBox image={stdImage} />
+            <StdImageBox
+              image={stdImage}
+              name={`${selectedValues.apdaila} ${selectedValues.mediena}`}
+            />
           </section>
         )}
         {formType === "paint" && (

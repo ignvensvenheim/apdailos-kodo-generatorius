@@ -9,4 +9,18 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  position: relative;
+
+  .downloadImage {
+    display: none;
+  }
+
+  &:hover .downloadImage,
+  .downloadImage:hover {
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 15%;
+  }
 }

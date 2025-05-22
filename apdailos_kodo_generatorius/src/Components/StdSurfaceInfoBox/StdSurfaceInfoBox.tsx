@@ -23,7 +23,7 @@ function StdSurfaceInfoBox() {
           <li>HPL/CPL</li>
           <li>Linoleumas</li>
           <li>ABS briauna</li>
-          <li>Hole</li>
+          <li>Ertmė ir išfrezavimai</li>
           <li>Plokštė (Spon, MDF, ...)</li>
         </>
       ) : (
@@ -35,7 +35,7 @@ function StdSurfaceInfoBox() {
           <li>HPL/CPL</li>
           <li>Linoleum</li>
           <li>ABS edge</li>
-          <li>Hole</li>
+          <li>Hole and routings</li>
           <li>Panel (Spon, MDF, ...)</li>
         </>
       )}
