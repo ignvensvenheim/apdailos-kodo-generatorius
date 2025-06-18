@@ -50,6 +50,8 @@ interface FormProps {
 const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
   const { register, handleSubmit } = useForm<FormData>();
   const [decorCode, setDecorCode] = useState<string | null>(null);
+  const [hasChangedAfterGeneration, setHasChangedAfterGeneration] =
+    useState(false);
   const [ncs, setNcs] = useState<string>();
   const [generateCodeDisabled, setGenerateCodeDisabled] =
     useState<boolean>(true);
@@ -94,10 +96,14 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
   // check if selected values has All surfaces selected to throw info message
 
   const handleSelectChange = (id: string, value: string) => {
-    setSelectedValues((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
+    setSelectedValues((prev) => {
+      const updated = { ...prev, [id]: value };
+      if (decorCode !== null) {
+        setDecorCode(null);
+        setHasChangedAfterGeneration(true);
+      }
+      return updated;
+    });
 
     if (value === "A") {
       setShowStdSurfWarning(true);
@@ -276,6 +282,12 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
       {/* Generated decor code field */}
       {decorCode ? (
         <p className="decorCode">{decorCode}</p>
+      ) : hasChangedAfterGeneration ? (
+        <p className="decorCode">
+          {lang === "lt"
+            ? "Spauskite 'Generuoti apdailos kodą'"
+            : "Press 'Generate decor code'"}
+        </p>
       ) : (
         <p className="decorCode">
           {lang === "lt" ? "Pasirinkite savybes" : "Select properties"}
