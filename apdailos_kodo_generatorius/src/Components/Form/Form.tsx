@@ -66,10 +66,9 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
     custom: "",
   });
 
-  // context
+  // context { lang, stdImage, setStdImage, setShowStdSurfWarning } kai jau bus galima
 
-  const { lang, stdImage, setStdImage, setShowStdSurfWarning } =
-    useContextData();
+  const { lang, setStdImage, setShowStdSurfWarning } = useContextData();
 
   // image change. If decor and wood are both selected, then it will find matching image based on key and value pair in decors with images list
 
