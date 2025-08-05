@@ -7,9 +7,9 @@
 
   .decorWoodContainer {
     margin-top: 0.5rem;
-    display: grid;
+    /* display: grid;
     grid-template-columns: 70% 27%;
-    gap: 1rem;
+    gap: 1rem; */
 
     div select {
       width: 100%;
@@ -20,6 +20,9 @@
     text-align: left;
     display: flex;
     flex-direction: column;
+    /* nuimt kai bus foto */
+    margin-bottom: 0.5rem;
+    /* nuimt kai bus foto */
 
     select,
     input {

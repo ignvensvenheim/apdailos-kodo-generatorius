@@ -9,7 +9,7 @@ import blizgumas from "../../data/lt/data/blizgumas.json";
 import husPavirsiai from "../../data/lt/data/husPavirsiai.json";
 import husApdaila from "../../data/lt/data/husApdaila.json";
 import ncsApdaila from "../../data/lt/data/ncsApdaila.json";
-import medienaLT from "../../data/lt/data/mediena.json";
+// import medienaLT from "../../data/lt/data/mediena.json";
 import medienaList from "../../data/lt/data/medienaListLT.json";
 //
 // json files in english
@@ -18,14 +18,14 @@ import apdailaEN from "../../data/en/data/apdailaEN.json";
 import husApdailaEN from "../../data/en/data/husApdailaEN.json";
 import husPavirsiaiEN from "../../data/en/data/husPavirsiaiEN.json";
 import ncsApdailaEN from "../../data/en/data/ncsApdailaEN.json";
-import medienaEN from "../../data/en/data/medienaEN.json";
+// import medienaEN from "../../data/en/data/medienaEN.json";
 
 //
 import { copyToClipboard } from "../../helpers/copyToClipboard";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import { handleFormSubmit } from "../../helpers/formSubmitHandler";
 import ColorBox from "../ColorBox/ColorBox";
-import StdImageBox from "../StdImageBox/StdImageBox";
+// import StdImageBox from "../StdImageBox/StdImageBox";
 // Context
 import { useContextData } from "../../context/Context";
 
@@ -162,7 +162,8 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
                   registerOptions={register("Apdaila", { required: false })}
                 />{" "}
               </div>
-              <div>
+              {/* iki kol nėra foto */}
+              {/* <div>
                 <FormSelect
                   onSelectChange={handleSelectChange}
                   id="mediena"
@@ -170,7 +171,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
                   options={lang === "lt" ? medienaLT : medienaEN}
                   registerOptions={register("Mediena", { required: false })}
                 />
-              </div>
+              </div> */}
             </section>
             <FormSelect
               onSelectChange={handleSelectChange}
@@ -179,10 +180,11 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
               options={blizgumas}
               registerOptions={register("Blizgumas", { required: false })}
             />
-            <StdImageBox
+            {/* iki kol nėra foto */}
+            {/* <StdImageBox
               image={stdImage}
               name={`${selectedValues.apdaila} ${selectedValues.mediena}`}
-            />
+            /> */}
           </section>
         )}
         {formType === "paint" && (
