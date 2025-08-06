@@ -5,19 +5,19 @@
   },
   {
     "key": "A+H",
-    "value": "A+H - Visi paviršiai* + Ertmė ir išfrezavimai"
+    "value": "A+H - Visi paviršiai* + Ertmės ir išfrezavimai"
   },
   { "key": "T - Top", "value": "T - Viršutinis paviršius" },
   { "key": "B - Bottom", "value": "B - Apatinis paviršius" },
   { "key": "E - Edge", "value": "E - Briauna" },
-  { "key": "H - Hole", "value": "H - Ertmė ir išfrezavimai" },
+  { "key": "H - Hole", "value": "H - Ertmės ir išfrezavimai" },
   {
     "key": "T+E - Top + Edge",
     "value": "T+E - Viršutinis paviršius + Briauna"
   },
   {
     "key": "B+H - Bottom + Hole",
-    "value": "B+H - Apatinis paviršius + Ertmė ir išfrezavimai"
+    "value": "B+H - Apatinis paviršius + Ertmės ir išfrezavimai"
   },
   {
     "key": "B+E - Bottom + Edge",
@@ -25,6 +25,6 @@
   },
   {
     "key": "E+H - Edge + Hole",
-    "value": "E+H - Briauna + Ertmė ir išfrezavimai"
+    "value": "E+H - Briauna + Ertmės ir išfrezavimai"
   }
 ]
