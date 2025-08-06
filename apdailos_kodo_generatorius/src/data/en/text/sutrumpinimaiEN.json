@@ -2,7 +2,7 @@
   { "key": "T", "value": "Surface Top" },
   { "key": "B", "value": "Surface Bottom" },
   { "key": "E", "value": "Edge" },
-  { "key": "H", "value": "Hole" },
+  { "key": "H", "value": "Hole and routings" },
   { "key": "PU", "value": "Polyurethane varnish" },
   { "key": "Monell", "value": "Monell" },
   { "key": "KL", "value": "Varnished" },

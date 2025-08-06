@@ -31,7 +31,7 @@ const SingleRuleBlock: React.FC<SingleRuleBlockProps> = ({
           <div className="pContainer">
             {arrayToMap.map((el, index) => (
               <p key={index}>
-                {el.key} <span>{el.value}</span>
+                {el.key} -<span>{el.value}</span>
               </p>
             ))}
           </div>

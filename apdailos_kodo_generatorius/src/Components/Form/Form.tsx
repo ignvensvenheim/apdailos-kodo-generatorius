@@ -226,14 +226,14 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
             <FormSelect
               onSelectChange={handleSelectChange}
               id="top"
-              label={lang === "lt" ? "Top paviršius" : "Top surface"}
+              label={lang === "lt" ? "Viršutinis paviršius" : "Top surface"}
               options={lang === "lt" ? husPavirsiai : husPavirsiaiEN}
               registerOptions={register("Top", { required: true })}
             />
             <FormSelect
               onSelectChange={handleSelectChange}
               id="bottom"
-              label={lang === "lt" ? "Bottom paviršius" : "Bottom surface"}
+              label={lang === "lt" ? "Apatinis paviršius" : "Bottom surface"}
               options={lang === "lt" ? husPavirsiai : husPavirsiaiEN}
               registerOptions={register("Bottom", { required: true })}
             />

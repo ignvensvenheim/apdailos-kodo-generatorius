@@ -1,8 +1,8 @@
 [
-  { "key": "T", "value": "Surface Top" },
-  { "key": "B", "value": "Surface Bottom" },
-  { "key": "E", "value": "Edge" },
-  { "key": "H", "value": "Hole" },
+  { "key": "T", "value": "Viršutinis paviršius" },
+  { "key": "B", "value": "Apatinis paviršius" },
+  { "key": "E", "value": "Briauna" },
+  { "key": "H", "value": "Ertmė ir išfrezavimai" },
   { "key": "PU", "value": "Poliuretaninis lakas" },
   { "key": "Monell", "value": "Monell" },
   { "key": "KL", "value": "Lakuota" },

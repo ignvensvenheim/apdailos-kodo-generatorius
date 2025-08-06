@@ -1,8 +1,8 @@
 [
-  { "key": "10.07.17 gl.5 GR/UBH/KL", "value": "- Example" },
-  { "key": "10.07.17", "value": "– Decor code" },
-  { "key": "gl.5", "value": "– Decor  glossiness" },
-  { "key": "GR", "value": "– Top surface decor" },
-  { "key": "UBH", "value": "– Bottom surface decor" },
-  { "key": "KL", "value": "– Edges decor" }
+  { "key": "10.07.17 gl.5 GR/UBH/KL", "value": "Example" },
+  { "key": "10.07.17", "value": "Decor code" },
+  { "key": "gl.5", "value": "Decor  glossiness" },
+  { "key": "GR", "value": "Top surface decor" },
+  { "key": "UBH", "value": "Bottom surface decor" },
+  { "key": "KL", "value": "Edges decor" }
 ]

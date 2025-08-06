@@ -1,14 +1,21 @@
 [
   {
     "key": "A",
-    "value": "All surfaces except those that are not finished as standard*"
+    "value": "A - All surfaces except those that are not finished as standard*"
   },
-  { "key": "T - Top", "value": "T - Top" },
-  { "key": "B - Bottom", "value": "B - Bottom" },
+  {
+    "key": "A+H",
+    "value": "A+H - All surfaces* + Hole and routings"
+  },
+  { "key": "T - Top", "value": "T - Top surface" },
+  { "key": "B - Bottom", "value": "B - Bottom surface" },
   { "key": "E - Edge", "value": "E - Edge" },
-  { "key": "H - Hole", "value": "H - Hole" },
-  { "key": "T+E - Top + Edge", "value": "T+E - Top + Edge" },
-  { "key": "B+H - Bottom + Hole", "value": "B+H - Bottom + Hole" },
-  { "key": "B+E - Bottom + Edge", "value": "B+E - Bottom + Edge" },
-  { "key": "E+H - Edge + Hole", "value": "E+H - Edge + Hole" }
+  { "key": "H - Hole", "value": "H - Hole and routings" },
+  { "key": "T+E - Top + Edge", "value": "T+E - Top surface + Edge" },
+  {
+    "key": "B+H - Bottom + Hole",
+    "value": "B+H - Bottom surface + Hole and routings"
+  },
+  { "key": "B+E - Bottom + Edge", "value": "B+E - Bottom surface + Edge" },
+  { "key": "E+H - Edge + Hole", "value": "E+H - Edge + Hole and routings" }
 ]
