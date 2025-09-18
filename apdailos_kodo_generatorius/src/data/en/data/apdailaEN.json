@@ -6,6 +6,10 @@
     "key": "10% 12.07.17 - 10% balinimas",
     "value": "10% 12.07.17 - 10% Whitened"
   },
+  {
+    "key": "1,5% 14.09.21 - 1,5% Balinta",
+    "value": "1,5% 14.09.21 - 1,5% Whitened"
+  },
   { "key": "19.11.19 - Juoda", "value": "19.11.19 - Black (std)" },
   { "key": "02.06.10 - Ruda", "value": "02.06.10 - Brown (nr.24)" },
   { "key": "02.01.20 - Ruda", "value": "02.01.20 - Brown (nr.23)" },
@@ -41,7 +45,7 @@
   { "key": "02.03.21 - Vintage", "value": "02.03.21 - Vintage" },
   { "key": "03.03.21 - Ruda", "value": "03.03.21 - Brown" },
   { "key": "01.07.21 - Gratonet", "value": "01.07.21 - Gratonet" },
-  { "key": "14.09.21 - Balinta", "value": "14.09.21 - Whitened" },
+
   { "key": "28.09.21 - Nero Natur", "value": "28.09.21 - Nero Natur" },
   { "key": "18.03.22 - Pilka", "value": "18.03.22 - Grey" },
   { "key": "25.04.22 - Balinta", "value": "25.04.22 - Whitened" },
