@@ -24,7 +24,6 @@ function StdSurfaceInfoBox() {
           <li>Linoleumas</li>
           <li>ABS briauna</li>
           <li>Ertmės ir išfrezavimai</li>
-          <li>Plokštės: Plywood, Spon, MDF ir kt.</li>
         </>
       ) : (
         <>
@@ -36,7 +35,6 @@ function StdSurfaceInfoBox() {
           <li>Linoleum</li>
           <li>ABS edge</li>
           <li>Holes and routings</li>
-          <li>Panels: Plywood, Spon, MDF etc.</li>
         </>
       )}
     </ul>
