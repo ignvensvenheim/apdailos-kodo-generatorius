@@ -17,9 +17,10 @@
     "value": "1,5% 14.09.21 - 1,5% balinimas"
   },
   { "key": "19.11.19 - Juoda", "value": "19.11.19 - Juoda (std)" },
-  { "key": "02.06.10 - Ruda", "value": "02.06.10 - Ruda (nr.24)" },
-  { "key": "02.01.20 - Ruda", "value": "02.01.20 - Ruda (nr.23)" },
-  { "key": "09.05.22 - Ruda", "value": "09.05.22 - Ruda (nr.21)" },
+  { "key": "09.05.22 - Ruda", "value": "09.05.22 - Ruda (nr. 21)" },
+  { "key": "20.11.19 - Ruda", "value": "20.11.19 - Ruda (nr. 22)" },
+  { "key": "02.01.20 - Ruda", "value": "02.01.20 - Ruda (nr. 23)" },
+  { "key": "02.06.10 - Ruda", "value": "02.06.10 - Ruda (nr. 24)" },
   { "key": "01.06.12 - Balinta", "value": "01.06.12 - Balinta" },
   { "key": "01.27.16 - Balinta", "value": "01.27.16 - Balinta" },
   { "key": "31.01.17 - Balinta", "value": "31.01.17 - Balinta" },
@@ -38,7 +39,7 @@
   { "key": "24.04.19 - Ruda", "value": "24.04.19 - Ruda" },
   { "key": "27.08.19 - Balinta", "value": "27.08.19 - Balinta" },
   { "key": "08.11.19 - Ruda", "value": "08.11.19 - Ruda" },
-  { "key": "20.11.19 - Ruda", "value": "20.11.19 - Ruda" },
+
   { "key": "21.11.19 - Balinta", "value": "21.11.19 - Balinta" },
   { "key": "22.11.19 - Balinta", "value": "22.11.19 - Balinta" },
   { "key": "12.02.20 - S5040 - Y90R", "value": "12.02.20 - S5040-Y90R" },
