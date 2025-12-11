@@ -211,6 +211,7 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
               options={[]}
               lang={lang}
             />
+
             <ColorBox ncsCode={ncs} />
           </section>
         )}
@@ -279,6 +280,15 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
         </section>
         {/* ============================================== */}
       </form>
+      {/* ============================================== */}
+      {formType === "paint" && (
+        <p className="paintGloss">
+          {lang === "lt"
+            ? "Standartinis dažų blizgumas - 30"
+            : "Standard paint gloss - 30"}
+        </p>
+      )}
+      {/* ============================================== */}
       {/* ============================================== */}
       {/* Generated decor code field */}
       {decorCode ? (
