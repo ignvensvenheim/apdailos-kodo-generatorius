@@ -62,32 +62,16 @@
     "value": "S7010-R90B (DT4179 Smokey Blue)"
   },
   {
-    "key": "S1010-Y10R",
-    "value": "S1010-Y10R (DT4157 Pearl)"
-  },
-  {
     "key": "S7005-Y80R",
     "value": "S7005-Y80R (DT4172 Mauve)"
-  },
-  {
-    "key": "S8000-N",
-    "value": "S8000-N (DT4178 Iron)"
   },
   {
     "key": "S8010-B90G",
     "value": "S8010-B90G (DT4174 Conifer)"
   },
   {
-    "key": "S1510-Y60R",
-    "value": "S1510-Y60R (DT4175 Powder)"
-  },
-  {
     "key": "S7010-R10B",
     "value": "S7010-R10B (DT4154 Burgundy)"
-  },
-  {
-    "key": "S2570-Y90R",
-    "value": "S2570-Y90R (DT4164 Salsa)"
   },
   {
     "key": "S2010-G30Y",
@@ -108,5 +92,37 @@
   {
     "key": "S2020-Y20R",
     "value": "S2020-Y20R (DT4001 Clay)"
+  },
+  {
+    "key": "S2010-Y20R",
+    "value": "S2010-Y20R DT4007 Macadamia"
+  },
+  {
+    "key": "S3010-B70G ",
+    "value": "S3010-B70G DT4004 Blue haze"
+  },
+  {
+    "key": "S3010-R10B ",
+    "value": "S3010-R10B DT4010 Soft lilac"
+  },
+  {
+    "key": "S6020-B",
+    "value": "S6020-B DT4005 Denim"
+  },
+  {
+    "key": "S5005-Y20R",
+    "value": "S5005-Y20R DT4011 Taupe"
+  },
+  {
+    "key": "S5030-Y70R",
+    "value": "S5030-Y70R DT4008 Brick"
+  },
+  {
+    "key": "S7010-Y70R",
+    "value": "S7010-Y70R DT4009 Espresso"
+  },
+  {
+    "key": "S7502-B",
+    "value": "S7502-B DT4012 Basalt"
   }
 ]

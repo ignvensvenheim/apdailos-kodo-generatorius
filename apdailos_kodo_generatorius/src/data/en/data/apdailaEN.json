@@ -1,6 +1,10 @@
 [
   { "key": "", "value": "Clear lacquering" },
-  { "key": "3% 10.07.17 - 3% balinimas", "value": "3% 10.07.17 - 3% Whitened" },
+  {
+    "key": "3% 10.07.17 - 3% balinimas",
+    "value": "3% 10.07.17 - 3% Whitened  (std)",
+    "bg": "grey"
+  },
   { "key": "6% 11.07.17 - 6% balinimas", "value": "6% 11.07.17 - 6% Whitened" },
   {
     "key": "10% 12.07.17 - 10% balinimas",

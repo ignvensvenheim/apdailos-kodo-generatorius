@@ -4,6 +4,7 @@ import { UseFormRegisterReturn } from "react-hook-form";
 
 interface Option {
   bold?: number | undefined;
+  bg?: string | undefined;
   key: string;
   value: string;
   image?: string;
@@ -70,6 +71,7 @@ const FormSelect: React.FC<FormSelectProps> = ({
             </option>
             {options.map((option, index) => (
               <option
+                className={option.bg}
                 key={index}
                 value={option.key}
                 style={{ fontWeight: option.bold }}

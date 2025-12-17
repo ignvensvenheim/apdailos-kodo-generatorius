@@ -76,4 +76,8 @@
   .Toastify {
     position: fixed;
   }
+
+  .grey {
+    background-color: rgb(200 200 200 / 80%);
+  }
 }

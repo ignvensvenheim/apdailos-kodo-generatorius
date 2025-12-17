@@ -2,7 +2,8 @@
   { "key": "", "value": "Skaidriai apdailai" },
   {
     "key": "3% 10.07.17 - 3% balinimas",
-    "value": "3% 10.07.17 - 3% balinimas"
+    "value": "3% 10.07.17 - 3% balinimas (std)",
+    "bg": "grey"
   },
   {
     "key": "6% 11.07.17 - 6% balinimas",
