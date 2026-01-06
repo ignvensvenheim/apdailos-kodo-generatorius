@@ -22,20 +22,20 @@
     "value": "S2000-N (std grey)"
   },
   {
-    "key": "S0500-N",
-    "value": "S0500-N (std grey)"
-  },
-  {
-    "key": "S9000-N",
-    "value": "S9000-N (std dark grey)"
-  },
-  {
     "key": "S7502-G",
     "value": "S7502-G (std anthracite)"
   },
   {
     "key": "S8502-B",
     "value": "S8502-B (std Black, DT4023 Nero, DT4166 Charcoal)"
+  },
+  {
+    "key": "S9000-N",
+    "value": "S9000-N (dark grey)"
+  },
+  {
+    "key": "S0500-N",
+    "value": "S0500-N (white)"
   },
   {
     "key": "S2002-Y",
