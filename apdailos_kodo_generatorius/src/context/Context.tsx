@@ -2,8 +2,6 @@ import React, { createContext, useContext, useState, ReactNode } from "react";
 
 // Strict context type — no optional fields
 interface ContextType {
-  lang: string;
-  setLang: React.Dispatch<React.SetStateAction<string>>;
   stdImage: string;
   setStdImage: React.Dispatch<React.SetStateAction<string>>;
   selectName: string;
@@ -26,7 +24,6 @@ export const useContextData = () => {
 
 // Context provider
 export const ContextProvider = ({ children }: { children: ReactNode }) => {
-  const [lang, setLang] = useState<string>("lt");
   const [stdImage, setStdImage] = useState<string>("");
   const [selectName, setSelectName] = useState<string>("");
   const [showStdSurfWarning, setShowStdSurfWarning] = useState<boolean>(false);
@@ -34,8 +31,6 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
   return (
     <Context.Provider
       value={{
-        lang,
-        setLang,
         stdImage,
         setStdImage,
         selectName,

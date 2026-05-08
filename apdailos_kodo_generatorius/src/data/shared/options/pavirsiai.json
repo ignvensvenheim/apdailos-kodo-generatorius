@@ -1,0 +1,72 @@
+[
+  {
+    "key": "A",
+    "value": {
+      "lt": "A - Visi paviršiai, išskyrus standartiškai neapdailinamus*",
+      "en": "A - All surfaces except those that are not finished as standard*"
+    }
+  },
+  {
+    "key": "A+H",
+    "value": {
+      "lt": "A+H - Visi paviršiai* + Ertmės ir išfrezavimai",
+      "en": "A+H - All surfaces* + Holes and routings"
+    }
+  },
+  {
+    "key": "T - Top",
+    "value": {
+      "lt": "T - Viršutinis paviršius",
+      "en": "T - Top surface"
+    }
+  },
+  {
+    "key": "B - Bottom",
+    "value": {
+      "lt": "B - Apatinis paviršius",
+      "en": "B - Bottom surface"
+    }
+  },
+  {
+    "key": "E - Edge",
+    "value": {
+      "lt": "E - Briauna",
+      "en": "E - Edge"
+    }
+  },
+  {
+    "key": "H - Hole",
+    "value": {
+      "lt": "H - Ertmės ir išfrezavimai",
+      "en": "H - Holes and routings"
+    }
+  },
+  {
+    "key": "T+E - Top + Edge",
+    "value": {
+      "lt": "T+E - Viršutinis paviršius + Briauna",
+      "en": "T+E - Top surface + Edge"
+    }
+  },
+  {
+    "key": "B+H - Bottom + Hole",
+    "value": {
+      "lt": "B+H - Apatinis paviršius + Ertmės ir išfrezavimai",
+      "en": "B+H - Bottom surface + Holes and routings"
+    }
+  },
+  {
+    "key": "B+E - Bottom + Edge",
+    "value": {
+      "lt": "B+E - Apatinis paviršius + Briauna",
+      "en": "B+E - Bottom surface + Edge"
+    }
+  },
+  {
+    "key": "E+H - Edge + Hole",
+    "value": {
+      "lt": "E+H - Briauna + Ertmės ir išfrezavimai",
+      "en": "E+H - Edge + Holes and routings"
+    }
+  }
+]

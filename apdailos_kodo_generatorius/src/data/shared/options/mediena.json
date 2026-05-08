@@ -1,0 +1,30 @@
+[
+  {
+    "key": "ash",
+    "value": {
+      "lt": "Uosis",
+      "en": "Ash"
+    }
+  },
+  {
+    "key": "birch",
+    "value": {
+      "lt": "Berzas",
+      "en": "Birch"
+    }
+  },
+  {
+    "key": "beech",
+    "value": {
+      "lt": "Bukas",
+      "en": "Beech"
+    }
+  },
+  {
+    "key": "oak",
+    "value": {
+      "lt": "Azuolas",
+      "en": "Oak"
+    }
+  }
+]

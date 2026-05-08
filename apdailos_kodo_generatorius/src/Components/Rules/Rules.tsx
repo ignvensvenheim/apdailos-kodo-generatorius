@@ -1,48 +1,30 @@
 import "./rules.css";
-import { useContext } from "react";
-import { Context } from "../../context/Context";
-// json files in lithuanian
-import sutrumpinimai from "../../data/lt/text/sutrumpinimai.json";
-import klaiduAprasymas from "../../data/lt/text/klaiduAprasymas.json";
+import { useTranslation } from "react-i18next";
+import sutrumpinimai from "../../data/shared/rules/sutrumpinimai.json";
+import klaiduAprasymas from "../../data/shared/rules/klaiduAprasymas.json";
 import SingleRuleBlock from "./SingleRuleBlock";
-import apdailosPvz from "../../data/lt/text/apdailosPvz.json";
-//
-// json files in english
-import apdailosPvzEN from "../../data/en/text/apdailosPvzEN.json";
-import sutrumpinimaiEN from "../../data/en/text/sutrumpinimaiEN.json";
-import klaiduAprasymasEN from "../../data/en/text/klaiduAprasymasEN.json";
-//
+import apdailosPvz from "../../data/shared/rules/apdailosPvz.json";
+import { localizeRuleEntries } from "../../data/shared/localizeData";
 
 function Rules() {
-  const context = useContext(Context);
-
-  if (!context) {
-    throw new Error("LangContext must be used within a LangProvider");
-  }
-
-  const { lang } = context;
+  const { t, i18n } = useTranslation();
+  const language = (i18n.resolvedLanguage ?? i18n.language).startsWith("lt")
+    ? "lt"
+    : "en";
 
   return (
     <div className="rulesContainer">
       <SingleRuleBlock
-        title={
-          lang === "lt" ? "Sutrumpinimai etiketėse" : "Abbreviations in labels"
-        }
-        arrayToMap={lang === "lt" ? sutrumpinimai : sutrumpinimaiEN}
+        title={t("rules.abbreviations")}
+        arrayToMap={localizeRuleEntries(sutrumpinimai, language)}
       />
       <SingleRuleBlock
-        title={
-          lang === "lt"
-            ? "Huseby/Foss kodo struktūra"
-            : "Huseby/Foss code structure"
-        }
-        arrayToMap={lang === "lt" ? apdailosPvz : apdailosPvzEN}
+        title={t("rules.husStructure")}
+        arrayToMap={localizeRuleEntries(apdailosPvz, language)}
       />
       <SingleRuleBlock
-        title={
-          lang === "lt" ? "Apdailos kodo struktūra" : "Decor code structure"
-        }
-        arrayToMap={lang === "lt" ? klaiduAprasymas : klaiduAprasymasEN}
+        title={t("rules.decorStructure")}
+        arrayToMap={localizeRuleEntries(klaiduAprasymas, language)}
       />
     </div>
   );

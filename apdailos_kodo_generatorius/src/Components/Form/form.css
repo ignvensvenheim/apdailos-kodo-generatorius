@@ -1,18 +1,54 @@
 .formContainer {
-  padding: 1rem;
+  background: var(--color-card-bg);
+  padding: var(--form-card-padding-top) var(--form-card-padding-x)
+    var(--form-card-padding-bottom);
   display: grid;
   grid-template-columns: 1fr;
-  border: 1px solid rgb(194, 194, 194);
-  border-radius: 4px;
+  gap: var(--form-card-gap);
+  min-width: 0;
+  border: 2px solid var(--border-color);
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 12px 28px rgba(20, 37, 56, 0.1);
+  }
+
+  form {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--form-card-gap);
+  }
 
   .decorWoodContainer {
-    margin-top: 0.5rem;
+    margin-top: 0;
     /* display: grid;
     grid-template-columns: 70% 27%;
     gap: 1rem; */
 
-    div select {
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: var(--form-section-gap);
+      min-width: 0;
+    }
+
+    div label {
+      margin-top: var(--form-label-margin-top);
+    }
+
+    div select,
+    div input {
       width: 100%;
+      margin-top: 0;
     }
   }
 
@@ -20,13 +56,15 @@
     text-align: left;
     display: flex;
     flex-direction: column;
-    /* nuimt kai bus foto */
-    margin-bottom: 0.5rem;
-    /* nuimt kai bus foto */
+    gap: var(--form-section-gap);
+    min-width: 0;
+    margin-bottom: 0;
 
     select,
     input {
-      margin-top: 0.5rem;
+      width: 100%;
+      min-width: 0;
+      margin-top: 0;
     }
 
     input#custom {
@@ -34,32 +72,86 @@
     }
 
     label {
-      margin-top: 0.5rem;
-      font-size: 0.95rem;
+      margin-top: var(--form-label-margin-top);
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
     }
   }
 
-  .copyGenerateButtons {
-    width: max-content;
-    margin-top: -0.5rem;
+  .formRow {
+    width: 100%;
   }
 
-  .paintGloss {
+  .formField {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--form-section-gap);
+  }
+
+  .formField label {
+    margin-top: var(--form-label-margin-top);
+  }
+
+  .formField select,
+  .formField input {
+    margin-top: 0;
+  }
+
+  .formRow--double {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--form-row-gap);
+    align-items: start;
+  }
+
+  .copyGenerateButtons {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--form-actions-gap);
+    margin-top: var(--form-actions-margin-top);
+
+    input,
+    button {
+      width: 100%;
+      margin-top: 0;
+      justify-content: center;
+    }
+  }
+
+  .formNote {
+    margin: var(--form-note-margin-top) 0 0;
+    padding: var(--form-note-padding-y) var(--form-note-padding-x);
+    font-size: 0.82rem;
     font-weight: 600;
-    font-size: 0.9rem;
-    margin-top: 5rem;
-    margin-bottom: 0px;
+    line-height: 1.35;
+    color: var(--color-primary);
+    background: transparent;
+    opacity: 0.9;
+    text-align: left;
+  }
+
+  .formNote--footer {
+    align-self: end;
   }
 
   .decorCode {
     text-align: center;
     align-self: end;
     height: fit-content;
-    font-size: 1.2rem;
+    min-height: var(--form-code-min-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
     font-weight: 700;
-    padding: 2rem;
-    background-color: rgba(240, 240, 240, 0.8);
-    border-radius: 4px;
+    line-height: 1.4;
+    padding: var(--form-code-padding-y) var(--form-code-padding-x);
+    background-color: rgba(240, 240, 240, 0.78);
+    border: 1px solid rgba(62, 79, 92, 0.1);
+    border-radius: 14px;
   }
 
   .btnCopyActive {
@@ -79,5 +171,27 @@
 
   .grey {
     background-color: rgb(200 200 200 / 80%);
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .formContainer {
+    padding: var(--space-xl) var(--space-lg) var(--space-lg);
+    border-radius: 16px;
+
+    .copyGenerateButtons {
+      grid-template-columns: 1fr;
+    }
+
+    .formRow--double {
+      grid-template-columns: 1fr;
+      gap: var(--form-section-gap);
+    }
+
+    .decorCode {
+      min-height: 84px;
+      font-size: 1rem;
+      padding: 1.1rem 0.95rem;
+    }
   }
 }

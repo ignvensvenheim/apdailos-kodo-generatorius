@@ -1,0 +1,30 @@
+[
+  {
+    "key": "KL",
+    "value": {
+      "lt": "KL - Lakuota*",
+      "en": "KL - Varnished*"
+    }
+  },
+  {
+    "key": "GR",
+    "value": {
+      "lt": "GR - Gruntuota",
+      "en": "GR - Primed"
+    }
+  },
+  {
+    "key": "PUSS",
+    "value": {
+      "lt": "PUSS - Šlifuota",
+      "en": "PUSS - Sanded"
+    }
+  },
+  {
+    "key": "UBH",
+    "value": {
+      "lt": "UBH - Neapdailinta",
+      "en": "UBH - Raw/Undecorated"
+    }
+  }
+]

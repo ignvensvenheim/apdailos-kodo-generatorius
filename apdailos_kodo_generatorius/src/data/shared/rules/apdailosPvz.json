@@ -1,0 +1,62 @@
+[
+  {
+    "key": {
+      "lt": "10.07.17 gl.5 GR/UBH/KL",
+      "en": "10.07.17 gl.5 GR/UBH/KL"
+    },
+    "value": {
+      "lt": "pavyzdys",
+      "en": "Example"
+    }
+  },
+  {
+    "key": {
+      "lt": "10.07.17",
+      "en": "10.07.17"
+    },
+    "value": {
+      "lt": "apdailos kodas",
+      "en": "Decor code"
+    }
+  },
+  {
+    "key": {
+      "lt": "gl.5",
+      "en": "gl.5"
+    },
+    "value": {
+      "lt": "apdailos blizgumas",
+      "en": "Decor  glossiness"
+    }
+  },
+  {
+    "key": {
+      "lt": "GR",
+      "en": "GR"
+    },
+    "value": {
+      "lt": "viršutinės plokštumos apdaila",
+      "en": "Top surface decor"
+    }
+  },
+  {
+    "key": {
+      "lt": "UBH",
+      "en": "UBH"
+    },
+    "value": {
+      "lt": "apatinės plokštumos apdaila",
+      "en": "Bottom surface decor"
+    }
+  },
+  {
+    "key": {
+      "lt": "KL",
+      "en": "KL"
+    },
+    "value": {
+      "lt": "briaunų apdaila",
+      "en": "Edges decor"
+    }
+  }
+]

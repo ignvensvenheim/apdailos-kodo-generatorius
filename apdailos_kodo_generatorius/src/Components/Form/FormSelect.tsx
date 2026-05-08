@@ -1,6 +1,7 @@
 import React, { SetStateAction } from "react";
 import "./form.css";
 import { UseFormRegisterReturn } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 interface Option {
   bold?: number | undefined;
@@ -19,7 +20,6 @@ interface FormSelectProps {
   options: Option[];
   registerOptions?: UseFormRegisterReturn;
   customColorInput?: string;
-  lang?: string;
   onSelectChange?: (id: string, value: string) => void;
 }
 
@@ -29,18 +29,15 @@ const FormSelect: React.FC<FormSelectProps> = ({
   options,
   registerOptions,
   customColorInput,
-  lang,
   onSelectChange,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <>
       {customColorInput ? (
         <>
-          <label htmlFor="custom">
-            {lang === "lt"
-              ? "Nestandartinis apdailos kodas"
-              : "Custom color code"}
-          </label>
+          <label htmlFor="custom">{t("fields.customColorCode")}</label>
           <input
             id="custom"
             type="text"

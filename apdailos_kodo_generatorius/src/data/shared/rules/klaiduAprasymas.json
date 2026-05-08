@@ -1,0 +1,122 @@
+[
+  {
+    "key": {
+      "lt": "Dubliuojasi info, naudojamas tik sutrumpinimas. (Edge E=gl.5)",
+      "en": "Information is duplicated, only abbreviation is used. (Edge E=gl.5)"
+    },
+    "value": {
+      "lt": "E=gl.5",
+      "en": "E=gl.5"
+    }
+  },
+  {
+    "key": {
+      "lt": "NCS kode nenaudojamas apatinis brūkšnys. (S9000_N)",
+      "en": "The NCS code does not use an underscore. (S9000_N)"
+    },
+    "value": {
+      "lt": "S9000-N",
+      "en": "S9000-N"
+    }
+  },
+  {
+    "key": {
+      "lt": "Tarp sutrumpinimų naudojamas '+' simbolis. (E&B S8000-N)",
+      "en": "The '+' symbol is used between abbreviations. (E&B S8000-N)"
+    },
+    "value": {
+      "lt": "E+B=S8000-N",
+      "en": "E+B=S8000-N"
+    }
+  },
+  {
+    "key": {
+      "lt": "Po sutrumpinimų dedamas lygybės ženklas. (E+ST S7502-G)",
+      "en": "Abbreviations are followed by an equal sign. (E+ST S7502-G)"
+    },
+    "value": {
+      "lt": "E+B=S7502-G",
+      "en": "E+B=S7502-G"
+    }
+  },
+  {
+    "key": {
+      "lt": "Rašant spalvos kodą, 'NCS' raidės nėra rašomos, išskyrus atvejus, kai naudojamos kitos spalvų paletes, pvz., RAL.",
+      "en": "When writing the color code, the letters 'NCS' are not needed, except when using other color palettes, such as RAL."
+    },
+    "value": {
+      "lt": "S1002-Y",
+      "en": "S1002-Y"
+    }
+  },
+  {
+    "key": {
+      "lt": "Po 'S' raidės nededamas tarpas arba brūkšnys. (S_2505-G19Y)",
+      "en": "No space or dash is needed after the letter 'S'. (S_2505-G19Y)"
+    },
+    "value": {
+      "lt": "S2505-G19Y",
+      "en": "S2505-G19Y"
+    }
+  },
+  {
+    "key": {
+      "lt": "Rašant blizgumą nereikalingas tarpas tarp raidžių ir skaičiaus. (gl. 5)",
+      "en": "A space between letters and numbers is not required when writing glossiness. (gl. 5)"
+    },
+    "value": {
+      "lt": "gl.5",
+      "en": "gl.5"
+    }
+  },
+  {
+    "key": {
+      "lt": "Tarp apdailos kodo ir blizgumo nereikalingas apatinis brūkšnys. (02.01.20_gl.5)",
+      "en": "An underscore is not required between the finish code and the glossiness code. (02.01.20_gl.5)"
+    },
+    "value": {
+      "lt": "02.01.20 gl.5",
+      "en": "02.01.20 gl.5"
+    }
+  },
+  {
+    "key": {
+      "lt": "Nereikalingas papildomas taškas tarp 0 ir 2. (0.2.01.20 gl.5)",
+      "en": "An extra dot between 0 and 2 is unnecessary. (0.2.01.20 gl.5)"
+    },
+    "value": {
+      "lt": "02.01.20 gl.5",
+      "en": "02.01.20 gl.5"
+    }
+  },
+  {
+    "key": {
+      "lt": "Žodis 'lakas' nėra būtinas apdailos kode. (E=gl.5 PU lakas)",
+      "en": "The word 'lacquer' is not necessary. (E=gl.5 PU lacquer)"
+    },
+    "value": {
+      "lt": "E=gl.5 PU",
+      "en": "E=gl.5 PU"
+    }
+  },
+  {
+    "key": {
+      "lt": "Žodis 'Walnut' nereikalingas apdailos kode. (20.11.19 gl.10 Walnut)",
+      "en": "The word 'Walnut' is not necessary. (20.11.19 gl.10 Walnut)"
+    },
+    "value": {
+      "lt": "20.11.19 gl.10",
+      "en": "20.11.19 gl.10"
+    }
+  },
+  {
+    "key": {
+      "lt": "Jei apdaila daroma briaunoms ir plokštumoms, užtenka parašyti tik apdailos kodą (E+T+B=gl.5)",
+      "en": "If decor is done for edges and surfaces, only glossiness code is enough (E+T+B=gl.5)"
+    },
+    "value": {
+      "lt": "gl.5",
+      "en": "gl.5"
+    }
+  }
+]

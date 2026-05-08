@@ -1,10 +1,12 @@
 import "./stdSurfaceInfoBox.css";
 import { FaExclamationCircle } from "react-icons/fa";
 import { BsXCircle } from "react-icons/bs";
+import { Trans, useTranslation } from "react-i18next";
 import { useContextData } from "../../context/Context";
 
 function StdSurfaceInfoBox() {
-  const { setShowStdSurfWarning, lang } = useContextData();
+  const { setShowStdSurfWarning } = useContextData();
+  const { t } = useTranslation();
 
   return (
     <ul>
@@ -14,29 +16,17 @@ function StdSurfaceInfoBox() {
         size={20}
         onClick={() => setShowStdSurfWarning(false)}
       />
-      {lang === "lt" ? (
-        <>
-          <li>
-            *Standartiškai <b>neapdailinami</b> paviršiai:
-          </li>
-          <li>Popierius</li>
-          <li>HPL/CPL</li>
-          <li>Linoleumas</li>
-          <li>ABS briauna</li>
-          <li>Ertmės ir išfrezavimai</li>
-        </>
-      ) : (
-        <>
-          <li>
-            *Standard <b>unfinished </b> surfaces:
-          </li>
-          <li>Paper</li>
-          <li>HPL/CPL</li>
-          <li>Linoleum</li>
-          <li>ABS edge</li>
-          <li>Holes and routings</li>
-        </>
-      )}
+      <li>
+        <Trans
+          i18nKey="standardSurfaceWarning.intro"
+          components={{ strong: <b /> }}
+        />
+      </li>
+      <li>{t("standardSurfaceWarning.paper")}</li>
+      <li>{t("standardSurfaceWarning.hpl")}</li>
+      <li>{t("standardSurfaceWarning.linoleum")}</li>
+      <li>{t("standardSurfaceWarning.absEdge")}</li>
+      <li>{t("standardSurfaceWarning.holes")}</li>
     </ul>
   );
 }

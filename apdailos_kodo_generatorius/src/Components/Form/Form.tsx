@@ -1,45 +1,32 @@
 import "./form.css";
-import React, { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import FormSelect from "./FormSelect";
-// json files in lithuanian
-import apdaila from "../../data/lt/data/apdaila.json";
-import pavirsiai from "../../data/lt/data/pavirsiai.json";
-import blizgumas from "../../data/lt/data/blizgumas.json";
-import husPavirsiai from "../../data/lt/data/husPavirsiai.json";
-import husApdaila from "../../data/lt/data/husApdaila.json";
-import ncsApdaila from "../../data/lt/data/ncsApdaila.json";
-// import medienaLT from "../../data/lt/data/mediena.json";
-import medienaList from "../../data/lt/data/medienaListLT.json";
-//
-// json files in english
-import pavirsiaiEN from "../../data/en/data/pavirsiaiEN.json";
-import apdailaEN from "../../data/en/data/apdailaEN.json";
-import husApdailaEN from "../../data/en/data/husApdailaEN.json";
-import husPavirsiaiEN from "../../data/en/data/husPavirsiaiEN.json";
-import ncsApdailaEN from "../../data/en/data/ncsApdailaEN.json";
-// import medienaEN from "../../data/en/data/medienaEN.json";
-
-//
+import apdaila from "../../data/shared/options/apdaila.json";
+import blizgumas from "../../data/shared/options/blizgumas.json";
+import husApdaila from "../../data/shared/options/husApdaila.json";
+import husPavirsiai from "../../data/shared/options/husPavirsiai.json";
+import mediena from "../../data/shared/options/mediena.json";
+import medienaImages from "../../data/shared/options/medienaImages.json";
+import ncsApdaila from "../../data/shared/options/ncsApdaila.json";
+import pavirsiai from "../../data/shared/options/pavirsiai.json";
+import { localizeOptions } from "../../data/shared/localizeData";
 import { copyToClipboard } from "../../helpers/copyToClipboard";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import { handleFormSubmit } from "../../helpers/formSubmitHandler";
 import ColorBox from "../ColorBox/ColorBox";
-// import StdImageBox from "../StdImageBox/StdImageBox";
-// Context
 import { useContextData } from "../../context/Context";
 
 interface FormData {
-  setDecorCode?: React.Dispatch<SetStateAction<string | null>>;
   Pavirsiai?: string;
   Apdaila?: string;
   Blizgumas?: string;
+  Mediena?: string;
   Top?: string;
   Bottom?: string;
   Briaunos?: string;
   custom?: string;
-  Mediena?: string;
-  onSelectChange: (id: string, value: string) => void;
 }
 
 interface FormProps {
@@ -47,14 +34,14 @@ interface FormProps {
   formType: "standard" | "hus" | "paint";
 }
 
-const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
+function UnifiedForm({ title, formType }: FormProps) {
   const { register, handleSubmit } = useForm<FormData>();
+  const { t, i18n } = useTranslation();
+  const { setStdImage, setShowStdSurfWarning } = useContextData();
   const [decorCode, setDecorCode] = useState<string | null>(null);
   const [hasChangedAfterGeneration, setHasChangedAfterGeneration] =
     useState(false);
-  const [ncs, setNcs] = useState<string>();
-  const [generateCodeDisabled, setGenerateCodeDisabled] =
-    useState<boolean>(true);
+  const [generateCodeDisabled, setGenerateCodeDisabled] = useState(true);
   const [selectedValues, setSelectedValues] = useState({
     apdaila: "null",
     pavirsiai: "null",
@@ -66,33 +53,39 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
     custom: "",
   });
 
-  // context { lang, stdImage, setStdImage, setShowStdSurfWarning } kai jau bus galima
+  const isLt = (i18n.resolvedLanguage ?? i18n.language).startsWith("lt");
+  const language = isLt ? "lt" : "en";
+  const localizedPavirsiai = localizeOptions(pavirsiai, language);
+  const localizedApdaila = localizeOptions(apdaila, language);
+  const localizedBlizgumas = localizeOptions(blizgumas, language);
+  const localizedHusApdaila = localizeOptions(husApdaila, language);
+  const localizedHusPavirsiai = localizeOptions(husPavirsiai, language);
+  const localizedMediena = localizeOptions(mediena, language);
+  const localizedNcsApdaila = localizeOptions(ncsApdaila, language);
 
-  const { lang, setStdImage, setShowStdSurfWarning } = useContextData();
-
-  // image change. If decor and wood are both selected, then it will find matching image based on key and value pair in decors with images list
+  const standardPreviewImage = medienaImages.find((el) => {
+    return (
+      el.woodKey === selectedValues.mediena && el.decorKey === selectedValues.apdaila
+    );
+  })?.image;
 
   useEffect(() => {
-    const imageData = medienaList.find((el) => {
-      return (
-        el.value === selectedValues.mediena && el.key === selectedValues.apdaila
-      );
-    });
+    setStdImage(standardPreviewImage ?? "");
+  }, [standardPreviewImage, setStdImage]);
 
-    const image = imageData?.image;
-
-    image && setStdImage(image);
-  }, [selectedValues, lang]);
-
-  // on submit to generate decor code
+  const standardPreviewCode =
+    selectedValues.apdaila !== "null" ? selectedValues.apdaila : undefined;
+  const paintPreviewCode =
+    selectedValues.custom.trim() !== ""
+      ? selectedValues.custom
+      : selectedValues.apdaila !== "null"
+        ? selectedValues.apdaila
+        : undefined;
 
   const onSubmit = (data: FormData) => {
-    data.custom ? setNcs(data.custom) : setNcs(data.Apdaila);
     const generatedCode = handleFormSubmit(formType, data);
     setDecorCode(generatedCode || "");
   };
-
-  // check if selected values has All surfaces selected to throw info message
 
   const handleSelectChange = (id: string, value: string) => {
     setSelectedValues((prev) => {
@@ -109,26 +102,24 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
     }
   };
 
-  // watch values to determine whether to let generate code or more fields selected needed
-
   useEffect(() => {
     let isFormValid = false;
 
     if (formType === "standard") {
       isFormValid =
-        selectedValues["apdaila"] !== "null" &&
-        selectedValues["pavirsiai"] !== "null" &&
-        selectedValues["blizgumas"] !== "null";
+        selectedValues.apdaila !== "null" &&
+        selectedValues.pavirsiai !== "null" &&
+        selectedValues.blizgumas !== "null";
     } else if (formType === "hus") {
       isFormValid =
-        !!selectedValues["apdaila"] &&
-        selectedValues["top"] !== "null" &&
-        selectedValues["bottom"] !== "null" &&
-        selectedValues["briaunos"] !== "null";
+        selectedValues.apdaila !== "null" &&
+        selectedValues.top !== "null" &&
+        selectedValues.bottom !== "null" &&
+        selectedValues.briaunos !== "null";
     } else if (formType === "paint") {
-      const pavirsiaiSelected = selectedValues["pavirsiai"] !== "null";
-      const apdailaSelected = selectedValues["apdaila"] !== "null";
-      const customFilled = selectedValues["custom"]?.trim() !== "";
+      const pavirsiaiSelected = selectedValues.pavirsiai !== "null";
+      const apdailaSelected = selectedValues.apdaila !== "null";
+      const customFilled = selectedValues.custom.trim() !== "";
 
       isFormValid = pavirsiaiSelected && (apdailaSelected || customFilled);
     }
@@ -139,16 +130,15 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
   return (
     <div className="formContainer">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h3>{title}</h3>
-        {/* Form type according to required data */}
+        <h3 className="page__title">{title}</h3>
         {formType === "standard" && (
           <section>
             <FormSelect
               onSelectChange={handleSelectChange}
               setDecorCode={setDecorCode}
               id="pavirsiai"
-              label={lang === "lt" ? "Paviršiai" : "Surface"}
-              options={lang === "lt" ? pavirsiai : pavirsiaiEN}
+              label={t("fields.surface")}
+              options={localizedPavirsiai}
               registerOptions={register("Pavirsiai", { required: false })}
             />
             <section className="decorWoodContainer">
@@ -156,34 +146,37 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
                 <FormSelect
                   onSelectChange={handleSelectChange}
                   id="apdaila"
-                  label={lang === "lt" ? "Apdaila" : "Decor"}
-                  options={lang === "lt" ? apdaila : apdailaEN}
+                  label={t("fields.decor")}
+                  options={localizedApdaila}
                   registerOptions={register("Apdaila", { required: false })}
                 />{" "}
               </div>
-              {/* iki kol nėra foto */}
-              {/* <div>
+            </section>
+            <section className="formRow formRow--double">
+              <div className="formField">
+                <FormSelect
+                  onSelectChange={handleSelectChange}
+                  id="blizgumas"
+                  label={t("fields.glossiness")}
+                  options={localizedBlizgumas}
+                  registerOptions={register("Blizgumas", { required: false })}
+                />
+              </div>
+              <div className="formField">
                 <FormSelect
                   onSelectChange={handleSelectChange}
                   id="mediena"
-                  label={lang === "lt" ? "Mediena" : "Wood"}
-                  options={lang === "lt" ? medienaLT : medienaEN}
+                  label={t("fields.wood")}
+                  options={localizedMediena}
                   registerOptions={register("Mediena", { required: false })}
                 />
-              </div> */}
+              </div>
             </section>
-            <FormSelect
-              onSelectChange={handleSelectChange}
-              id="blizgumas"
-              label={lang === "lt" ? "Blizgumas" : "Glossiness"}
-              options={blizgumas}
-              registerOptions={register("Blizgumas", { required: false })}
+            <ColorBox
+              colorCode={standardPreviewCode}
+              imageUrl={standardPreviewImage}
+              showColorFallback={false}
             />
-            {/* iki kol nėra foto */}
-            {/* <StdImageBox
-              image={stdImage}
-              name={`${selectedValues.apdaila} ${selectedValues.mediena}`}
-            /> */}
           </section>
         )}
         {formType === "paint" && (
@@ -192,15 +185,15 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
               onSelectChange={handleSelectChange}
               setDecorCode={setDecorCode}
               id="pavirsiai"
-              label={lang === "lt" ? "Paviršiai" : "Surface"}
-              options={lang === "lt" ? pavirsiai : pavirsiaiEN}
+              label={t("fields.surface")}
+              options={localizedPavirsiai}
               registerOptions={register("Pavirsiai")}
             />
             <FormSelect
               onSelectChange={handleSelectChange}
               id="apdaila"
-              label={lang === "lt" ? "Standartinė apdaila" : "Standard decor"}
-              options={lang === "lt" ? ncsApdaila : ncsApdailaEN}
+              label={t("fields.standardDecor")}
+              options={localizedNcsApdaila}
               registerOptions={register("Apdaila")}
             />
             <FormSelect
@@ -209,10 +202,9 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
               registerOptions={register("custom")}
               customColorInput="customColorInput"
               options={[]}
-              lang={lang}
             />
 
-            <ColorBox ncsCode={ncs} />
+            <ColorBox colorCode={paintPreviewCode} />
           </section>
         )}
         {formType === "hus" && (
@@ -220,91 +212,64 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
             <FormSelect
               onSelectChange={handleSelectChange}
               id="apdaila"
-              label={lang === "lt" ? "Apdaila" : "Decor"}
-              options={lang === "lt" ? husApdaila : husApdailaEN}
+              label={t("fields.decor")}
+              options={localizedHusApdaila}
               registerOptions={register("Apdaila", { required: true })}
             />
             <FormSelect
               onSelectChange={handleSelectChange}
               id="top"
-              label={lang === "lt" ? "Viršutinis paviršius" : "Top surface"}
-              options={lang === "lt" ? husPavirsiai : husPavirsiaiEN}
+              label={t("fields.topSurface")}
+              options={localizedHusPavirsiai}
               registerOptions={register("Top", { required: true })}
             />
             <FormSelect
               onSelectChange={handleSelectChange}
               id="bottom"
-              label={lang === "lt" ? "Apatinis paviršius" : "Bottom surface"}
-              options={lang === "lt" ? husPavirsiai : husPavirsiaiEN}
+              label={t("fields.bottomSurface")}
+              options={localizedHusPavirsiai}
               registerOptions={register("Bottom", { required: true })}
             />
             <FormSelect
               onSelectChange={handleSelectChange}
               id="briaunos"
-              label={lang === "lt" ? "Briaunos" : "Edges"}
-              options={lang === "lt" ? husPavirsiai : husPavirsiaiEN}
+              label={t("fields.edges")}
+              options={localizedHusPavirsiai}
               registerOptions={register("Briaunos", { required: true })}
             />
-            <p>
-              {lang === "lt"
-                ? "* pagal nurodyta apdailą, jei nenurodyta tada apdaila gl.5"
-                : "* according to decor selected, if not selected then decor is gl.5"}
-            </p>
+            <p className="formNote">{t("form.husNote")}</p>
           </section>
         )}
-        {/* ============================================== */}
-        {/* Surface dropdown select */}
         <section className="copyGenerateButtons">
           <input
             className={
               !generateCodeDisabled ? "btnCopyActive" : "btnCopyDisabled"
             }
             type="submit"
-            value={
-              lang === "lt" ? "Generuoti apdailos kodą" : "Generate decor code"
-            }
+            value={t("actions.generateDecorCode")}
           />
-          {/* ============================================== */}
-          {/* Decor code copy button */}
           <button
             className={decorCode ? "btnCopyActive" : "btnCopyDisabled"}
             type="button"
             onClick={() => {
               copyToClipboard(decorCode || "");
-              if (lang === "lt") toast("Kodas nukopijuotas");
-              if (lang === "en") toast("Code copied");
+              toast(t("toast.codeCopied"));
             }}
           >
-            {lang === "lt" ? "Kopijuoti kodą" : "Copy decor code"}
+            {t("actions.copyDecorCode")}
           </button>
         </section>
-        {/* ============================================== */}
       </form>
-      {/* ============================================== */}
-      {formType === "paint" && (
-        <p className="paintGloss">
-          {lang === "lt"
-            ? "Standartinis dažų blizgumas - 30"
-            : "Standard paint gloss - 30"}
-        </p>
-      )}
-      {/* ============================================== */}
-      {/* ============================================== */}
-      {/* Generated decor code field */}
       {decorCode ? (
         <p className="decorCode">{decorCode}</p>
       ) : hasChangedAfterGeneration ? (
-        <p className="decorCode">
-          {lang === "lt"
-            ? "Spauskite 'Generuoti apdailos kodą'"
-            : "Press 'Generate decor code'"}
-        </p>
+        <p className="decorCode">{t("decorCode.regenerate")}</p>
       ) : (
-        <p className="decorCode">
-          {lang === "lt" ? "Pasirinkite savybes" : "Select properties"}
-        </p>
+        <p className="decorCode">{t("decorCode.selectProperties")}</p>
       )}
-      {/* ============================================== */}
+      {formType === "paint" && (
+        <p className="formNote formNote--footer">{t("form.standardPaintGloss")}</p>
+      )}
 
       <ToastContainer
         position="bottom-center"
@@ -321,6 +286,6 @@ const UnifiedForm: React.FC<FormProps> = ({ title, formType }) => {
       />
     </div>
   );
-};
+}
 
 export default UnifiedForm;

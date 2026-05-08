@@ -1,17 +1,17 @@
-import { useContextData } from "../../context/Context";
 import "./stdImageBox.css";
 import saveAs from "file-saver";
+import { useTranslation } from "react-i18next";
 
 interface StdImageBoxProps {
   image: string;
   name: string;
 }
 
-const StdImageBox: React.FC<StdImageBoxProps> = ({ image, name }) => {
-  const { lang } = useContextData();
+function StdImageBox({ image, name }: StdImageBoxProps) {
+  const { t } = useTranslation();
 
-  const downloadImage = (img: string, name: string) => {
-    saveAs(img, `${name}.jpg`);
+  const downloadImage = (img: string, fileName: string) => {
+    saveAs(img, `${fileName}.jpg`);
   };
 
   return (
@@ -26,11 +26,11 @@ const StdImageBox: React.FC<StdImageBoxProps> = ({ image, name }) => {
           className="downloadImage"
           onClick={() => downloadImage(image, name)}
         >
-          {lang === "lt" ? "Atsisiųsti paveikslėlį" : "Download image"}
+          {t("actions.downloadImage")}
         </button>
       )}
     </div>
   );
-};
+}
 
 export default StdImageBox;

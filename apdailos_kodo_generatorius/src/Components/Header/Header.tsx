@@ -1,11 +1,10 @@
 import "./header.css";
-import logo from "../../assets/Svenheim_logo_rgb.webp";
 
 function Header() {
   return (
     <img
-      src={logo}
-      alt="svenheim logo"
+      src="/logo.svg"
+      alt="Svenheim"
       onClick={() => window.location.reload()}
     />
   );
