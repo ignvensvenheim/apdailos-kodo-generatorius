@@ -30,21 +30,21 @@
   --space-xl: 1.15rem;
   --space-2xl: 1.4rem;
 
-  --form-card-padding-top: var(--space-2xl);
-  --form-card-padding-x: var(--space-xl);
-  --form-card-padding-bottom: var(--space-xl);
-  --form-card-gap: var(--space-lg);
-  --form-section-gap: 0.65rem;
+  --form-card-padding-top: 1rem;
+  --form-card-padding-x: 1rem;
+  --form-card-padding-bottom: 1rem;
+  --form-card-gap: 0.9rem;
+  --form-section-gap: 0.55rem;
   --form-row-gap: 0.85rem;
-  --form-actions-gap: var(--space-md);
-  --form-actions-margin-top: var(--space-xs);
+  --form-actions-gap: 0.75rem;
+  --form-actions-margin-top: 0;
   --form-label-margin-top: var(--space-2xs);
   --form-note-margin-top: 0;
   --form-note-padding-y: 0;
   --form-note-padding-x: 0;
-  --form-code-padding-y: 1.35rem;
-  --form-code-padding-x: 1.1rem;
-  --form-code-min-height: 92px;
+  --form-code-padding-y: 0.7rem;
+  --form-code-padding-x: 1rem;
+  --form-code-min-height: 60px;
 }
 
 * {
@@ -86,8 +86,8 @@ input {
   background-color: #fff;
   border: 1px solid #6c757d;
   border-radius: var(--border-radius);
-  padding: 0.65rem 0.95rem;
-  font-size: 0.96rem;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   transition:
     background-color 0.25s ease,
@@ -115,9 +115,9 @@ input {
 }
 
 select {
-  font-size: 0.96rem;
-  min-height: 44px;
-  padding: 0.7rem 0.85rem;
+  font-size: 0.875rem;
+  min-height: 40px;
+  padding: 0.55rem 2rem 0.55rem 0.75rem;
   font-weight: 600;
   border-radius: var(--border-radius);
   border: 1px solid rgba(62, 79, 92, 0.18);
@@ -130,9 +130,18 @@ select {
     background-color 0.25s ease;
 }
 
+select:disabled {
+  color: var(--color-text-light);
+  background-color: rgba(238, 242, 245, 0.92);
+  border-color: rgba(62, 79, 92, 0.1);
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
 input[type="text"],
 textarea {
-  min-height: 44px;
+  min-height: 40px;
   border: 1px solid rgba(62, 79, 92, 0.18);
   box-shadow: 0 1px 2px rgba(20, 37, 56, 0.04);
 }
@@ -155,7 +164,7 @@ ul {
 }
 
 .header__title {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 500;
   letter-spacing: 0.02em;
 }
@@ -182,11 +191,11 @@ ul {
 }
 
 .page__title {
-  font-size: 1.05rem;
+  font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.3;
   letter-spacing: 0.01em;
-  margin: 0 0 0.25rem;
+  margin: 0;
 }
 
 .page__subtitle {

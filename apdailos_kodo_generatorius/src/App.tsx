@@ -3,6 +3,7 @@ import Form from "./Components/Form/Form";
 import Header from "./Components/Header/Header";
 import Rules from "./Components/Rules/Rules";
 import { useTranslation } from "react-i18next";
+import { Bounce, ToastContainer } from "react-toastify";
 
 import StdSurfaceInfoBox from "./Components/StdSurfaceInfoBox/StdSurfaceInfoBox";
 import { useContextData } from "./context/Context";
@@ -53,6 +54,19 @@ function App() {
         <Rules />
         <footer style={{ marginTop: "3rem" }}>© Svenheim 2025</footer>
       </main>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={2000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </>
   );
 }

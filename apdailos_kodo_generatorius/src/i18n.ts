@@ -24,6 +24,7 @@ const resources = {
         wood: "Mediena",
         glossiness: "Blizgumas",
         standardDecor: "Standartinė apdaila",
+        useCustomColorCode: "Naudoti nestandartinį apdailos kodą",
         topSurface: "Viršutinis paviršius",
         bottomSurface: "Apatinis paviršius",
         edges: "Briaunos",
@@ -31,7 +32,7 @@ const resources = {
       },
       form: {
         husNote:
-          "* pagal nurodytą apdailą, jei nenurodyta tada apdaila gl.5",
+          "* pagal nurodytą apdailą, jei nenurodyta, tada apdaila gl.5",
         standardPaintGloss: "Standartinis dažų blizgumas - 30",
       },
       actions: {
@@ -45,6 +46,9 @@ const resources = {
       },
       toast: {
         codeCopied: "Kodas nukopijuotas",
+      },
+      preview: {
+        noImageAvailable: "Paveikslėlio nėra.",
       },
       rules: {
         abbreviations: "Sutrumpinimai etiketėse",
@@ -83,6 +87,7 @@ const resources = {
         wood: "Wood",
         glossiness: "Glossiness",
         standardDecor: "Standard decor",
+        useCustomColorCode: "Use custom color code",
         topSurface: "Top surface",
         bottomSurface: "Bottom surface",
         edges: "Edges",
@@ -104,6 +109,9 @@ const resources = {
       },
       toast: {
         codeCopied: "Code copied",
+      },
+      preview: {
+        noImageAvailable: "No preview image.",
       },
       rules: {
         abbreviations: "Abbreviations in labels",

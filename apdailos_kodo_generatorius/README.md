@@ -48,3 +48,29 @@ export default tseslint.config({
   },
 })
 ```
+
+## Local wood preview images
+
+`src/data/shared/options/medienaImages.json` can safely reference images from
+`public/mediena-images/`.
+
+Use relative paths such as:
+
+```json
+{
+  "decorKey": "Example decor",
+  "woodKey": "ash",
+  "image": "ash/example.jpg"
+}
+```
+
+This resolves to `/mediena-images/ash/example.jpg` in the browser.
+
+Allowed:
+- relative paths inside `public/mediena-images/`
+- full `http://` or `https://` URLs
+
+Blocked:
+- `file:///...`
+- absolute disk paths
+- paths containing `..`

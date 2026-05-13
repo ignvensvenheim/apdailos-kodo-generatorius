@@ -18,6 +18,8 @@ interface FormSelectProps {
   id?: string;
   label?: string;
   options: Option[];
+  disabled?: boolean;
+  currentValue?: string;
   registerOptions?: UseFormRegisterReturn;
   customColorInput?: string;
   onSelectChange?: (id: string, value: string) => void;
@@ -27,6 +29,8 @@ const FormSelect: React.FC<FormSelectProps> = ({
   id,
   label,
   options,
+  disabled = false,
+  currentValue,
   registerOptions,
   customColorInput,
   onSelectChange,
@@ -42,8 +46,10 @@ const FormSelect: React.FC<FormSelectProps> = ({
             id="custom"
             type="text"
             {...registerOptions}
+            value={currentValue ?? ""}
             maxLength={10}
             onChange={(e) => {
+              registerOptions?.onChange(e);
               if (onSelectChange && id) {
                 onSelectChange(id, e.target.value);
               }
@@ -54,10 +60,12 @@ const FormSelect: React.FC<FormSelectProps> = ({
         <>
           <label htmlFor={id}>{label}</label>
           <select
-            defaultValue={"default"}
             id={id}
+            disabled={disabled}
             {...registerOptions}
+            value={currentValue ?? "default"}
             onChange={(e) => {
+              registerOptions?.onChange(e);
               if (onSelectChange && id) {
                 onSelectChange(id, e.target.value);
               }

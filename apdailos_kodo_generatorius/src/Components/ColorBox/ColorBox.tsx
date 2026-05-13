@@ -10,6 +10,7 @@ interface ColorBoxProps {
   colorCode?: string;
   imageUrl?: string;
   showColorFallback?: boolean;
+  noImageMessage?: string;
 }
 
 function extractNcsCode(colorCode: string): string | null {
@@ -80,6 +81,7 @@ function ColorBox({
   colorCode,
   imageUrl,
   showColorFallback = true,
+  noImageMessage,
 }: ColorBoxProps) {
   const [isImageLoading, setIsImageLoading] = useState(false);
   const [loadedImageUrl, setLoadedImageUrl] = useState<string>();
@@ -125,16 +127,23 @@ function ColorBox({
       className="colorBox"
       style={{
         backgroundColor: hexValue,
-        backgroundImage: loadedImageUrl ? `url(${loadedImageUrl})` : undefined,
-        backgroundSize: loadedImageUrl ? "cover" : undefined,
-        backgroundPosition: loadedImageUrl ? "center" : undefined,
-        backgroundRepeat: loadedImageUrl ? "no-repeat" : undefined,
       }}
     >
+      {loadedImageUrl ? (
+        <img
+          className="colorBoxImage"
+          src={loadedImageUrl}
+          alt=""
+          aria-hidden="true"
+        />
+      ) : null}
       {isImageLoading ? (
         <div className="colorBoxLoader" aria-hidden="true">
           <span className="colorBoxSpinner" />
         </div>
+      ) : null}
+      {!isImageLoading && !loadedImageUrl && noImageMessage ? (
+        <div className="colorBoxEmptyState">{noImageMessage}</div>
       ) : null}
       {loadedImageUrl ? <div className="colorBoxOverlay" /> : null}
     </div>

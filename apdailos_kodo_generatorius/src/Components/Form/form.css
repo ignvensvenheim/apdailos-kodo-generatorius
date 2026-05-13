@@ -28,30 +28,6 @@
     gap: var(--form-card-gap);
   }
 
-  .decorWoodContainer {
-    margin-top: 0;
-    /* display: grid;
-    grid-template-columns: 70% 27%;
-    gap: 1rem; */
-
-    div {
-      display: flex;
-      flex-direction: column;
-      gap: var(--form-section-gap);
-      min-width: 0;
-    }
-
-    div label {
-      margin-top: var(--form-label-margin-top);
-    }
-
-    div select,
-    div input {
-      width: 100%;
-      margin-top: 0;
-    }
-  }
-
   form section {
     text-align: left;
     display: flex;
@@ -73,7 +49,7 @@
 
     label {
       margin-top: var(--form-label-margin-top);
-      font-size: 0.92rem;
+      font-size: 0.875rem;
       font-weight: 600;
       letter-spacing: 0.01em;
     }
@@ -101,6 +77,13 @@
 
   .formRow--double {
     display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--form-row-gap);
+    align-items: start;
+  }
+
+  .formRow--split {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--form-row-gap);
     align-items: start;
@@ -121,10 +104,65 @@
     }
   }
 
+  .formDownloadLink {
+    width: fit-content;
+    display: inline-flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-top: 0.15rem;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-muted);
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(62, 79, 92, 0.12);
+    border-radius: var(--border-radius);
+    box-shadow: none;
+    text-decoration: none;
+    transition:
+      color 0.25s ease,
+      border-color 0.25s ease,
+      background-color 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .formDownloadLink:hover {
+    color: var(--color-primary);
+    background: rgba(255, 255, 255, 0.82);
+    border-color: rgba(62, 79, 92, 0.2);
+    transform: translateY(-1px);
+  }
+
+  .formDownloadLink:focus-visible {
+    outline: none;
+    color: var(--color-primary);
+    border-color: rgba(62, 79, 92, 0.3);
+    box-shadow: 0 0 0 4px rgba(62, 79, 92, 0.08);
+  }
+
+  .formCheckbox {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .formCheckbox input {
+    width: 16px;
+    min-width: 16px;
+    height: 16px;
+    margin: 0;
+  }
+
   .formNote {
     margin: var(--form-note-margin-top) 0 0;
     padding: var(--form-note-padding-y) var(--form-note-padding-x);
-    font-size: 0.82rem;
+    font-size: 0.75rem;
     font-weight: 600;
     line-height: 1.35;
     color: var(--color-primary);
@@ -145,7 +183,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
     line-height: 1.4;
     padding: var(--form-code-padding-y) var(--form-code-padding-x);
@@ -183,7 +221,7 @@
       grid-template-columns: 1fr;
     }
 
-    .formRow--double {
+    .formRow--split {
       grid-template-columns: 1fr;
       gap: var(--form-section-gap);
     }

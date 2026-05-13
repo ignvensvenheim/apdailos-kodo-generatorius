@@ -13,7 +13,8 @@ import ncsApdaila from "../../data/shared/options/ncsApdaila.json";
 import pavirsiai from "../../data/shared/options/pavirsiai.json";
 import { localizeOptions } from "../../data/shared/localizeData";
 import { copyToClipboard } from "../../helpers/copyToClipboard";
-import { Bounce, toast, ToastContainer } from "react-toastify";
+import { resolveMedienaImage } from "../../helpers/resolveMedienaImage";
+import { toast } from "react-toastify";
 import { handleFormSubmit } from "../../helpers/formSubmitHandler";
 import ColorBox from "../ColorBox/ColorBox";
 import { useContextData } from "../../context/Context";
@@ -39,6 +40,7 @@ function UnifiedForm({ title, formType }: FormProps) {
   const { t, i18n } = useTranslation();
   const { setStdImage, setShowStdSurfWarning } = useContextData();
   const [decorCode, setDecorCode] = useState<string | null>(null);
+  const [useCustomColorCode, setUseCustomColorCode] = useState(false);
   const [hasChangedAfterGeneration, setHasChangedAfterGeneration] =
     useState(false);
   const [generateCodeDisabled, setGenerateCodeDisabled] = useState(true);
@@ -62,21 +64,70 @@ function UnifiedForm({ title, formType }: FormProps) {
   const localizedHusPavirsiai = localizeOptions(husPavirsiai, language);
   const localizedMediena = localizeOptions(mediena, language);
   const localizedNcsApdaila = localizeOptions(ncsApdaila, language);
+  const availableWoodKeysForDecor =
+    selectedValues.apdaila !== "null"
+      ? new Set(
+          medienaImages
+            .filter((entry) => entry.decorKey === selectedValues.apdaila)
+            .map((entry) => entry.woodKey),
+        )
+      : null;
+  const filteredLocalizedMediena =
+    availableWoodKeysForDecor === null
+      ? localizedMediena
+      : localizedMediena.filter((option) =>
+          availableWoodKeysForDecor.has(option.key),
+        );
+  const woodSelectDisabled =
+    selectedValues.apdaila !== "null" && filteredLocalizedMediena.length === 0;
 
-  const standardPreviewImage = medienaImages.find((el) => {
+  const standardPreviewMatch = medienaImages.find((el) => {
     return (
-      el.woodKey === selectedValues.mediena && el.decorKey === selectedValues.apdaila
+      el.woodKey === selectedValues.mediena &&
+      el.decorKey === selectedValues.apdaila
     );
-  })?.image;
+  });
+
+  const standardPreviewImage = resolveMedienaImage(standardPreviewMatch?.image);
+  const showMissingStandardPreview =
+    selectedValues.apdaila !== "null" &&
+    selectedValues.mediena !== "null" &&
+    !standardPreviewMatch;
+  const standardPreviewFileName = standardPreviewMatch?.image
+    ?.split("/")
+    .pop();
 
   useEffect(() => {
     setStdImage(standardPreviewImage ?? "");
   }, [standardPreviewImage, setStdImage]);
 
+  useEffect(() => {
+    if (
+      formType !== "standard" ||
+      selectedValues.mediena === "null" ||
+      availableWoodKeysForDecor === null ||
+      availableWoodKeysForDecor.has(selectedValues.mediena)
+    ) {
+      return;
+    }
+
+    setSelectedValues((prev) => ({ ...prev, mediena: "null" }));
+
+    if (decorCode !== null) {
+      setDecorCode(null);
+      setHasChangedAfterGeneration(true);
+    }
+  }, [
+    availableWoodKeysForDecor,
+    decorCode,
+    formType,
+    selectedValues.mediena,
+  ]);
+
   const standardPreviewCode =
     selectedValues.apdaila !== "null" ? selectedValues.apdaila : undefined;
   const paintPreviewCode =
-    selectedValues.custom.trim() !== ""
+    useCustomColorCode && selectedValues.custom.trim() !== ""
       ? selectedValues.custom
       : selectedValues.apdaila !== "null"
         ? selectedValues.apdaila
@@ -102,6 +153,22 @@ function UnifiedForm({ title, formType }: FormProps) {
     }
   };
 
+  const handleCustomColorCodeToggle = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const shouldUseCustomColorCode = event.target.checked;
+    setUseCustomColorCode(shouldUseCustomColorCode);
+
+    if (!shouldUseCustomColorCode) {
+      setSelectedValues((prev) => ({ ...prev, custom: "" }));
+    }
+
+    if (decorCode !== null) {
+      setDecorCode(null);
+      setHasChangedAfterGeneration(true);
+    }
+  };
+
   useEffect(() => {
     let isFormValid = false;
 
@@ -119,13 +186,14 @@ function UnifiedForm({ title, formType }: FormProps) {
     } else if (formType === "paint") {
       const pavirsiaiSelected = selectedValues.pavirsiai !== "null";
       const apdailaSelected = selectedValues.apdaila !== "null";
-      const customFilled = selectedValues.custom.trim() !== "";
+      const customFilled =
+        useCustomColorCode && selectedValues.custom.trim() !== "";
 
       isFormValid = pavirsiaiSelected && (apdailaSelected || customFilled);
     }
 
     setGenerateCodeDisabled(!isFormValid);
-  }, [selectedValues, formType]);
+  }, [selectedValues, formType, useCustomColorCode]);
 
   return (
     <div className="formContainer">
@@ -133,32 +201,49 @@ function UnifiedForm({ title, formType }: FormProps) {
         <h3 className="page__title">{title}</h3>
         {formType === "standard" && (
           <section>
-            <FormSelect
-              onSelectChange={handleSelectChange}
-              setDecorCode={setDecorCode}
-              id="pavirsiai"
-              label={t("fields.surface")}
-              options={localizedPavirsiai}
-              registerOptions={register("Pavirsiai", { required: false })}
-            />
-            <section className="decorWoodContainer">
-              <div>
+            <section className="formRow">
+              <div className="formField">
+                <FormSelect
+                  onSelectChange={handleSelectChange}
+                  setDecorCode={setDecorCode}
+                  id="pavirsiai"
+                  label={t("fields.surface")}
+                  options={localizedPavirsiai}
+                  currentValue={
+                    selectedValues.pavirsiai === "null"
+                      ? "default"
+                      : selectedValues.pavirsiai
+                  }
+                  registerOptions={register("Pavirsiai", { required: false })}
+                />
+              </div>
+              <div className="formField">
                 <FormSelect
                   onSelectChange={handleSelectChange}
                   id="apdaila"
                   label={t("fields.decor")}
                   options={localizedApdaila}
+                  currentValue={
+                    selectedValues.apdaila === "null"
+                      ? "default"
+                      : selectedValues.apdaila
+                  }
                   registerOptions={register("Apdaila", { required: false })}
-                />{" "}
+                />
               </div>
             </section>
-            <section className="formRow formRow--double">
+            <section className="formRow formRow--split">
               <div className="formField">
                 <FormSelect
                   onSelectChange={handleSelectChange}
                   id="blizgumas"
                   label={t("fields.glossiness")}
                   options={localizedBlizgumas}
+                  currentValue={
+                    selectedValues.blizgumas === "null"
+                      ? "default"
+                      : selectedValues.blizgumas
+                  }
                   registerOptions={register("Blizgumas", { required: false })}
                 />
               </div>
@@ -167,7 +252,13 @@ function UnifiedForm({ title, formType }: FormProps) {
                   onSelectChange={handleSelectChange}
                   id="mediena"
                   label={t("fields.wood")}
-                  options={localizedMediena}
+                  options={filteredLocalizedMediena}
+                  disabled={woodSelectDisabled}
+                  currentValue={
+                    selectedValues.mediena === "null"
+                      ? "default"
+                      : selectedValues.mediena
+                  }
                   registerOptions={register("Mediena", { required: false })}
                 />
               </div>
@@ -176,33 +267,75 @@ function UnifiedForm({ title, formType }: FormProps) {
               colorCode={standardPreviewCode}
               imageUrl={standardPreviewImage}
               showColorFallback={false}
+              noImageMessage={
+                showMissingStandardPreview
+                  ? t("preview.noImageAvailable")
+                  : undefined
+              }
             />
+            {standardPreviewImage ? (
+              <a
+                className="formDownloadLink btnCopyActive"
+                href={standardPreviewImage}
+                download={standardPreviewFileName}
+              >
+                {t("actions.downloadImage")}
+              </a>
+            ) : null}
           </section>
         )}
         {formType === "paint" && (
           <section>
-            <FormSelect
-              onSelectChange={handleSelectChange}
-              setDecorCode={setDecorCode}
-              id="pavirsiai"
-              label={t("fields.surface")}
-              options={localizedPavirsiai}
-              registerOptions={register("Pavirsiai")}
-            />
-            <FormSelect
-              onSelectChange={handleSelectChange}
-              id="apdaila"
-              label={t("fields.standardDecor")}
-              options={localizedNcsApdaila}
-              registerOptions={register("Apdaila")}
-            />
-            <FormSelect
-              id="custom"
-              onSelectChange={handleSelectChange}
-              registerOptions={register("custom")}
-              customColorInput="customColorInput"
-              options={[]}
-            />
+            <section className="formRow formRow--double">
+              <div className="formField">
+                <FormSelect
+                  onSelectChange={handleSelectChange}
+                  setDecorCode={setDecorCode}
+                  id="pavirsiai"
+                  label={t("fields.surface")}
+                  options={localizedPavirsiai}
+                  currentValue={
+                    selectedValues.pavirsiai === "null"
+                      ? "default"
+                      : selectedValues.pavirsiai
+                  }
+                  registerOptions={register("Pavirsiai")}
+                />
+              </div>
+              <div className="formField">
+                <FormSelect
+                  onSelectChange={handleSelectChange}
+                  id="apdaila"
+                  label={t("fields.standardDecor")}
+                  options={localizedNcsApdaila}
+                  currentValue={
+                    selectedValues.apdaila === "null"
+                      ? "default"
+                      : selectedValues.apdaila
+                  }
+                  registerOptions={register("Apdaila")}
+                />
+              </div>
+            </section>
+            <label className="formCheckbox">
+              <input
+                type="checkbox"
+                checked={useCustomColorCode}
+                onChange={handleCustomColorCodeToggle}
+              />
+              <span>{t("fields.useCustomColorCode")}</span>
+            </label>
+            {useCustomColorCode ? (
+              <FormSelect
+                id="custom"
+                onSelectChange={handleSelectChange}
+                currentValue={selectedValues.custom}
+                registerOptions={register("custom")}
+                customColorInput="customColorInput"
+                options={[]}
+              />
+            ) : null}
+            <p className="formNote">{t("form.standardPaintGloss")}</p>
 
             <ColorBox colorCode={paintPreviewCode} />
           </section>
@@ -214,6 +347,11 @@ function UnifiedForm({ title, formType }: FormProps) {
               id="apdaila"
               label={t("fields.decor")}
               options={localizedHusApdaila}
+              currentValue={
+                selectedValues.apdaila === "null"
+                  ? "default"
+                  : selectedValues.apdaila
+              }
               registerOptions={register("Apdaila", { required: true })}
             />
             <FormSelect
@@ -221,6 +359,9 @@ function UnifiedForm({ title, formType }: FormProps) {
               id="top"
               label={t("fields.topSurface")}
               options={localizedHusPavirsiai}
+              currentValue={
+                selectedValues.top === "null" ? "default" : selectedValues.top
+              }
               registerOptions={register("Top", { required: true })}
             />
             <FormSelect
@@ -228,6 +369,11 @@ function UnifiedForm({ title, formType }: FormProps) {
               id="bottom"
               label={t("fields.bottomSurface")}
               options={localizedHusPavirsiai}
+              currentValue={
+                selectedValues.bottom === "null"
+                  ? "default"
+                  : selectedValues.bottom
+              }
               registerOptions={register("Bottom", { required: true })}
             />
             <FormSelect
@@ -235,6 +381,11 @@ function UnifiedForm({ title, formType }: FormProps) {
               id="briaunos"
               label={t("fields.edges")}
               options={localizedHusPavirsiai}
+              currentValue={
+                selectedValues.briaunos === "null"
+                  ? "default"
+                  : selectedValues.briaunos
+              }
               registerOptions={register("Briaunos", { required: true })}
             />
             <p className="formNote">{t("form.husNote")}</p>
@@ -267,23 +418,6 @@ function UnifiedForm({ title, formType }: FormProps) {
       ) : (
         <p className="decorCode">{t("decorCode.selectProperties")}</p>
       )}
-      {formType === "paint" && (
-        <p className="formNote formNote--footer">{t("form.standardPaintGloss")}</p>
-      )}
-
-      <ToastContainer
-        position="bottom-center"
-        autoClose={2000}
-        hideProgressBar={true}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-        transition={Bounce}
-      />
     </div>
   );
 }

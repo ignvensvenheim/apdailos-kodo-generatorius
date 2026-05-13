@@ -9,7 +9,7 @@
   {
     "key": "birch",
     "value": {
-      "lt": "Berzas",
+      "lt": "Beržas",
       "en": "Birch"
     }
   },
@@ -23,8 +23,29 @@
   {
     "key": "oak",
     "value": {
-      "lt": "Azuolas",
+      "lt": "Ąžuolas",
       "en": "Oak"
+    }
+  },
+  {
+    "key": "sycamore",
+    "value": {
+      "lt": "Klevas",
+      "en": "Sycamore"
+    }
+  },
+  {
+    "key": "pine",
+    "value": {
+      "lt": "Pušis",
+      "en": "Pine"
+    }
+  },
+  {
+    "key": "walnut",
+    "value": {
+      "lt": "Riešutmedis",
+      "en": "Walnut"
     }
   }
 ]

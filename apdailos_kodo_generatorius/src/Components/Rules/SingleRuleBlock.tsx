@@ -20,12 +20,17 @@ const SingleRuleBlock: React.FC<SingleRuleBlockProps> = ({
 
   return (
     <div className="singleRuleContainer">
-      <h2 className="ruleTitle" onClick={() => setExpanded(!expanded)}>
-        {title}
-        <span>
-          {expanded ? <CiSquareMinus size={30} /> : <CiSquarePlus size={30} />}
+      <button
+        type="button"
+        className="ruleTitle"
+        onClick={() => setExpanded(!expanded)}
+        aria-expanded={expanded}
+      >
+        <span className="ruleTitleText">{title}</span>
+        <span className="ruleIcon" aria-hidden="true">
+          {expanded ? <CiSquareMinus size={24} /> : <CiSquarePlus size={24} />}
         </span>
-      </h2>
+      </button>
       <div>
         {expanded && (
           <div className="pContainer">
