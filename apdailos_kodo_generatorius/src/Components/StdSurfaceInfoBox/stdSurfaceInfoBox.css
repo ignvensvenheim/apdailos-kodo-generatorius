@@ -1,0 +1,100 @@
+.stdSurfaceInfoBox {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  width: min(420px, calc(100vw - 2rem));
+  padding: var(--form-card-padding-top) var(--form-card-padding-x)
+    var(--form-card-padding-bottom);
+  background: var(--color-card-bg);
+  color: var(--color-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(8px);
+  z-index: 30;
+  display: grid;
+  gap: var(--form-section-gap);
+}
+
+.stdSurfaceInfoBox__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.stdSurfaceInfoBox__heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.stdSurfaceInfoBox__icon {
+  color: var(--color-primary);
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.stdSurfaceInfoBox__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.stdSurfaceInfoBox__close {
+  color: var(--color-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.stdSurfaceInfoBox__close:hover {
+  color: var(--color-primary);
+  transform: scale(1.05);
+}
+
+.stdSurfaceInfoBox__intro {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.stdSurfaceInfoBox__list {
+  display: grid;
+  gap: var(--space-sm);
+  padding-left: 0;
+  margin: 0;
+}
+
+.stdSurfaceInfoBox__list li {
+  position: relative;
+  padding-left: 0.95rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--color-muted);
+}
+
+.stdSurfaceInfoBox__list li::before {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  left: 0;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: rgba(62, 79, 92, 0.45);
+}
+
+@media only screen and (max-width: 640px) {
+  .stdSurfaceInfoBox {
+    width: calc(100vw - 2rem);
+    padding: var(--space-xl) var(--space-lg) var(--space-lg);
+    border-radius: 16px;
+  }
+}

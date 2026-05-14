@@ -1,0 +1,396 @@
+[
+  {
+    "key": "",
+    "value": {
+      "lt": "Skaidriai apdailai",
+      "en": "Clear lacquering"
+    }
+  },
+  {
+    "key": "3% 10.07.17 - 3% balinimas",
+    "value": {
+      "lt": "3% 10.07.17 - 3% balinimas (std)",
+      "en": "3% 10.07.17 - 3% Whitened  (std)"
+    },
+    "bg": "grey"
+  },
+  {
+    "key": "6% 11.07.17 - 6% balinimas",
+    "value": {
+      "lt": "6% 11.07.17 - 6% balinimas",
+      "en": "6% 11.07.17 - 6% Whitened"
+    }
+  },
+  {
+    "key": "10% 12.07.17 - 10% balinimas",
+    "value": {
+      "lt": "10% 12.07.17 - 10% balinimas",
+      "en": "10% 12.07.17 - 10% Whitened"
+    }
+  },
+  {
+    "key": "1,5% 14.09.21 - 1,5% balinimas",
+    "value": {
+      "lt": "1,5% 14.09.21 - 1,5% balinimas",
+      "en": "1,5% 14.09.21 - 1,5% Whitened"
+    }
+  },
+  {
+    "key": "19.11.19 - Juoda",
+    "value": {
+      "lt": "19.11.19 - Juoda (std)",
+      "en": "19.11.19 - Black (std)"
+    },
+    "bg": "grey"
+  },
+  {
+    "key": "09.05.22 - Ruda",
+    "value": {
+      "lt": "09.05.22 - Ruda (nr. 21)",
+      "en": "09.05.22 - Brown (no. 21)"
+    }
+  },
+  {
+    "key": "20.11.19 - Ruda",
+    "value": {
+      "lt": "20.11.19 - Ruda (nr. 22)",
+      "en": "20.11.19 - Brown (no. 22)"
+    }
+  },
+  {
+    "key": "02.01.20 - Ruda",
+    "value": {
+      "lt": "02.01.20 - Ruda (nr. 23)",
+      "en": "02.01.20 - Brown (no. 23)"
+    }
+  },
+  {
+    "key": "02.06.10 - Ruda",
+    "value": {
+      "lt": "02.06.10 - Ruda (nr. 24)",
+      "en": "02.06.10 - Brown (no. 24)"
+    }
+  },
+  {
+    "key": "01.06.12 - Balinta",
+    "value": {
+      "lt": "01.06.12 - Balinta",
+      "en": "01.06.12 - Whitened"
+    }
+  },
+  {
+    "key": "01.27.16 - Balinta",
+    "value": {
+      "lt": "01.27.16 - Balinta",
+      "en": "01.27.16 - Whitened"
+    }
+  },
+  {
+    "key": "31.01.17 - Balinta",
+    "value": {
+      "lt": "31.01.17 - Balinta",
+      "en": "31.01.17 - Whitened"
+    }
+  },
+  {
+    "key": "25.04.17 - Balinta",
+    "value": {
+      "lt": "25.04.17 - Balinta",
+      "en": "25.04.17 - Whitened"
+    }
+  },
+  {
+    "key": "26.04.17 - Balinta",
+    "value": {
+      "lt": "26.04.17 - Balinta",
+      "en": "26.04.17 - Whitened"
+    }
+  },
+  {
+    "key": "27.04.17 - S2000 - N",
+    "value": {
+      "lt": "27.04.17 - S2000-N",
+      "en": "27.04.17 - S2000-N"
+    }
+  },
+  {
+    "key": "03.05.17 - S0500 - N",
+    "value": {
+      "lt": "03.05.17 - S0500-N",
+      "en": "03.05.17 - S0500-N"
+    }
+  },
+  {
+    "key": "05.06.17 - Oak Auster (stone)",
+    "value": {
+      "lt": "05.06.17 - Oak Auster (stone)",
+      "en": "05.06.17 - Oak Auster (stone)"
+    }
+  },
+  {
+    "key": "23.11.17 - S2040 - Y",
+    "value": {
+      "lt": "23.11.17 - S2040-Y",
+      "en": "23.11.17 - S2040-Y"
+    }
+  },
+  {
+    "key": "10.10.18 - Ruda",
+    "value": {
+      "lt": "10.10.18 - Ruda",
+      "en": "10.10.18 - Brown"
+    }
+  },
+  {
+    "key": "11.10.18 - Ruda",
+    "value": {
+      "lt": "11.10.18 - Ruda",
+      "en": "11.10.18 - Brown"
+    }
+  },
+  {
+    "key": "12.10.18 - Balinta",
+    "value": {
+      "lt": "12.10.18 - Balinta",
+      "en": "12.10.18 - Whitened"
+    }
+  },
+  {
+    "key": "24.04.19 - Ruda",
+    "value": {
+      "lt": "24.04.19 - Ruda",
+      "en": "24.04.19 - Brown"
+    }
+  },
+  {
+    "key": "27.08.19 - Balinta",
+    "value": {
+      "lt": "27.08.19 - Balinta",
+      "en": "27.08.19 - Whitened"
+    }
+  },
+  {
+    "key": "08.11.19 - Ruda",
+    "value": {
+      "lt": "08.11.19 - Ruda",
+      "en": "08.11.19 - Brown"
+    }
+  },
+  {
+    "key": "21.11.19 - Balinta",
+    "value": {
+      "lt": "21.11.19 - Balinta",
+      "en": "21.11.19 - Whitened"
+    }
+  },
+  {
+    "key": "22.11.19 - Balinta",
+    "value": {
+      "lt": "22.11.19 - Balinta",
+      "en": "22.11.19 - Whitened"
+    }
+  },
+  {
+    "key": "12.02.20 - S5040 - Y90R",
+    "value": {
+      "lt": "12.02.20 - S5040-Y90R",
+      "en": "12.02.20 - S5040-Y90R"
+    }
+  },
+  {
+    "key": "07.04.20 - S2000 - N",
+    "value": {
+      "lt": "07.04.20 - S2000-N",
+      "en": "07.04.20 - S2000-N"
+    }
+  },
+  {
+    "key": "07.05.20 - Vintage",
+    "value": {
+      "lt": "07.05.20 - Vintage",
+      "en": "07.05.20 - Vintage"
+    }
+  },
+  {
+    "key": "12.08.20 - Balinta",
+    "value": {
+      "lt": "12.08.20 - Balinta",
+      "en": "12.08.20 - Whitened"
+    }
+  },
+  {
+    "key": "30.10.20 - Balinta",
+    "value": {
+      "lt": "30.10.20 - Balinta",
+      "en": "30.10.20 - Whitened"
+    }
+  },
+  {
+    "key": "23.11.20 - Balinta",
+    "value": {
+      "lt": "23.11.20 - Balinta",
+      "en": "23.11.20 - Whitened"
+    }
+  },
+  {
+    "key": "20.01.21 - Pilka",
+    "value": {
+      "lt": "20.01.21 - Pilka",
+      "en": "20.01.21 - Grey"
+    }
+  },
+  {
+    "key": "02.03.21 - Vintage",
+    "value": {
+      "lt": "02.03.21 - Vintage",
+      "en": "02.03.21 - Vintage"
+    }
+  },
+  {
+    "key": "03.03.21 - Ruda",
+    "value": {
+      "lt": "03.03.21 - Ruda",
+      "en": "03.03.21 - Brown"
+    }
+  },
+  {
+    "key": "01.07.21 - Gratonet",
+    "value": {
+      "lt": "01.07.21 - Gratonet",
+      "en": "01.07.21 - Gratonet"
+    }
+  },
+  {
+    "key": "28.09.21 - Nero Natur",
+    "value": {
+      "lt": "28.09.21 - Nero Natur",
+      "en": "28.09.21 - Nero Natur"
+    }
+  },
+  {
+    "key": "18.03.22 - Pilka",
+    "value": {
+      "lt": "18.03.22 - Pilka",
+      "en": "18.03.22 - Grey"
+    }
+  },
+  {
+    "key": "25.04.22 - Balinta",
+    "value": {
+      "lt": "25.04.22 - Balinta",
+      "en": "25.04.22 - Whitened"
+    }
+  },
+  {
+    "key": "23.09.22 - Ruda",
+    "value": {
+      "lt": "23.09.22 - Ruda",
+      "en": "23.09.22 - Brown"
+    }
+  },
+  {
+    "key": "25.11.22 - Pilka Smoked oak",
+    "value": {
+      "lt": "25.11.22 - Pilka Smoked oak",
+      "en": "25.11.22 - Grey Smoked oak"
+    }
+  },
+  {
+    "key": "09.12.22 - Žalia",
+    "value": {
+      "lt": "09.12.22 - Žalia",
+      "en": "09.12.22 - Green"
+    }
+  },
+  {
+    "key": "23.01.23 - Ruda Teak",
+    "value": {
+      "lt": "23.01.23 - Ruda Teak",
+      "en": "23.01.23 - Brown Teak"
+    }
+  },
+  {
+    "key": "30.01.23 - Ruda F5872 Refined Walnut",
+    "value": {
+      "lt": "30.01.23 - Ruda F5872 Refined Walnut",
+      "en": "30.01.23 - Brown F5872 Refined Walnut"
+    }
+  },
+  {
+    "key": "27.04.23 - S7010 - R90B",
+    "value": {
+      "lt": "27.04.23 - S7010-R90B",
+      "en": "27.04.23 - S7010-R90B"
+    }
+  },
+  {
+    "key": "25.05.23 - S3005 - G20Y",
+    "value": {
+      "lt": "25.05.23 - S3005-G20Y",
+      "en": "25.05.23 - S3005-G20Y"
+    }
+  },
+  {
+    "key": "01.12.23 - S1515 - R",
+    "value": {
+      "lt": "01.12.23 - S1515-R",
+      "en": "01.12.23 - S1515-R"
+    }
+  },
+  {
+    "key": "03.04.24 - Pilka",
+    "value": {
+      "lt": "03.04.24 - Pilka",
+      "en": "03.04.24 - Grey"
+    }
+  },
+  {
+    "key": "08.04.24 - S6020 - B10G",
+    "value": {
+      "lt": "08.04.24 - S6020-B10G",
+      "en": "08.04.24 - S6020-B10G"
+    }
+  },
+  {
+    "key": "09.04.24 - S7010 - B90G",
+    "value": {
+      "lt": "09.04.24 - S7010-B90G",
+      "en": "09.04.24 - S7010-B90G"
+    }
+  },
+  {
+    "key": "22.04.24 - S5010 - G50Y",
+    "value": {
+      "lt": "22.04.24 - S5010-G50Y",
+      "en": "22.04.24 - S5010-G50Y"
+    }
+  },
+  {
+    "key": "03.09.24 - Ruda",
+    "value": {
+      "lt": "03.09.24 - Ruda",
+      "en": "03.09.24 - Brown"
+    }
+  },
+  {
+    "key": "04.09.24 - Tamsiai pilka / Juoda",
+    "value": {
+      "lt": "04.09.24 - Tamsiai pilka / Juoda",
+      "en": "04.09.24 - Dark Grey / Juoda"
+    }
+  },
+  {
+    "key": "08.10.24 - Ruda",
+    "value": {
+      "lt": "08.10.24 - Ruda",
+      "en": "08.10.24 - Brown"
+    }
+  },
+  {
+    "key": "28.10.24 - Ruda",
+    "value": {
+      "lt": "28.10.24 - Ruda",
+      "en": "28.10.24 - Brown"
+    }
+  }
+]

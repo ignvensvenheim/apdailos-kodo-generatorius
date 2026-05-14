@@ -1,0 +1,221 @@
+[
+  {
+    "key": "",
+    "value": {
+      "lt": "Spalva pagal RAL paletę:",
+      "en": "RAL color selection:"
+    },
+    "bold": 700
+  },
+  {
+    "key": "Ral1036",
+    "value": {
+      "lt": "Ral1036",
+      "en": "Ral1036"
+    }
+  },
+  {
+    "key": "",
+    "value": {
+      "lt": "Spalva pagal NCS paletę:",
+      "en": "NCS color selection:"
+    },
+    "bold": 700
+  },
+  {
+    "key": "S0502-G50Y",
+    "value": {
+      "lt": "S0502-G50Y (std baltas)",
+      "en": "S0502-G50Y (std white)"
+    }
+  },
+  {
+    "key": "S2000-N",
+    "value": {
+      "lt": "S2000-N (std šviesiai pilkas)",
+      "en": "S2000-N (std grey)"
+    }
+  },
+  {
+    "key": "S7502-G",
+    "value": {
+      "lt": "S7502-G (std antracitas)",
+      "en": "S7502-G (std anthracite)"
+    }
+  },
+  {
+    "key": "S8502-B",
+    "value": {
+      "lt": "S8502-B (std juodas, DT4023 Nero, DT4166 Charcoal)",
+      "en": "S8502-B (std Black, DT4023 Nero, DT4166 Charcoal)"
+    }
+  },
+  {
+    "key": "S9000-N",
+    "value": {
+      "lt": "S9000-N",
+      "en": "S9000-N"
+    }
+  },
+  {
+    "key": "S0500-N",
+    "value": {
+      "lt": "S0500-N",
+      "en": "S0500-N"
+    }
+  },
+  {
+    "key": "S2002-Y",
+    "value": {
+      "lt": "S2002-Y (DT4176 Mushroom)",
+      "en": "S2002-Y (DT4176 Mushroom)"
+    }
+  },
+  {
+    "key": "S3502-Y",
+    "value": {
+      "lt": "S3502-Y (DT4175 Pebble)",
+      "en": "S3502-Y (DT4175 Pebble)"
+    }
+  },
+  {
+    "key": "S2005-G10Y",
+    "value": {
+      "lt": "S2005-G10Y (DT4177 Varpour)",
+      "en": "S2005-G10Y (DT4177 Varpour)"
+    }
+  },
+  {
+    "key": "S5502-G",
+    "value": {
+      "lt": "S5502-G (DT4132 Ash)",
+      "en": "S5502-G (DT4132 Ash)"
+    }
+  },
+  {
+    "key": "S7005-B20G",
+    "value": {
+      "lt": "S7005-B20G (DT4155 Pewter)",
+      "en": "S7005-B20G (DT4155 Pewter)"
+    }
+  },
+  {
+    "key": "S7010-R90B",
+    "value": {
+      "lt": "S7010-R90B (DT4179 Smokey Blue)",
+      "en": "S7010-R90B (DT4179 Smokey Blue)"
+    }
+  },
+  {
+    "key": "S7005-Y80R",
+    "value": {
+      "lt": "S7005-Y80R (DT4172 Mauve)",
+      "en": "S7005-Y80R (DT4172 Mauve)"
+    }
+  },
+  {
+    "key": "S8010-B90G",
+    "value": {
+      "lt": "S8010-B90G (DT4174 Conifer)",
+      "en": "S8010-B90G (DT4174 Conifer)"
+    }
+  },
+  {
+    "key": "S7010-R10B",
+    "value": {
+      "lt": "S7010-R10B (DT4154 Burgundy)",
+      "en": "S7010-R10B (DT4154 Burgundy)"
+    }
+  },
+  {
+    "key": "S2010-G30Y",
+    "value": {
+      "lt": "S2010-G30Y (DT4183 Pistachio)",
+      "en": "S2010-G30Y (DT4183 Pistachio)"
+    }
+  },
+  {
+    "key": "S5010-G50Y",
+    "value": {
+      "lt": "S5010-G50Y (DT4184 Olive)",
+      "en": "S5010-G50Y (DT4184 Olive)"
+    }
+  },
+  {
+    "key": "S4020-Y40R",
+    "value": {
+      "lt": "S4020-Y40R (DT4003 Walnut)",
+      "en": "S4020-Y40R (DT4003 Walnut)"
+    }
+  },
+  {
+    "key": "S3030-Y30R",
+    "value": {
+      "lt": "S3030-Y30R (DT4002 Leather)",
+      "en": "S3030-Y30R (DT4002 Leather)"
+    }
+  },
+  {
+    "key": "S2020-Y20R",
+    "value": {
+      "lt": "S2020-Y20R (DT4001 Clay)",
+      "en": "S2020-Y20R (DT4001 Clay)"
+    }
+  },
+  {
+    "key": "S2010-Y20R",
+    "value": {
+      "lt": "S2010-Y20R DT4007 Macadamia",
+      "en": "S2010-Y20R DT4007 Macadamia"
+    }
+  },
+  {
+    "key": "S3010-B70G ",
+    "value": {
+      "lt": "S3010-B70G DT4004 Blue haze",
+      "en": "S3010-B70G DT4004 Blue haze"
+    }
+  },
+  {
+    "key": "S3010-R10B ",
+    "value": {
+      "lt": "S3010-R10B DT4010 Soft lilac",
+      "en": "S3010-R10B DT4010 Soft lilac"
+    }
+  },
+  {
+    "key": "S6020-B",
+    "value": {
+      "lt": "S6020-B DT4005 Denim",
+      "en": "S6020-B DT4005 Denim"
+    }
+  },
+  {
+    "key": "S5005-Y20R",
+    "value": {
+      "lt": "S5005-Y20R DT4011 Taupe",
+      "en": "S5005-Y20R DT4011 Taupe"
+    }
+  },
+  {
+    "key": "S5030-Y70R",
+    "value": {
+      "lt": "S5030-Y70R DT4008 Brick",
+      "en": "S5030-Y70R DT4008 Brick"
+    }
+  },
+  {
+    "key": "S7010-Y70R",
+    "value": {
+      "lt": "S7010-Y70R DT4009 Espresso",
+      "en": "S7010-Y70R DT4009 Espresso"
+    }
+  },
+  {
+    "key": "S7502-B",
+    "value": {
+      "lt": "S7502-B DT4012 Basalt",
+      "en": "S7502-B DT4012 Basalt"
+    }
+  }
+]

@@ -1,0 +1,26 @@
+.stdImageBox {
+  margin-top: 0.7rem;
+  margin-bottom: -12.5rem;
+  align-self: flex-end;
+  height: 200px;
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+
+  .downloadImage {
+    display: none;
+  }
+
+  &:hover .downloadImage,
+  .downloadImage:hover {
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 15%;
+  }
+}

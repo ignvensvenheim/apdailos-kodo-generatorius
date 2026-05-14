@@ -1,0 +1,51 @@
+[
+  {
+    "key": "ash",
+    "value": {
+      "lt": "Uosis",
+      "en": "Ash"
+    }
+  },
+  {
+    "key": "birch",
+    "value": {
+      "lt": "Beržas",
+      "en": "Birch"
+    }
+  },
+  {
+    "key": "beech",
+    "value": {
+      "lt": "Bukas",
+      "en": "Beech"
+    }
+  },
+  {
+    "key": "oak",
+    "value": {
+      "lt": "Ąžuolas",
+      "en": "Oak"
+    }
+  },
+  {
+    "key": "sycamore",
+    "value": {
+      "lt": "Klevas",
+      "en": "Sycamore"
+    }
+  },
+  {
+    "key": "pine",
+    "value": {
+      "lt": "Pušis",
+      "en": "Pine"
+    }
+  },
+  {
+    "key": "walnut",
+    "value": {
+      "lt": "Riešutmedis",
+      "en": "Walnut"
+    }
+  }
+]

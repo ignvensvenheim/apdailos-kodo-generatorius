@@ -1,0 +1,112 @@
+[
+  {
+    "key": {
+      "lt": "A",
+      "en": "A"
+    },
+    "value": {
+      "lt": "Visi paviršiai, išskyrus standartiškai neapdailinamus*",
+      "en": "All surfaces except those that are not finished as standard*"
+    }
+  },
+  {
+    "key": {
+      "lt": "T",
+      "en": "T"
+    },
+    "value": {
+      "lt": "Viršutinis paviršius",
+      "en": "Surface Top"
+    }
+  },
+  {
+    "key": {
+      "lt": "B",
+      "en": "B"
+    },
+    "value": {
+      "lt": "Apatinis paviršius",
+      "en": "Surface Bottom"
+    }
+  },
+  {
+    "key": {
+      "lt": "E",
+      "en": "E"
+    },
+    "value": {
+      "lt": "Briauna",
+      "en": "Edge"
+    }
+  },
+  {
+    "key": {
+      "lt": "H",
+      "en": "H"
+    },
+    "value": {
+      "lt": "Ertmės ir išfrezavimai",
+      "en": "Holes and routings"
+    }
+  },
+  {
+    "key": {
+      "lt": "PU",
+      "en": "PU"
+    },
+    "value": {
+      "lt": "Poliuretaninis lakas",
+      "en": "Polyurethane varnish"
+    }
+  },
+  {
+    "key": {
+      "lt": "Monell",
+      "en": "Monell"
+    },
+    "value": {
+      "lt": "Monell",
+      "en": "Monell"
+    }
+  },
+  {
+    "key": {
+      "lt": "KL",
+      "en": "KL"
+    },
+    "value": {
+      "lt": "Lakuota",
+      "en": "Varnished"
+    }
+  },
+  {
+    "key": {
+      "lt": "GR",
+      "en": "GR"
+    },
+    "value": {
+      "lt": "Gruntuota",
+      "en": "Primed"
+    }
+  },
+  {
+    "key": {
+      "lt": "PUSS",
+      "en": "PUSS"
+    },
+    "value": {
+      "lt": "Šlifuota",
+      "en": "Sanded"
+    }
+  },
+  {
+    "key": {
+      "lt": "UBH",
+      "en": "UBH"
+    },
+    "value": {
+      "lt": "Neapdailinta",
+      "en": "Raw/Undecorated"
+    }
+  }
+]

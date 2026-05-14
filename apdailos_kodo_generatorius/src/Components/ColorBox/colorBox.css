@@ -1,0 +1,82 @@
+.colorBox {
+  position: relative;
+  width: min(100%, 280px);
+  aspect-ratio: 1 / 1;
+  margin-top: 0.35rem;
+  border: 1px solid rgba(62, 79, 92, 0.14);
+  border-radius: 14px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  overflow: hidden;
+  align-self: center;
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1600px) {
+  .colorBox {
+    width: min(100%, 190px);
+    margin-top: 0.1rem;
+  }
+}
+
+.colorBoxImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.colorBoxOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(20, 37, 56, 0.08) 100%
+    );
+}
+
+.colorBoxLoader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.colorBoxSpinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid rgba(62, 79, 92, 0.16);
+  border-top-color: rgba(62, 79, 92, 0.72);
+  border-radius: 999px;
+  animation: colorBoxSpin 0.8s linear infinite;
+}
+
+.colorBoxEmptyState {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  color: #314455;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.78) 0%,
+      rgba(230, 236, 240, 0.92) 100%
+    );
+}
+
+@keyframes colorBoxSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}

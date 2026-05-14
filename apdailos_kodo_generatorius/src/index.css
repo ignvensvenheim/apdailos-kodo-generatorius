@@ -1,3 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --background: #eef2f5;
+  --foreground: #2b3946;
+
+  --color-primary: rgb(62, 79, 92);
+  --color-header-bg: #2c3e50;
+  --color-text-light: #8a9ba8;
+
+  --color-card-bg: rgba(254, 254, 254, 0.8);
+  --color-card-bg-hover: white;
+
+  --border-color: #5c5c5c25;
+  --border-radius: 8px;
+  --toggle-icon-radius: 2px;
+
+  --shadow-soft: 0 6px 18px rgba(20, 37, 56, 0.08);
+  --button-hover-shadow: 0 2px 8px rgba(20, 37, 56, 0.06);
+  --card-hover-shadow: 0 4px 14px rgba(20, 37, 56, 0.06);
+
+  --color-muted: #6d7785;
+  --font-poppins: "Poppins";
+
+  --space-2xs: 0.15rem;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 0.75rem;
+  --space-lg: 1rem;
+  --space-xl: 1.15rem;
+  --space-2xl: 1.4rem;
+
+  --form-card-padding-top: 1rem;
+  --form-card-padding-x: 1rem;
+  --form-card-padding-bottom: 1rem;
+  --form-card-gap: 0.9rem;
+  --form-section-gap: 0.55rem;
+  --form-row-gap: 0.85rem;
+  --form-actions-gap: 0.75rem;
+  --form-actions-margin-top: 0;
+  --form-label-margin-top: var(--space-2xs);
+  --form-note-margin-top: 0;
+  --form-note-padding-y: 0;
+  --form-note-padding-x: 0;
+  --form-code-padding-y: 0.7rem;
+  --form-code-padding-x: 1rem;
+  --form-code-min-height: 60px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
 body {
-  background-color: rgb(15, 15, 15);
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--background);
+  background-image: url("/bg2.jpg");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 500px;
+  color: var(--foreground);
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+input {
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+  color: rgb(44, 44, 44);
+  background-color: #fff;
+  border: 1px solid #6c757d;
+  border-radius: var(--border-radius);
+  padding: 0.6rem 0.9rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  margin-top: 0.5rem;
+  box-shadow: 0 1px 2px rgba(20, 37, 56, 0.04);
+
+  &:hover {
+    color: #fff;
+    background-color: #6c757d;
+    transform: translateY(-1px);
+    box-shadow: var(--button-hover-shadow);
+  }
+}
+
+input {
+  background: #fff;
+
+  &:hover {
+    background: #6c757d;
+  }
+}
+
+select {
+  font-size: 0.875rem;
+  min-height: 40px;
+  padding: 0.55rem 2rem 0.55rem 0.75rem;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(62, 79, 92, 0.18);
+  background-color: rgba(255, 255, 255, 0.96);
+  color: var(--foreground);
+  box-shadow: 0 1px 2px rgba(20, 37, 56, 0.04);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+select:disabled {
+  color: var(--color-text-light);
+  background-color: rgba(238, 242, 245, 0.92);
+  border-color: rgba(62, 79, 92, 0.1);
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+input[type="text"],
+textarea {
+  min-height: 40px;
+  border: 1px solid rgba(62, 79, 92, 0.18);
+  box-shadow: 0 1px 2px rgba(20, 37, 56, 0.04);
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border-color: rgba(62, 79, 92, 0.45);
+  box-shadow:
+    0 0 0 4px rgba(62, 79, 92, 0.08),
+    0 1px 2px rgba(20, 37, 56, 0.04);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header__title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.sort-filter__count {
+  font-size: 12px;
+}
+
+.sort-filter__controls label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sort-filter select,
+.sort-filter input {
+  font-size: 13px;
+}
+
+.sort-filter__pill,
+.sort-filter__reset,
+.sort-filter__admin-login,
+.export-button {
+  font-size: 12px;
+}
+
+.page__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.page__subtitle {
+  font-size: 12px;
+}
+
+.status-pill {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
 }
