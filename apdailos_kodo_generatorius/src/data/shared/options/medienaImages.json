@@ -1,5 +1,40 @@
 [
     {
+        "decorKey":  "",
+        "woodKey":  "ash",
+        "image":  "ash/Foto-0127 Ash2-gl.5.webp"
+    },
+    {
+        "decorKey":  "",
+        "woodKey":  "birch",
+        "image":  "birch/Foto-0123 Birch-gl.5.webp"
+    },
+    {
+        "decorKey":  "",
+        "woodKey":  "beech",
+        "image":  "beech/Foto-0287 Beech-gl.5.webp"
+    },
+    {
+        "decorKey":  "",
+        "woodKey":  "pine",
+        "image":  "pine/Foto-0113 Pine-gl.5.webp"
+    },
+    {
+        "decorKey":  "",
+        "woodKey":  "oak",
+        "image":  "oak/Foto-0149 Oak2-gl.5.webp"
+    },
+    {
+        "decorKey":  "",
+        "woodKey":  "sycamore",
+        "image":  "sycamore/Foto-0115 Sycamore-gl.5.webp"
+    },
+    {
+        "decorKey":  "",
+        "woodKey":  "walnut",
+        "image":  "walnut/Foto-0119 Walnut2-gl.5.webp"
+    },
+    {
         "decorKey":  "3% 10.07.17 - 3% balinimas",
         "woodKey":  "ash",
         "image":  "ash/Foto-0045 Ash2-10.07.17.webp"
