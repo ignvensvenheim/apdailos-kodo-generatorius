@@ -69,8 +69,14 @@ const getIsFormValid = (
   const customFilled =
     useCustomColorCode && selectedValues.custom.trim() !== "";
 
-  return isChosen(selectedValues.pavirsiai) &&
-    (isChosen(selectedValues.apdaila) || customFilled);
+  if (useCustomColorCode) {
+    return isChosen(selectedValues.pavirsiai) && customFilled;
+  }
+
+  return (
+    isChosen(selectedValues.pavirsiai) &&
+    isChosen(selectedValues.apdaila)
+  );
 };
 
 const getDecorCodeMessage = (
@@ -216,7 +222,13 @@ function UnifiedForm({ title, formType }: FormProps) {
     const shouldUseCustomColorCode = event.target.checked;
 
     setUseCustomColorCode(shouldUseCustomColorCode);
-    if (!shouldUseCustomColorCode) {
+    if (shouldUseCustomColorCode) {
+      setSelectedValues((prev) => ({
+        ...prev,
+        apdaila: DEFAULT_SELECT_VALUE,
+      }));
+      setValue("Apdaila", "");
+    } else {
       setSelectedValues((prev) => ({ ...prev, custom: "" }));
       setValue("custom", "");
     }
