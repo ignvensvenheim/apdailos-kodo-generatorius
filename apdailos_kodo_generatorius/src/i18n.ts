@@ -56,6 +56,7 @@ const resources = {
         decorStructure: "Apdailos kodo struktūra",
       },
       standardSurfaceWarning: {
+        label: "Svarbu",
         intro:
           "*Standartiškai <strong>neapdailinami</strong> paviršiai:",
         paper: "Popierius",
@@ -119,6 +120,7 @@ const resources = {
         decorStructure: "Decor code structure",
       },
       standardSurfaceWarning: {
+        label: "Important",
         intro: "*Standard <strong>unfinished</strong> surfaces:",
         paper: "Paper",
         hpl: "HPL/CPL",

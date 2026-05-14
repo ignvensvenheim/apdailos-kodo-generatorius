@@ -31,10 +31,12 @@ footer {
 @media only screen and (min-width: 769px) and (max-width: 1600px) {
   .formsContainer {
     grid-template-columns: 1fr 1fr;
+    gap: 1.15rem;
+    margin-top: 0.55rem;
   }
 
   .decorCode {
-    margin-top: 5rem;
+    margin-top: 0.75rem;
   }
 }
 
@@ -45,6 +47,6 @@ footer {
   }
 
   .decorCode {
-    margin-top: 4rem;
+    margin-top: 0.75rem;
   }
 }

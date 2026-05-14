@@ -3,7 +3,7 @@ import "./form.css";
 import { UseFormRegisterReturn } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-interface Option {
+export interface FormSelectOption {
   bold?: number | undefined;
   bg?: string | undefined;
   key: string;
@@ -17,7 +17,8 @@ interface FormSelectProps {
   setDecorCode?: React.Dispatch<SetStateAction<string | null>>;
   id?: string;
   label?: string;
-  options: Option[];
+  labelNote?: string;
+  options: FormSelectOption[];
   disabled?: boolean;
   currentValue?: string;
   registerOptions?: UseFormRegisterReturn;
@@ -28,6 +29,7 @@ interface FormSelectProps {
 const FormSelect: React.FC<FormSelectProps> = ({
   id,
   label,
+  labelNote,
   options,
   disabled = false,
   currentValue,
@@ -58,7 +60,15 @@ const FormSelect: React.FC<FormSelectProps> = ({
         </>
       ) : (
         <>
-          <label htmlFor={id}>{label}</label>
+          <label
+            htmlFor={id}
+            className={labelNote ? "formSelectLabel formSelectLabel--inline" : ""}
+          >
+            <span>{label}</span>
+            {labelNote ? (
+              <span className="formSelectLabel__note">{labelNote}</span>
+            ) : null}
+          </label>
           <select
             id={id}
             disabled={disabled}

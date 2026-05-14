@@ -9,25 +9,34 @@ function StdSurfaceInfoBox() {
   const { t } = useTranslation();
 
   return (
-    <ul>
-      <FaExclamationCircle className="infoIcon" size={20} />
-      <BsXCircle
-        className="closeIcon"
-        size={20}
-        onClick={() => setShowStdSurfWarning(false)}
-      />
-      <li>
+    <aside className="stdSurfaceInfoBox" aria-live="polite">
+      <div className="stdSurfaceInfoBox__header">
+        <div className="stdSurfaceInfoBox__heading">
+          <FaExclamationCircle className="stdSurfaceInfoBox__icon" size={18} />
+          <span className="stdSurfaceInfoBox__label">
+            {t("standardSurfaceWarning.label")}
+          </span>
+        </div>
+        <BsXCircle
+          className="stdSurfaceInfoBox__close"
+          size={20}
+          onClick={() => setShowStdSurfWarning(false)}
+        />
+      </div>
+      <p className="stdSurfaceInfoBox__intro">
         <Trans
           i18nKey="standardSurfaceWarning.intro"
           components={{ strong: <b /> }}
         />
-      </li>
-      <li>{t("standardSurfaceWarning.paper")}</li>
-      <li>{t("standardSurfaceWarning.hpl")}</li>
-      <li>{t("standardSurfaceWarning.linoleum")}</li>
-      <li>{t("standardSurfaceWarning.absEdge")}</li>
-      <li>{t("standardSurfaceWarning.holes")}</li>
-    </ul>
+      </p>
+      <ul className="stdSurfaceInfoBox__list">
+        <li>{t("standardSurfaceWarning.paper")}</li>
+        <li>{t("standardSurfaceWarning.hpl")}</li>
+        <li>{t("standardSurfaceWarning.linoleum")}</li>
+        <li>{t("standardSurfaceWarning.absEdge")}</li>
+        <li>{t("standardSurfaceWarning.holes")}</li>
+      </ul>
+    </aside>
   );
 }
 
