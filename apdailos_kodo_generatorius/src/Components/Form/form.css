@@ -149,6 +149,17 @@
       transform 0.25s ease;
   }
 
+  .formPreviewDisclaimer {
+    margin: 0.05rem 0 0;
+    align-self: center;
+    max-width: min(100%, 280px);
+    font-size: 0.64rem;
+    line-height: 1.25;
+    color: var(--color-muted);
+    opacity: 0.72;
+    text-align: center;
+  }
+
   .formDownloadLink:hover {
     color: var(--color-primary);
     background: rgba(255, 255, 255, 0.82);
@@ -268,6 +279,11 @@
       font-size: 0.72rem;
     }
 
+    .formPreviewDisclaimer {
+      max-width: min(100%, 190px);
+      font-size: 0.58rem;
+    }
+
     .decorCode {
       min-height: 52px;
       padding: 0.6rem 0.85rem;
@@ -309,6 +325,11 @@
       margin-top: 0;
       padding: 0.24rem 0.55rem;
       font-size: 0.68rem;
+    }
+
+    .formPreviewDisclaimer {
+      max-width: min(100%, 190px);
+      font-size: 0.56rem;
     }
 
     .decorCode {

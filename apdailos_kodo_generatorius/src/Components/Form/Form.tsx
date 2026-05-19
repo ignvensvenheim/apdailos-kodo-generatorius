@@ -266,6 +266,7 @@ function UnifiedForm({ title, formType }: FormProps) {
             standardPreviewImage={standardPreviewImage}
             showMissingStandardPreview={showMissingStandardPreview}
             noImageMessage={t("preview.noImageAvailable")}
+            previewDisclaimer={t("preview.woodColorDisclaimer")}
             standardPreviewFileName={standardPreviewFileName}
             downloadImageLabel={t("actions.downloadImage")}
           />
