@@ -49,7 +49,7 @@ const resources = {
       },
       preview: {
         noImageAvailable: "Paveikslėlio nėra.",
-        woodColorDisclaimer: "Atspalvis ekrane gali skirtis dėl monitoriaus nustatymų.",
+        woodColorDisclaimer: "Skirtinguose ekranuose atspalvis gali skirtis.",
       },
       rules: {
         abbreviations: "Sutrumpinimai etiketėse",
@@ -114,7 +114,7 @@ const resources = {
       },
       preview: {
         noImageAvailable: "No preview image.",
-        woodColorDisclaimer: "Color may vary due to monitor settings.",
+        woodColorDisclaimer: "Shade may vary across different screens.",
       },
       rules: {
         abbreviations: "Abbreviations in labels",
