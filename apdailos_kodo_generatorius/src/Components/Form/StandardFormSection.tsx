@@ -17,6 +17,7 @@ interface StandardFormSectionProps extends FormSectionProps {
   standardPreviewImage?: string;
   showMissingStandardPreview: boolean;
   noImageMessage: string;
+  previewDisclaimer: string;
   standardPreviewFileName?: string;
   downloadImageLabel: string;
 }
@@ -38,6 +39,7 @@ function StandardFormSection({
   standardPreviewImage,
   showMissingStandardPreview,
   noImageMessage,
+  previewDisclaimer,
   standardPreviewFileName,
   downloadImageLabel,
 }: StandardFormSectionProps) {
@@ -94,6 +96,9 @@ function StandardFormSection({
         showColorFallback={false}
         noImageMessage={showMissingStandardPreview ? noImageMessage : undefined}
       />
+      {standardPreviewImage ? (
+        <p className="formPreviewDisclaimer">{previewDisclaimer}</p>
+      ) : null}
       {standardPreviewImage ? (
         <a
           className="formDownloadLink btnCopyActive"
