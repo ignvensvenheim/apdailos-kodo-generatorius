@@ -44,6 +44,11 @@ const initialSelectedValues: SelectedValues = {
 
 const isChosen = (value: string) => value !== DEFAULT_SELECT_VALUE;
 
+const isHusUndecorated = (selectedValues: SelectedValues) =>
+  selectedValues.top === "UBH" &&
+  selectedValues.bottom === "UBH" &&
+  selectedValues.briaunos === "UBH";
+
 const getIsFormValid = (
   formType: FormType,
   selectedValues: SelectedValues,
@@ -62,7 +67,8 @@ const getIsFormValid = (
       isChosen(selectedValues.apdaila) &&
       isChosen(selectedValues.top) &&
       isChosen(selectedValues.bottom) &&
-      isChosen(selectedValues.briaunos)
+      isChosen(selectedValues.briaunos) &&
+      !isHusUndecorated(selectedValues)
     );
   }
 
@@ -73,10 +79,7 @@ const getIsFormValid = (
     return isChosen(selectedValues.pavirsiai) && customFilled;
   }
 
-  return (
-    isChosen(selectedValues.pavirsiai) &&
-    isChosen(selectedValues.apdaila)
-  );
+  return isChosen(selectedValues.pavirsiai) && isChosen(selectedValues.apdaila);
 };
 
 const getDecorCodeMessage = (
@@ -104,8 +107,9 @@ function UnifiedForm({ title, formType }: FormProps) {
   const [useCustomColorCode, setUseCustomColorCode] = useState(false);
   const [hasChangedAfterGeneration, setHasChangedAfterGeneration] =
     useState(false);
-  const [selectedValues, setSelectedValues] =
-    useState<SelectedValues>(initialSelectedValues);
+  const [selectedValues, setSelectedValues] = useState<SelectedValues>(
+    initialSelectedValues,
+  );
 
   const language = (i18n.resolvedLanguage ?? i18n.language).startsWith("lt")
     ? "lt"
@@ -143,9 +147,7 @@ function UnifiedForm({ title, formType }: FormProps) {
       entry.decorKey === selectedValues.apdaila,
   );
   const standardPreviewImage = resolveMedienaImage(standardPreviewMatch?.image);
-  const standardPreviewFileName = standardPreviewMatch?.image
-    ?.split("/")
-    .pop();
+  const standardPreviewFileName = standardPreviewMatch?.image?.split("/").pop();
   const standardPreviewCode = isChosen(selectedValues.apdaila)
     ? selectedValues.apdaila
     : undefined;
@@ -195,12 +197,7 @@ function UnifiedForm({ title, formType }: FormProps) {
       mediena: DEFAULT_SELECT_VALUE,
     }));
     clearGeneratedCode();
-  }, [
-    availableWoodKeysForDecor,
-    decorCode,
-    formType,
-    selectedValues.mediena,
-  ]);
+  }, [availableWoodKeysForDecor, decorCode, formType, selectedValues.mediena]);
 
   const onSubmit = (data: FormData) => {
     const generatedCode = handleFormSubmit(formType, data);
@@ -309,6 +306,7 @@ function UnifiedForm({ title, formType }: FormProps) {
             className={isFormValid ? "btnCopyActive" : "btnCopyDisabled"}
             type="submit"
             value={t("actions.generateDecorCode")}
+            disabled={!isFormValid}
           />
           <button
             className={decorCode ? "btnCopyActive" : "btnCopyDisabled"}
