@@ -1,9 +1,11 @@
 import "./header.css";
 
+const logoPath = `${import.meta.env.BASE_URL}logo.svg`;
+
 function Header() {
   return (
     <img
-      src="../../logo.svg"
+      src={logoPath}
       alt="Svenheim"
       onClick={() => window.location.reload()}
     />
