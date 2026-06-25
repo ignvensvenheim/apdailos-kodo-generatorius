@@ -3,7 +3,7 @@ import "./header.css";
 function Header() {
   return (
     <img
-      src="/logo.svg"
+      src="../../logo.svg"
       alt="Svenheim"
       onClick={() => window.location.reload()}
     />
