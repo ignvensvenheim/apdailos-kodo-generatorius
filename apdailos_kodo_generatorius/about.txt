@@ -1,0 +1,14 @@
+Postbuild asset path prefixing (added by automated script)
+
+What changed:
+- package.json: postbuild now runs `node scripts/postbuild-prefix.cjs` to avoid ESM/CommonJS issues.
+- scripts/postbuild-prefix.cjs: CommonJS script that rewrites root-relative asset URLs in `dist/` to be prefixed with `/CCG/` (so images, CSS, JS, etc. load from `/CCG/...`).
+- scripts/postbuild-prefix.js: original ESM-style script remains (may not run automatically because package.json contains "type": "module").
+
+How to use:
+- Run `npm run build` in the project root - the `postbuild` script will run automatically.
+- To run manually: `node scripts/postbuild-prefix.cjs`
+
+Notes:
+- The script updates files under `dist/` (HTML, CSS, JS, SVG, JSON, TXT, MAP) and logs modified files.
+- If you prefer ESM, convert the script to use `import` and update package.json accordingly.

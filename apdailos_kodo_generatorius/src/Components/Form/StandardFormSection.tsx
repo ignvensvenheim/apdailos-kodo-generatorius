@@ -12,6 +12,7 @@ interface StandardFormSectionProps extends FormSectionProps {
   surfaceLabel: string;
   decorLabel: string;
   glossinessLabel: string;
+  isDefaultGlossiness: boolean;
   woodLabel: string;
   standardPreviewCode?: string;
   standardPreviewImage?: string;
@@ -34,6 +35,7 @@ function StandardFormSection({
   surfaceLabel,
   decorLabel,
   glossinessLabel,
+  isDefaultGlossiness,
   woodLabel,
   standardPreviewCode,
   standardPreviewImage,
@@ -68,7 +70,7 @@ function StandardFormSection({
         </div>
       </section>
       <section className="formRow formRow--split">
-        <div className="formField">
+        <div className="formField formField--glossiness">
           <FormSelect
             onSelectChange={onSelectChange}
             id="blizgumas"
@@ -77,6 +79,9 @@ function StandardFormSection({
             currentValue={selectedValues.blizgumas}
             registerOptions={register("Blizgumas", { required: false })}
           />
+          <span className="formSelectLabel__note" role="status">
+            {isDefaultGlossiness ? "Default" : ""}
+          </span>
         </div>
         <div className="formField">
           <FormSelect

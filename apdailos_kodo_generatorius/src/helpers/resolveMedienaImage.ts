@@ -1,4 +1,5 @@
-const LOCAL_IMAGE_DIRECTORY = "/mediena-images/";
+const BASE_URL = import.meta.env.BASE_URL;
+const LOCAL_IMAGE_DIRECTORY = "mediena-images/";
 const REMOTE_URL_PATTERN = /^https?:\/\//i;
 
 function normalizeLocalImagePath(image: string): string {
@@ -14,10 +15,10 @@ function normalizeLocalImagePath(image: string): string {
   }
 
   if (withoutLeadingSlash.startsWith("mediena-images/")) {
-    return `/${withoutLeadingSlash}`;
+    return `${BASE_URL}${withoutLeadingSlash}`;
   }
 
-  return `${LOCAL_IMAGE_DIRECTORY}${withoutLeadingSlash}`;
+  return `${BASE_URL}${LOCAL_IMAGE_DIRECTORY}${withoutLeadingSlash}`;
 }
 
 export function resolveMedienaImage(image?: string): string {
