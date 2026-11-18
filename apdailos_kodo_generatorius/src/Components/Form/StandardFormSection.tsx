@@ -70,7 +70,7 @@ function StandardFormSection({
         </div>
       </section>
       <section className="formRow formRow--split">
-        <div className="formField">
+        <div className="formField formField--glossiness">
           <FormSelect
             onSelectChange={onSelectChange}
             id="blizgumas"

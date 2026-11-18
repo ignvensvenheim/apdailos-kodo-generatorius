@@ -100,6 +100,18 @@
     display: none;
   }
 
+  .formField--glossiness {
+    position: relative;
+  }
+
+  .formField--glossiness > .formSelectLabel__note {
+    position: absolute;
+    top: calc(100% + var(--space-2xs) + 3px);
+    left: calc(var(--space-sm) - 5px);
+    z-index: 1;
+    pointer-events: none;
+  }
+
   .formField select,
   .formField input {
     margin-top: 0;
