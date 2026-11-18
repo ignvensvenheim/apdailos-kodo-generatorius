@@ -205,7 +205,25 @@ function UnifiedForm({ title, formType }: FormProps) {
   };
 
   const handleSelectChange = (id: string, value: string) => {
-    setSelectedValues((prev) => ({ ...prev, [id]: value }));
+    if (formType === "standard" && id === "apdaila") {
+      const defaultGlossiness = apdaila.find(
+        (decor) => decor.key === value,
+      )?.defaultGlossiness;
+      const nextGlossiness =
+        defaultGlossiness &&
+        blizgumas.some((option) => option.key === defaultGlossiness)
+          ? defaultGlossiness
+          : DEFAULT_SELECT_VALUE;
+
+      setSelectedValues((prev) => ({
+        ...prev,
+        apdaila: value,
+        blizgumas: nextGlossiness,
+      }));
+      setValue("Blizgumas", nextGlossiness, { shouldDirty: true });
+    } else {
+      setSelectedValues((prev) => ({ ...prev, [id]: value }));
+    }
     clearGeneratedCode();
 
     if (id === "pavirsiai") {
@@ -258,6 +276,12 @@ function UnifiedForm({ title, formType }: FormProps) {
             surfaceLabel={t("fields.surface")}
             decorLabel={t("fields.decor")}
             glossinessLabel={t("fields.glossiness")}
+            isDefaultGlossiness={
+              isChosen(selectedValues.apdaila) &&
+              isChosen(selectedValues.blizgumas) &&
+              apdaila.find((decor) => decor.key === selectedValues.apdaila)
+                ?.defaultGlossiness === selectedValues.blizgumas
+            }
             woodLabel={t("fields.wood")}
             standardPreviewCode={standardPreviewCode}
             standardPreviewImage={standardPreviewImage}
